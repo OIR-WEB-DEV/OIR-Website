@@ -1,8 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+
+      fontFamily:{
+        Montserrat:['Montserrat','sans-serif']
+      },
+      colors:{
+        oirBrown:'#52091B',
+        oirOrange:'#FE6C19',
+        oirLightOrange:'#FAE9D1',
+        oirYellow:'#FEB338',
+        oirPurple:'#814DBC',
+      }
+    },
   },
   plugins: [],
 }
