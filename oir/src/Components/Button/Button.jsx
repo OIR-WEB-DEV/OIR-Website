@@ -1,14 +1,12 @@
 import React from 'react'
 
-const Button = ({BtnText}) => {
+const Button = ({ text }) => {
   return (
-    <>
-    <div className='flex items-center rounded-md border-black text-white justify-center bg-orange-500 transition duration-100 ease-in-out'>
-    <button >
-        {BtnText}
-    </button>    
+    <div className=' cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out'>
+      <button className=' text-white font-bold'>
+        {text}
+      </button>
     </div>
-    </>
   )
 }
 
