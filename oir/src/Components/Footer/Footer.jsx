@@ -86,7 +86,7 @@ const Footer = () => {
         <ul className='mt-2'>
           {
             FooterLinks.map((link, key) => (
-              <li key={key} className='font-regular text-sm leading-6 flex'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
+              <li key={key} className=' cursor-pointer font-regular text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
             ))
           }
         </ul>

@@ -34,7 +34,7 @@ const NavBar = ({navbarData}) => {
               ))
             }
           </ul>
-          <hr className=' border-oirOrange w-[110%]' />
+          <hr className='border-oirOrange w-[110%]' />
         </nav>
       </div>
       </div>
