@@ -2,6 +2,7 @@ import map from './../assets/map.png'
 import backDesign from './../assets/back-design.png'
 import { BiCircle } from "react-icons/bi";
 import { FiCircle } from "react-icons/fi";
+import FacultyCard from '../Components/FacultyCard/FacultyCard';
 
 const Divider = () => {
     return (
@@ -54,6 +55,7 @@ const Home = () => {
     ]
     return (
         <>
+
             <Divider />
             <div className="">
                 <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-96 before:h-1 before:bg-oirBrown before:right-0 after:content-[''] after:w-96 after:h-1 after:bg-oirBrown after:flex after:self-end">
@@ -80,6 +82,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <FacultyCard/>
         </>
     );
 }

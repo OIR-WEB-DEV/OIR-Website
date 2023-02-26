@@ -95,7 +95,7 @@ const Footer = () => {
       <div className='px-6 py-5 text-white'>
         <h1 className=' font-bold text-xl flex '>Connect With Us</h1>
         <div className="flex justify-center">
-          <div className='grid w-[34%] grid-cols-2 grid-rows-2 text-xl gap-5 mt-2'>
+          <div className='grid w-[34%] grid-cols-2 grid-rows-2 text-xl gap-5 mt-2 mr-3'>
             {
               socialLinks.map((socialLink,key)=>(
                 <a key={key} href={socialLink.link}><p className='flex content-center flex-wrap hover:text-oirYellow text-2xl'>{socialLink.icon}</p></a>
