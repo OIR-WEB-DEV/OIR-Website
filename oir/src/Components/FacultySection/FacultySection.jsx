@@ -19,7 +19,7 @@ const FacultySection = () => {
     ]
     return (
         <div className="">
-            <div className="ml-[5rem] mt-40 mb-20"><Heading text={"Our Faculty"}/></div>
+            <div className="ml-24 mt-40 mb-20"><Heading text={"Our Faculty"}/></div>
             <div className="flex mb-64">
                 {
                     facultyData.map((faculty, index) => (
