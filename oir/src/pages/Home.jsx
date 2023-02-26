@@ -2,6 +2,7 @@ import map from './../assets/map.png'
 import backDesign from './../assets/back-design.png'
 import { FiCircle } from "react-icons/fi";
 import FacultySection from '../Components/FacultySection/FacultySection';
+import AboutSection from '../Components/AboutSection/AboutSection';
 
 const Divider = () => {
     return (
@@ -58,6 +59,8 @@ const Home = () => {
 
             <Divider />
             <div className="">
+                {/* about section */}
+                <AboutSection/>
 
                 {/* map and text section */}
                 <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-96 before:h-1 before:bg-oirBrown before:right-0 after:content-[''] after:w-96 after:h-1 after:bg-oirBrown after:flex after:self-end">
