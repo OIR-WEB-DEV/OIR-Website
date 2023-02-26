@@ -31,7 +31,6 @@ function App() {
       <div className="font-Montserrat overflow-x-hidden">
         <NavBar navbarData={navbarData} />
         <Home/>
-        <Heading text={"About Us"}/>
         <Footer/>
       </div>
     </>
