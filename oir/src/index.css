@@ -17,7 +17,7 @@ extrabold 800
 
 @layer utilities {
     .faculty-card-radius {
-      border-radius: 63% 37% 37% 63% / 0% 50% 50% 0%;
+      border-radius: 0% 35% 35% 0% / 10% 50% 50% 10%;
     }
   }
   
