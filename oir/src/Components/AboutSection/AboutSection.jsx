@@ -18,7 +18,7 @@ const AboutSection = () => {
                     <img src={img} className='h-80 relative border border-gray-400 rounded-r-full rounded-l-[74rem] object-cover' alt="img" />
                     <div className="w-56 text-white font-medium h-24 absolute -bottom-5 -left-28 rounded-full flex items-center justify-center bg-oirPurple text-2xl shadow-oirPurple drop-shadow-2xl ">Our Team</div>
                     <div className="grid grid-cols-3 grid-rows-3 w-10 h-10 absolute top-0 right-10 text-oirYellow text-3xl gap-6">
-                    <BsFillRecordFill /><BsFillRecordFill /> <BsFillRecordFill />
+                    <BsFillRecordFill /><BsFillRecordFill /><BsFillRecordFill />
                     <BsFillRecordFill /><BsFillRecordFill /><BsFillRecordFill />
                     <BsFillRecordFill /><BsFillRecordFill /><BsFillRecordFill />
                     </div>
