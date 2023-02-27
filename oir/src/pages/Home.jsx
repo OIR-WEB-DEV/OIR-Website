@@ -3,6 +3,7 @@ import backDesign from './../assets/back-design.png'
 import { FiCircle } from "react-icons/fi";
 import FacultySection from '../Components/FacultySection/FacultySection';
 import AboutSection from '../Components/AboutSection/AboutSection';
+import HeroSection from '../Components/HeroSection/HeroSection';
 
 const Divider = () => {
     return (
@@ -57,7 +58,12 @@ const Home = () => {
     return (
         <div className='mt-20'>
 
+            {/* Hero section having slider */}
+
             <Divider />
+            <HeroSection/>
+            <Divider/>
+            
             <div className="">
                 {/* about section */}
                 <AboutSection/>
