@@ -1,0 +1,50 @@
+.hello{
+    height: 0;
+}
+.the-image{
+    margin-left: 70px;
+    margin-bottom: 30px;
+    height:23rem;
+    width:26rem;
+}
+
+.the-event{
+    margin-bottom: 20px;
+    margin-left: 80px;
+    font-weight: bold;
+    font-size: 1.65rem;
+}
+
+.arrow{
+    margin-left: 500px;
+    height:48rem;
+    top: -1300px;
+    position: relative;
+}
+.orange{
+    margin-left: 500px;
+    height:34rem;
+    top: -1300px;
+    position: relative;
+}
+.names{
+    top:-2600px;
+    margin-left: 750px;
+    width:38rem;
+    position: relative;
+}
+.the-para{
+    top:-2500px;
+    margin-left: 700px;
+    margin-right: 70px;
+    position: relative;
+}
+h3.webinar{
+    font-size: larger;
+    margin-bottom: 20px;
+    font-weight: 200;
+}
+
+.univer{
+    margin-left: 660px;
+}

@@ -4,6 +4,8 @@ import Footer from './Components/Footer/Footer';
 import Heading from './Components/Heading/Heading';
 import NavBar from './Components/NavBar/NavBar';
 import Home from './pages/Home';
+import Events from './pages/Events';
+import Internships from './pages/Internships'
 
 function App() {
 
@@ -28,9 +30,9 @@ function App() {
 
   return (
     <>
-      <div className="font-Montserrat overflow-x-hidden">
+      <div className="font-Montserrat overflow-x-hidden" id="mystyle">
         <NavBar navbarData={navbarData} />
-        <Home/>
+        <Events/>
         <Footer/>
       </div>
     </>

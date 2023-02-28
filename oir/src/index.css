@@ -14,13 +14,3 @@ extrabold 800
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer utilities {
-    .faculty-card-radius {
-      border-radius: 0% 35% 35% 0% / 10% 50% 50% 10%;
-    }
-    body{
-      --swiper-theme-color: #FE6C19;
-    }
-  }
-  
