@@ -1,2 +1,2 @@
 # OIR-Website
-Office of International Relationships Website
+Office of International Relations Website
