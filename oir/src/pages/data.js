@@ -2,7 +2,8 @@ import g1 from '../assets/guest1.png'
 import g2 from '../assets/guest2.png'
 import g3 from '../assets/guest3.png'
 import g4 from '../assets/guest4.png'
-
+import g5 from '../assets/guest5.png'
+import g6 from '../assets/guest6.png'
 
 
 export const intern=[
@@ -49,9 +50,9 @@ export const guest = [
         id:1,
         image:g1,
         title:'Multidisciplinary Research and Programs at IUPUI',
-        name:'Dr. John DiTusa  Dr. Rajeev Raje',
+        name:'Dr.John DiTusa , Dr.Rajeev Raje',
         info:'School of Science, Indiana University-Purdue University',
-        date:'07-10-2022'
+        date:'October 07, 2022'
     },
     {
         id:2,
@@ -59,7 +60,7 @@ export const guest = [
         title:'Masters Opportunity and Life in Ireland',
         name:'Dr. Sameer Rahatekar',
         info:' Senior Lecturer in Sustainable Polymers and Composites Enhanced Composites and Structures Centre, Cranfield University',
-        date:' 24-03-2022'
+        date:' March 24 ,2022'
     },
     {
         id:3,
@@ -67,15 +68,31 @@ export const guest = [
         title:'Glimpse of student interaction while reviewing projects by Robotics team',
         name:'Dr. Daniel Watzenig',
         info:'Graz University, Austria ',
-        date:'24-03-2022'
+        date:' March 24 ,2022'
     },
     {
         id:4,
         image:g4,
         title:'Glimpse from project discussion meeting',
-        name:'Chanda Hirway Victoria Sukhia',
+        name:'Chanda Hirway, Victoria Sukhia',
         info:'Technical University of Shanon, Southern Seas Education',
-        date:'22-07-2022'
+        date:'July 22, 2022'
+    },
+    {
+        id:5,
+        image:g5,
+        title:' Snippets of interaction with the university representatives from CollegeDekho',
+        name:'',
+        info:' CollegeDekho',
+        date:'August 23, 2022'
+    },
+    {
+        id:6,
+        image:g6,
+        title:' Guide Talk Session with Technological University of the Shannon',
+        name:'Mr. Karl Turley',
+        info:' Deputy Director of International Relations at Athlone Institute of Technology',
+        date:' July 22 , 2022'
     },
 ]
 

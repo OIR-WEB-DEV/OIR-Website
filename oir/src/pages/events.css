@@ -9,6 +9,7 @@
 }
 
 .the-event{
+    margin-top: 120px;
     margin-bottom: 20px;
     margin-left: 80px;
     font-weight: bold;
@@ -17,14 +18,14 @@
 
 .arrow{
     margin-left: 500px;
-    height:48rem;
-    top: -1300px;
+    height:44rem;
+    top: -1260px;
     position: relative;
 }
 .orange{
-    margin-left: 500px;
-    height:34rem;
-    top: -1300px;
+    margin-left: 498px;
+    height:37rem;
+    top: -1350px;
     position: relative;
 }
 .names{
@@ -34,9 +35,9 @@
     position: relative;
 }
 .the-para{
-    top:-2500px;
-    margin-left: 700px;
-    margin-right: 70px;
+    top:-2180px;
+    margin-left: 660px;
+    margin-right: 100px;
     position: relative;
 }
 h3.webinar{
@@ -47,4 +48,7 @@ h3.webinar{
 
 .univer{
     margin-left: 660px;
+    height:33rem;
+    width:34.5rem;
 }
+
