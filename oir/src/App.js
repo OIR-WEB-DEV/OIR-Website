@@ -1,37 +1,26 @@
 
 import './App.css';
-import Footer from './Components/Footer/Footer';
-import Heading from './Components/Heading/Heading';
-import NavBar from './Components/NavBar/NavBar';
 import Home from './pages/Home';
+
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense } from 'react';
+const HomePage = React.lazy(() => import('./pages/Home'))
 
 function App() {
 
-  const navbarData = [
-    {
-      text: "Home",
-      link: "",
-    },
-    {
-      text: "Internships",
-      link: "/Internships",
-    },
-    {
-      text: "Events and Activities",
-      link: "/Events and Activities",
-    },
-    {
-      text: "Contact Us",
-      link: "/Contact Us",
-    },
-  ]
+  
 
   return (
     <>
       <div className="font-Montserrat overflow-x-hidden">
-        <NavBar navbarData={navbarData} />
-        <Home/>
-        <Footer/>
+        <BrowserRouter>
+          <Suspense>
+            <Routes>
+              <Route path='/' element={ <Home />}/> 
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
       </div>
     </>
   );
