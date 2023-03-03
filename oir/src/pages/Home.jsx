@@ -4,6 +4,8 @@ import { FiCircle } from "react-icons/fi";
 import FacultySection from '../Components/FacultySection/FacultySection';
 import AboutSection from '../Components/AboutSection/AboutSection';
 import HeroSection from '../Components/HeroSection/HeroSection';
+import NavBar from '../Components/NavBar/NavBar';
+import Footer from '../Components/Footer/Footer';
 
 const Divider = () => {
     return (
@@ -54,52 +56,75 @@ const Home = () => {
             text: "Joint research activities",
         },
     ]
-   
+    const navbarData = [
+        {
+          text: "Home",
+          link: "",
+        },
+        {
+          text: "Internships",
+          link: "/Internships",
+        },
+        {
+          text: "Events and Activities",
+          link: "/Events and Activities",
+        },
+        {
+          text: "Contact Us",
+          link: "/Contact Us",
+        },
+      ]
+
     return (
-        <div className='mt-20'>
+        <>
+        
+         <NavBar navbarData={navbarData} />
+            <div className='mt-20'>
 
-            {/* Hero section having slider */}
+                {/* Hero section having slider */}
 
-            <Divider />
-            <HeroSection/>
-            <Divider/>
-            
-            <div className="">
-                {/* about section */}
-                <AboutSection/>
+                <Divider />
+                <HeroSection />
+                <Divider />
 
-                {/* map and text section */}
-                <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-96 before:h-1 before:bg-oirBrown before:right-0 after:content-[''] after:w-96 after:h-1 after:bg-oirBrown after:flex after:self-end">
-                    <div className="flex justify-center items-center relative">
-                        <img src={map} className="flex justify-center w-screen overflow-x-hidden h-60 object-cover" alt="map" />
-
-                        <div className="absolute w-11/12"><h1 className='font-bold text-3xl text-center'>VIIT has collaborated with various Universities agreeing to pursue the following forms of cooperation, within areas that are mutually acceptable.</h1></div>
-                    </div>
-                </div>
-
-                {/* bullets section */}
                 <div className="">
-                    <div className="relative overflow-x-hidden">
-                        <div className="flex justify-center items-center relative  overflow-x-hidden">
-                            <img src={backDesign} className="flex justify-center w-screen overflow-x-hidden h-1/3 object-cover" alt="back-design" />
-                            <div className="absolute w-11/12 flex items-center justify-center">
-                                <div className="w-[80%] grid grid-cols-2 grid-rows-4 gap-1">
-                                    {
-                                        BulletData.map((item, index) => (
-                                            <Bullets key={index} color={item.color} text={item.text} />
-                                        ))
-                                    }
+                    {/* about section */}
+                    <AboutSection />
+
+                    {/* map and text section */}
+                    <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-96 before:h-1 before:bg-oirBrown before:right-0 after:content-[''] after:w-96 after:h-1 after:bg-oirBrown after:flex after:self-end">
+                        <div className="flex justify-center items-center relative">
+                            <img src={map} className="flex justify-center w-screen overflow-x-hidden h-60 object-cover" alt="map" />
+
+                            <div className="absolute w-11/12"><h1 className='font-bold text-3xl text-center'>VIIT has collaborated with various Universities agreeing to pursue the following forms of cooperation, within areas that are mutually acceptable.</h1></div>
+                        </div>
+                    </div>
+
+                    {/* bullets section */}
+                    <div className="">
+                        <div className="relative overflow-x-hidden">
+                            <div className="flex justify-center items-center relative  overflow-x-hidden">
+                                <img src={backDesign} className="flex justify-center w-screen overflow-x-hidden h-1/3 object-cover" alt="back-design" />
+                                <div className="absolute w-11/12 flex items-center justify-center">
+                                    <div className="w-[80%] grid grid-cols-2 grid-rows-4 gap-1">
+                                        {
+                                            BulletData.map((item, index) => (
+                                                <Bullets key={index} color={item.color} text={item.text} />
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    {/* faculty card section  */}
+                    <FacultySection />
                 </div>
 
-                {/* faculty card section  */}
-                <FacultySection/>
             </div>
-
-        </div>
+            <Footer />
+        </>
     );
 }
 
