@@ -10,7 +10,7 @@ const HeroSection = () => {
 
                 <div className="absolute w-11/12  h-[80%]">
                     {/* heading */}
-                    <h1 className='text-5xl opacity-75 text-oirBrown text-center font-extrabold'>Office of International Relations VIIT Pune</h1>
+                    <h1 className='text-5xl opacity-75 text-oirBrown text-center font-extrabold'>Office of International Relations - VIIT Pune</h1>
                     {/* slider */}
                     <div className="h-[90%] flex items-center">
                         <HeroSlider SliderImages={SliderImages}/>                        

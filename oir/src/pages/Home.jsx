@@ -56,29 +56,8 @@ const Home = () => {
             text: "Joint research activities",
         },
     ]
-    const navbarData = [
-        {
-          text: "Home",
-          link: "",
-        },
-        {
-          text: "Internships",
-          link: "/Internships",
-        },
-        {
-          text: "Events and Activities",
-          link: "/Events and Activities",
-        },
-        {
-          text: "Contact Us",
-          link: "/Contact Us",
-        },
-      ]
-
     return (
         <>
-        
-         <NavBar navbarData={navbarData} />
             <div className='mt-20'>
 
                 {/* Hero section having slider */}
@@ -123,7 +102,6 @@ const Home = () => {
                 </div>
 
             </div>
-            <Footer />
         </>
     );
 }
