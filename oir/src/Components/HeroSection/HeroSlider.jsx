@@ -27,8 +27,8 @@ const HeroSlider = ({SliderImages}) => {
     >
         {
             SliderImages.map((slide)=>(
-                <SwiperSlide>                    
-                    <img className='object-cover' src={slide.url} alt={slide.id} />
+                <SwiperSlide key={slide.id}>                    
+                    <img className='object-cover'  src={slide.url} alt={slide.id} />
                 </SwiperSlide>
             ))
         }
