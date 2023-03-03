@@ -1,5 +1,5 @@
 import React from 'react'
-import oirShortLogo from '../../assets/oir-short-logo.png'
+import oirShortLogo from '../../Assets/oir-short-logo.png'
 import { MdCall, MdEmail, MdLocationPin, MdKeyboardArrowRight } from "react-icons/md";
 import { FaLinkedinIn, FaInstagram, FaDiscord, FaRegEnvelope } from "react-icons/fa";
 import Button from '../Button/Button';

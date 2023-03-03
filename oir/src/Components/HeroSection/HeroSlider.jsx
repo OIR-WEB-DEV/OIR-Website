@@ -1,5 +1,5 @@
 
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper , SwiperSlide } from "swiper/react";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 

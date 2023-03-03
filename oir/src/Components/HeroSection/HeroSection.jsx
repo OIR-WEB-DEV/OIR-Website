@@ -1,4 +1,4 @@
-import map from '../../assets/map.png'
+import map from '../../Assets/map.png'
 import HeroSlider from './HeroSlider';
 import { SliderImages } from './SliderImages';
 

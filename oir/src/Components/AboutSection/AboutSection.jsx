@@ -1,6 +1,6 @@
 import Heading from "../Heading/Heading";
-import img from '../../assets/team.png'
-import timeline from '../../assets/timeline.png'
+import img from '../../Assets/team.png'
+import timeline from '../../Assets/timeline.png'
 import { BsFillRecordFill } from "react-icons/bs";
 const AboutSection = () => {
     return ( 
