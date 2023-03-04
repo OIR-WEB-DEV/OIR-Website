@@ -1,5 +1,8 @@
 import React from 'react'
 import Button from '../Button/Button'
+import viitLogo from '../../assets/viit-logo.png'
+import oirLogo from '../../assets/oir-logo.png'
+import { NavLink } from 'react-router-dom'
 import viitLogo from '../../Assets/viit-logo.png'
 import oirLogo from '../../Assets/oir-logo.png'
 
@@ -12,6 +15,7 @@ const logos=[
     src:oirLogo,
     alt:'oir-logo',
   },
+  
 ]
 
 const NavBar = ({navbarData}) => {
@@ -30,7 +34,9 @@ const NavBar = ({navbarData}) => {
           <ul className='flex gap-12 pb-2 '>
             {
               navbarData.map((item,index)=>(
-                <li key={index} className='cursor-pointer font-semibold text-oirBrown hover:text-oirOrange'>{item.text}</li>
+                <NavLink to={item.link} key={index} className={({ isActive }) => (isActive ? "text-oirOrange" : ' ')} >
+                  <li className='cursor-pointer font-semibold text-oirBrown hover:text-oirOrange'>{item.text}</li>
+                </NavLink>
               ))
             }
           </ul>

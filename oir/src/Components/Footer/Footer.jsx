@@ -12,8 +12,8 @@ const contactInfo = [
   },
   {
     icon: <MdEmail />,
-    info: "dummy@gmail.com",
-    hrefdata: "mailto:dummy@gmail.com"
+    info: "voir@viit.ac.in",
+    hrefdata: "mailto:voir@viit.ac.in"
   },
   {
     icon: <MdLocationPin />,
@@ -44,19 +44,19 @@ const FooterLinks = [
 const socialLinks=[
   {
     icon:<FaLinkedinIn />,
-    link:""
+    link:"https://www.linkedin.com/company/office-of-international-relations-viit"
   },
   {
     icon:<FaInstagram />,
-    link:""
+    link:"https://instagram.com/oir_viit?igshid=YmMyMTA2M2Y="
   },
   {
     icon:<FaRegEnvelope />,
-    link:""
+    link:"mailto:voir@viit.ac.in"
   },
   {
     icon: <FaDiscord />,
-    link:""
+    link:"https://discord.gg/SaMYfE8P"
   },
   {}
 ]
@@ -98,7 +98,7 @@ const Footer = () => {
           <div className='grid w-[34%] grid-cols-2 grid-rows-2 text-xl gap-5 mt-2 mr-3'>
             {
               socialLinks.map((socialLink,key)=>(
-                <a key={key} href={socialLink.link}><p className='flex content-center flex-wrap hover:text-oirYellow text-2xl'>{socialLink.icon}</p></a>
+                <a target="_blank" key={key} href={socialLink.link}><p className='flex content-center flex-wrap hover:text-oirYellow text-2xl'>{socialLink.icon}</p></a>
 
               ))
 

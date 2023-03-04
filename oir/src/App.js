@@ -1,37 +1,30 @@
 
 import './App.css';
-import Footer from './Components/Footer/Footer';
-import Heading from './Components/Heading/Heading';
-import NavBar from './Components/NavBar/NavBar';
-import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense } from 'react';
+const MainPage = React.lazy(() => import('./pages/Main/Main'))
+const HomePage = React.lazy(() => import('./pages/Home'))
+const EventsPage = React.lazy(() => import('./pages/Events'))
+const InternshipPage = React.lazy(() => import('./pages/Internship'))
 
 function App() {
-
-  const navbarData = [
-    {
-      text: "Home",
-      link: "",
-    },
-    {
-      text: "Internships",
-      link: "/Internships",
-    },
-    {
-      text: "Events and Activities",
-      link: "/Events and Activities",
-    },
-    {
-      text: "Contact Us",
-      link: "/Contact Us",
-    },
-  ]
 
   return (
     <>
       <div className="font-Montserrat overflow-x-hidden">
-        <NavBar navbarData={navbarData} />
-        <Home/>
-        <Footer/>
+        <BrowserRouter>
+          <Suspense>
+            <Routes>
+              
+              <Route path='/' element={ <MainPage />}>
+                <Route path='' element={ <HomePage />}/> 
+                <Route path='events' element={ <EventsPage />}/> 
+                <Route path='internships' element={ <InternshipPage />}/> 
+              </Route> 
+              
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
       </div>
     </>
   );
