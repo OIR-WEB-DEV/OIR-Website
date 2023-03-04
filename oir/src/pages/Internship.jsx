@@ -4,6 +4,7 @@ import { intern } from './data'
 import Button from '../Components/Button/Button'
 
 const Internship = () => {
+    document.title="OIR | Internships"
     return (
         <div className="grid grid-cols-2 gap-3 m-5 ">
             {intern.map((item) => {

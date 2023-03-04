@@ -10,6 +10,7 @@ import './events.css'
 
 
 const Events = () => {
+    document.title="OIR | Events and Activities"
     return (
         <>
             <h3 className='the-event mt-20'>Global Education Fair</h3>
