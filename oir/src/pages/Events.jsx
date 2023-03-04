@@ -7,6 +7,7 @@ import React from 'react'
 import image from '../assets/image.png'
 import { guest } from './data' 
 import './events.css'
+import button from '../assets/button.png'
 
 
 const Events = () => {
@@ -22,7 +23,92 @@ const Events = () => {
     <div style={{position:'absolute'}} className='hello'>                                                
     <img className='arrow' src={arrow}></img>                                                
     <img className='orange' src={orange}></img>                                                
-    <img className='names univer' src={univ}></img>                   
+    <div className='names univer'>
+    <p className='mb-2 text-lg'>Particiating Universities</p>
+    <h2 className='text-3xl' style={{color:'#FE6C19'}}>USA</h2>
+        <div className='flex flex-row mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1' >
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Indiana University</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Purdue University</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>University Of Utah</h4>
+        </div>
+        </div>
+        <div className='flex flex-row mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Colorado State University</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Arkansas State University</h4>
+        </div>
+        </div>
+        <div className='flex flex-row mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Wellspring</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>University of Arizona</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Louisville University</h4>
+        </div>
+        </div>
+        <h2 className='mb-3 text-3xl' style={{color:'#FE6C19'}}>UK & IRELAND</h2>
+        <div className='flex flex-row mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Queen's University Belfast</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Global University Systems</h4>
+        </div>
+        </div>
+        <div className='grid grid-cols-2 mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2  mb-3'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>University of Leeds</h4>
+        </div>
+        </div>
+        <div className='flex flex-row mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Trinity College Dublin</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Technical University of Shanon</h4>
+        </div>
+        </div>
+        <h2 className='mb-3 text-3xl' style={{color:'#FE6C19'}}>CANADA $ GERMANY</h2>
+        <div className='flex flex-row mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Ontario Tech University</h4>
+        </div>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>Applyboard</h4>
+        </div>
+        </div>
+        <div className='grid grid-cols-2 mb-3'>
+        <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2'>
+        <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
+        <h4>RWTH Aachen University</h4>
+        </div>
+        </div>
+    </div>                   
     <p className='the-para'>
       <h3 className='webinar' style={{fontWeight:'bold'}}>About the International webinar:-</h3>
       <li>Vishwakarma Institute of Information Technology organized a Webinar Series by International Distinguished Speakers from Top Institutes across the globe. </li>
