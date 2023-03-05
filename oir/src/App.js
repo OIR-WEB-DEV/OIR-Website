@@ -32,7 +32,7 @@ function App() {
     <>
       <div className="font-Montserrat overflow-x-hidden" id="mystyle">
         <NavBar navbarData={navbarData} />
-        <Events/>
+        <Events />
         <Footer/>
       </div>
     </>

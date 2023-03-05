@@ -24,7 +24,7 @@ const Events = () => {
     <img className='arrow' src={arrow}></img>                                                
     <img className='orange' src={orange}></img>                                                
     <div className='names univer'>
-    <p className='mb-2 text-lg'>Particiating Universities</p>
+    <p className='mb-2 text-2xl font-bold'>Participating Universities</p>
     <h2 className='text-3xl' style={{color:'#FE6C19'}}>USA</h2>
         <div className='flex flex-row mb-3'>
         <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1' >
@@ -91,7 +91,7 @@ const Events = () => {
         <h4>Technical University of Shanon</h4>
         </div>
         </div>
-        <h2 className='mb-3 text-3xl' style={{color:'#FE6C19'}}>CANADA $ GERMANY</h2>
+        <h2 className='mb-3 text-3xl' style={{color:'#FE6C19'}}>CANADA & GERMANY</h2>
         <div className='flex flex-row mb-3'>
         <div className='flex pl-2 pr-2 border-4 border-black-200 rounded-lg mr-2 width1'>
         <img src={button} className='h-3 w-3 mt-2 mr-2'></img>
