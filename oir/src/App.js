@@ -5,6 +5,7 @@ import Heading from './Components/Heading/Heading';
 import NavBar from './Components/NavBar/NavBar';
 import Home from './pages/Home';
 import Events from './pages/Events';
+import Login from './pages/login';
 import Internships from './pages/Internships'
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
     <>
       <div className="font-Montserrat overflow-x-hidden" id="mystyle">
         <NavBar navbarData={navbarData} />
-        <Events />
+        <Login/>
         <Footer/>
       </div>
     </>
