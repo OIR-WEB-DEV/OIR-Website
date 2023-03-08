@@ -1,10 +1,8 @@
 import React from 'react'
 import Button from '../Button/Button'
-import viitLogo from '../../assets/viit-logo.png'
-import oirLogo from '../../assets/oir-logo.png'
-import { NavLink } from 'react-router-dom'
 import viitLogo from '../../Assets/viit-logo.png'
 import oirLogo from '../../Assets/oir-logo.png'
+import { NavLink } from 'react-router-dom'
 
 const logos=[
   {

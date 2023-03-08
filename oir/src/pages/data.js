@@ -1,9 +1,9 @@
-import g1 from '../assets/guest1.png'
-import g2 from '../assets/guest2.png'
-import g3 from '../assets/guest3.png'
-import g4 from '../assets/guest4.png'
-import g5 from '../assets/guest5.png'
-import g6 from '../assets/guest6.png'
+import g1 from '../Assets/guest1.png'
+import g2 from '../Assets/guest2.png'
+import g3 from '../Assets/guest3.png'
+import g4 from '../Assets/guest4.png'
+import g5 from '../Assets/guest5.png'
+import g6 from '../Assets/guest6.png'
 
 
 export const intern=[

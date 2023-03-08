@@ -5,7 +5,7 @@ import Button from '../Components/Button/Button'
 
 const Internship = () => {
     return (
-        <div className="grid grid-cols-2 gap-3 m-5 ">
+        <div className="grid mt-32 grid-cols-2 gap-3 m-5 mb-32  ">
             {intern.map((item) => {
                 const { image, name, text } = item;
                 return (

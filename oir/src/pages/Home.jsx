@@ -1,11 +1,9 @@
-import map from './../assets/map.png'
-import backDesign from './../assets/back-design.png'
+import map from './../Assets/map.png'
+import backDesign from './../Assets/back-design.png'
 import { FiCircle } from "react-icons/fi";
 import FacultySection from '../Components/FacultySection/FacultySection';
 import AboutSection from '../Components/AboutSection/AboutSection';
 import HeroSection from '../Components/HeroSection/HeroSection';
-import NavBar from '../Components/NavBar/NavBar';
-import Footer from '../Components/Footer/Footer';
 
 const Divider = () => {
     return (
