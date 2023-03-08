@@ -15,6 +15,7 @@ module.exports = {
         oirLightOrange:'#FAE9D1',
         oirYellow:'#FEB338',
         oirPurple:'#814DBC',
+        oirGray:'#9E9E9E'
       }
     },
   },

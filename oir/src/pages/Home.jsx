@@ -5,6 +5,7 @@ import FacultySection from '../Components/FacultySection/FacultySection';
 import AboutSection from '../Components/AboutSection/AboutSection';
 import HeroSection from '../Components/HeroSection/HeroSection';
 
+
 const Divider = () => {
     return (
         <hr className='bg-gradient-to-r from-oirYellow to-oirBrown w-full h-2' />
@@ -22,38 +23,47 @@ const Bullets = ({ text, color }) => {
 const Home = () => {
     const BulletData = [
         {
+            key:1,
             color: 'text-oirOrange',
             text: "Student and Faculty Exchange",
         },
         {
+            key:2,
             color: 'text-oirOrange',
             text: "Study Tours",
         },
         {
+            key:3,
             color: 'text-oirPurple',
             text: "Cooperative research and development activities",
         },
         {
+            key:4,
             color: 'text-oirBrown',
             text: "Cooperative design of courses, conferences, symposia, short courses, or academic programs",
         },
         {
+            key:5,
             color: 'text-oirYellow',
             text: "Summer school Programs",
         },
         {
+            key:6,
             color: 'text-oirYellow',
             text: "Admission to master's and doctoral Programs",
         },
         {
+            key:7,
             color: 'text-oirBrown',
             text: "Exchange of academic or scientific material and publications.",
         },
         {
+            key:8,
             color: 'text-oirPurple',
             text: "Joint research activities",
         },
     ]
+    document.title = "OIR | Home"
     return (
         <>
             <div className='mt-20'>
@@ -85,8 +95,8 @@ const Home = () => {
                                 <div className="absolute w-11/12 flex items-center justify-center">
                                     <div className="w-[80%] grid grid-cols-2 grid-rows-4 gap-1">
                                         {
-                                            BulletData.map((item, index) => (
-                                                <Bullets key={index} color={item.color} text={item.text} />
+                                            BulletData.map((item) => (
+                                                <Bullets key={item.key} color={item.color} text={item.text} />
                                             ))
                                         }
                                     </div>
