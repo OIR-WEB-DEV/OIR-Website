@@ -4,6 +4,7 @@ import { FiCircle } from "react-icons/fi";
 import FacultySection from '../Components/FacultySection/FacultySection';
 import AboutSection from '../Components/AboutSection/AboutSection';
 import HeroSection from '../Components/HeroSection/HeroSection';
+import EventSection from '../Components/EventsSection/EventsSection';
 
 
 const Divider = () => {
@@ -73,6 +74,9 @@ const Home = () => {
                 <Divider />
                 <HeroSection />
                 <Divider />
+
+                {/* Past and upcoming events section */}
+                <EventSection/>
 
                 <div className="">
                     {/* about section */}
