@@ -1,14 +1,12 @@
-import Heading from "../Heading/Heading";
 import img from '../../assets/team.png'
 import timeline from '../../assets/timeline.png'
 import { BsFillRecordFill } from "react-icons/bs";
 const AboutSection = () => {
     return ( 
         <div className="">
-            <div className="grid grid-cols-[1.2fr_1fr] w-full h-[65vh] mt-28">
+            <div className="grid grid-cols-[1.2fr_1fr] w-full h-[65vh] mt-24">
                 <div className="px-24">
-                    <Heading text={"About Us"}/>
-                    <h1 className="font-semibold text-3xl mt-10">Office of International Relations</h1>
+                    <h1 className="font-bold text-2xl mt-10">About Us</h1>
                     <p className="font-medium text-black leading-tight text-lg  mt-3">Office of International Relations, VIIT assists master's aspirants who wish to study abroad. With a focus on guidance and resources, the team organizes seminars and career guidance sessions and offers support to help students achieve their academic and career goals with a chance to connect and get guidance from our own alumni.</p>
                     <p className="font-medium text-black leading-tight text-lg mt-2">The cell is dedicated to provide students with all the information and support they need to succeed in their journey to study abroad.</p>
                 </div>

@@ -5,6 +5,7 @@ import FacultySection from '../Components/FacultySection/FacultySection';
 import AboutSection from '../Components/AboutSection/AboutSection';
 import HeroSection from '../Components/HeroSection/HeroSection';
 import EventSection from '../Components/EventsSection/EventsSection';
+import PartnersSection from '../Components/PartnersSection/PartnersSection';
 
 
 const Divider = () => {
@@ -78,9 +79,14 @@ const Home = () => {
                 {/* Past and upcoming events section */}
                 <EventSection/>
 
+                {/* about section */}
+                <AboutSection />
+                
                 <div className="">
-                    {/* about section */}
-                    <AboutSection />
+
+                    {/* International partners */}
+                    <PartnersSection/>
+
 
                     {/* map and text section */}
                     <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-96 before:h-1 before:bg-oirBrown before:right-0 after:content-[''] after:w-96 after:h-1 after:bg-oirBrown after:flex after:self-end">

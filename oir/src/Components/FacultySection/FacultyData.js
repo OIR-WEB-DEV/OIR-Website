@@ -1,6 +1,7 @@
 export const facultyData = [
     {
         id:1,
+        heading:"Our Visionary",
         image: './images/faculty/sir.png',
         name: "Prof. Dr. Vivek.S.Deshpande",
         position: "Hon'ble  Director, Vishwakarma Institute of Information Technology",
@@ -8,6 +9,7 @@ export const facultyData = [
     },
     {
         id:2,
+        heading:"Faculty Co-ordinator",
         image: './images/faculty/mam.jpg',
         name: "Prof. Devika Verma",
         position: "Faculty Coordinator, Office of International Relations",
