@@ -17,7 +17,7 @@ const DTbtn = ({date,time}) => {
 const RegisteBtn = () => {
     return ( 
         <a >
-            <button className="rounded-full py-1 px-2 border text-white border-oirPurple bg-oirPurple font-bold text-xs hover:bg-white hover:text-oirPurple">
+            <button className="rounded-full py-1 px-2 border text-white border-oirPurple bg-oirPurple font-bold text-[0.5rem] sm:text-xs hover:bg-white hover:text-oirPurple">
                 Register Now
             </button>
         </a>
@@ -27,16 +27,16 @@ const RegisteBtn = () => {
 
 const Card = ({title,description,image,date,time}) => {
     return ( 
-        <div className="grid grid-cols-[0.8fr_1fr] my-3">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1fr] my-3 rounded-md">
             <div className="">
-                <img src={image} alt={title} />
+                <img className="object-cover w-full rounded-3xl md:rounded-none" src={image} alt={title} />
             </div>
             <div className="flex flex-col justify-between ml-4">
                 <div className="">
                     <h1 className="font-bold text-xl">{title}</h1>
                     <p className="font-bold text-oirGray opacity-75 text-sm">{description}</p>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between pt-2">
                     <DTbtn date={date} time={time}/>
                     <RegisteBtn/>
                 </div>
@@ -51,7 +51,7 @@ const Card = ({title,description,image,date,time}) => {
 const Modal = ({closeModal}) => {
     return ReactDOM.createPortal( 
         <div onClick={closeModal} className="fixed inset-0 backdrop-blur bg-black/40 align-middle z-50 font-Montserrat flex items-center justify-center">
-            <div onClick={(e)=>e.stopPropagation()} className="bg-white rounded-lg p-4 w-[55%] border">
+            <div onClick={(e)=>e.stopPropagation()} className="bg-white rounded-lg p-4 w-[80%] lg:overflow-y-hidden h-[80%] overflow-auto lg:h-[73%] lg:w-[55%] border ">
                 {/* header */}
                 <div className="flex justify-between">
                     <div className="">

@@ -13,6 +13,6 @@ export const facultyData = [
         image: './images/faculty/mam.jpg',
         name: "Prof. Devika Verma",
         position: "Faculty Coordinator, Office of International Relations",
-        email: "voir@viit.ac.in  |  devika.verma@viit.ac.in ",
+        email: "voir@viit.ac.in | devika.verma@viit.ac.in ",
     },
 ]

@@ -84,7 +84,7 @@ const Footer = () => {
           <ul className='leading-relaxed flex lg:block'>
             {
               contactInfo.map((contact) => (
-                <a target={"_blank"} rel="noreferrer" key={contact.id} href={contact.hrefdata} className="hover:text-oirYellow"><li className='mr-5 text-xs font-medium flex content-center leading-relaxed'><span className=' text-[#1C1B1F] text-sm mr-3 flex content-center flex-wrap hover:text-oirYellow'>{contact.icon}</span> {contact.info}</li></a>
+                <a target={"_blank"} rel="noreferrer" key={contact.id} href={contact.hrefdata} className="hover:text-oirYellow"><li className='mr-5 text-[0.5rem] sm:text-xs font-medium flex content-center leading-relaxed'><span className=' text-[#1C1B1F] text-sm mr-3 flex content-center flex-wrap hover:text-oirYellow'>{contact.icon}</span> {contact.info}</li></a>
 
               ))
             }
@@ -94,10 +94,10 @@ const Footer = () => {
 
       <div className='px-6 py-5 text-white'>
         <h1 className=' font-bold text-xl'>Fast Links</h1>
-        <ul className='mt-2 flex gap-5 lg:block'>
+        <ul className='mt-2 flex gap-2 sm:gap-5 lg:block'>
           {
             FooterLinks.map((link) => (
-              <li key={link.id} className=' cursor-pointer font-regular text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
+              <li key={link.id} className=' cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
             ))
           }
         </ul>
