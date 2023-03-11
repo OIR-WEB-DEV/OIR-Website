@@ -23,7 +23,7 @@ const HeroSlider = ({SliderImages}) => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="h-[75%] w-[90%] sm:h-[86%] sm:w[90%] md:h-[90%] lg:w-[80%] border-2 border-oirOrange rounded-md shadow-oirOrange object-cover drop-shadow-2xl"
+        className="h-[50%] w-[90%] sm:h-[86%] sm:w[90%] md:h-[90%] lg:w-[80%] border-2 border-oirOrange rounded-md shadow-oirOrange object-cover drop-shadow-2xl"
     >
         {
             SliderImages.map((slide)=>(
