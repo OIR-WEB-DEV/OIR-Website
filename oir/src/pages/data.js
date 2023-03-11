@@ -4,6 +4,8 @@ import g3 from '../assets/guest3.png'
 import g4 from '../assets/guest4.png'
 import g5 from '../assets/guest5.png'
 import g6 from '../assets/guest6.png'
+import l1 from '../assets/last.png'
+import l2 from '../assets/slast.png'
 
 
 export const intern=[
@@ -41,6 +43,16 @@ export const intern=[
         image:"https://www.propertyfinder.ae/property/45ba782937154cbd854d6a855811b818/500/356/MODE/d4cf06/9365357-1001do.webp?ctr=ae",
         name:"Makonis Inc",
         text:"There are two things Makonis Software Solutions is fiercely passionate about – Technology and people. "
+    },
+    {
+        image:l1,
+        name:"CleverInsight USA",
+        text:"We provide Al-based Optimised data driven solutions to clients in key areas such as IoT,Supply Chain & logistics and cyber security"
+    },
+    {
+        image:l2,
+        name:"Shapooraji Pallanji, Dubai,UAE",
+        text:"India’s leading real estate developer.One of the oldest real estate companies, It began operations about 150 years"
     }
 
 ]
