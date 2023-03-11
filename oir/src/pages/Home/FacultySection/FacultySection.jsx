@@ -1,11 +1,11 @@
 import FacultyCard from "../FacultyCard/FacultyCard";
-import Heading from "../Heading/Heading";
+import Heading from "../../../Components/Heading/Heading";
 import { facultyData } from "./FacultyData";
 
 const FacultySection = () => {
 
     return (
-        <div className="mx-24 my-32">
+        <div className=" mx-5 lg:mx-24 my-32">
             {
                 facultyData.map((faculty) => (
                     <div key={faculty.id}>
