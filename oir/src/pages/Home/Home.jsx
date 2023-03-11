@@ -1,11 +1,11 @@
-import map from './../assets/map.png'
-import backDesign from './../assets/back-design.png'
+import map from '../../assets/map.png'
+import backDesign from '../../assets/back-design.png'
 import { FiCircle } from "react-icons/fi";
-import FacultySection from '../Components/FacultySection/FacultySection';
-import AboutSection from '../Components/AboutSection/AboutSection';
-import HeroSection from '../Components/HeroSection/HeroSection';
-import EventSection from '../Components/EventsSection/EventsSection';
-import PartnersSection from '../Components/PartnersSection/PartnersSection';
+import FacultySection from './FacultySection/FacultySection';
+import AboutSection from './AboutSection/AboutSection';
+import HeroSection from './HeroSection/HeroSection';
+import EventSection from './EventsSection/EventsSection';
+import PartnersSection from './PartnersSection/PartnersSection';
 
 
 const Divider = () => {
@@ -17,7 +17,7 @@ const Divider = () => {
 const Bullets = ({ text, color }) => {
     return (
         <div className='p-2 flex items-center'>
-            <h1 className=' flex items-center font-semibold text-xl'> <span className={`${color} font-extrabold text-2xl mr-3`}><FiCircle /></span>{text}</h1>
+            <h1 className=' flex items-center font-semibold text-xl lg:text-xl'> <span className={`${color} font-extrabold text-xl lg:text-2xl mr-3`}><FiCircle /></span>{text}</h1>
         </div>
     );
 }
@@ -90,20 +90,21 @@ const Home = () => {
 
                     {/* map and text section */}
                     <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-96 before:h-1 before:bg-oirBrown before:right-0 after:content-[''] after:w-96 after:h-1 after:bg-oirBrown after:flex after:self-end">
+
                         <div className="flex justify-center items-center relative">
                             <img src={map} className="flex justify-center w-screen overflow-x-hidden h-60 object-cover" alt="map" />
 
-                            <div className="absolute w-11/12"><h1 className='font-bold text-3xl text-center'>VIIT has collaborated with various Universities agreeing to pursue the following forms of cooperation, within areas that are mutually acceptable.</h1></div>
+                            <div className="absolute w-11/12"><h1 className='font-bold text-xl lg:text-3xl text-center'>VIIT has collaborated with various Universities agreeing to pursue the following forms of cooperation, within areas that are mutually acceptable.</h1></div>
                         </div>
                     </div>
 
                     {/* bullets section */}
                     <div className="">
-                        <div className="relative overflow-x-hidden">
-                            <div className="flex justify-center items-center relative  overflow-x-hidden">
-                                <img src={backDesign} className="flex justify-center w-screen overflow-x-hidden h-1/3 object-cover" alt="back-design" />
-                                <div className="absolute w-11/12 flex items-center justify-center">
-                                    <div className="w-[80%] grid grid-cols-2 grid-rows-4 gap-1">
+                        <div className=" overflow-x-hidden">
+                            <div className="flex justify-center relative items-center overflow-x-hidden">
+                                <img src={backDesign} className="hidden  md:h-[33rem]  md:flex justify-center w-screen object-cover" alt="back-design" />
+                                <div className="flex md:absolute w-11/12 md:flex items-center justify-center">
+                                    <div className="w-[80%] my-7 grid grid-cols-1 md:grid-cols-2 grid-rows-8 gap-1">
                                         {
                                             BulletData.map((item) => (
                                                 <Bullets key={item.key} color={item.color} text={item.text} />
