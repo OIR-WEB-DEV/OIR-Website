@@ -74,17 +74,17 @@ const socialLinks=[
 const Footer = () => {
   return (
     <div className='w-full grid grid-cols-1 lg:grid-cols-[1.5fr_0.6fr_0.9fr_1.6fr] bg-oirBrown gap-3 '>
-      <div className='grid grid-rows-2 bg-oirLightOrange p-6'>
+      <div className='grid grid-rows-[1fr_0.6fr] gap-2 sm:gap-0 sm:grid-rows-2 bg-oirLightOrange p-6'>
         <div className='flex '>
           <img className='h-14' src={oirShortLogo} alt="short logo" />
           <p className='font-regular text-sm mx-6 leading-none'>Our mission is to facilitate international academic exchange and assist students in pursuing their masters degree abroad.</p>
         </div>
 
-        <div className='flex items-end'>
+        <div className='flex items-center sm:items-end'>
           <ul className='leading-relaxed flex lg:block'>
             {
               contactInfo.map((contact) => (
-                <a target={"_blank"} rel="noreferrer" key={contact.id} href={contact.hrefdata} className="hover:text-oirYellow"><li className='mr-5 text-[0.5rem] sm:text-xs font-medium flex content-center leading-relaxed'><span className=' text-[#1C1B1F] text-sm mr-3 flex content-center flex-wrap hover:text-oirYellow'>{contact.icon}</span> {contact.info}</li></a>
+                <a target={"_blank"} rel="noreferrer" key={contact.id} href={contact.hrefdata} className="hover:text-oirYellow"><li className='text-xs font-medium flex content-center leading-relaxed'><span className=' text-[#1C1B1F] text-sm ml-2 mr-1 sm:ml-0 sm:mr-3 flex content-center flex-wrap hover:text-oirYellow'>{contact.icon}</span> {contact.info}</li></a>
 
               ))
             }

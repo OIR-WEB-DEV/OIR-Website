@@ -17,7 +17,7 @@ const DTbtn = ({date,time}) => {
 const RegisteBtn = () => {
     return ( 
         <a >
-            <button className="rounded-full py-1 px-2 border text-white border-oirPurple bg-oirPurple font-bold text-[0.5rem] sm:text-xs hover:bg-white hover:text-oirPurple">
+            <button className="rounded-full py-1 px-2 border text-white border-oirPurple bg-oirPurple font-bold text-xs hover:bg-white hover:text-oirPurple">
                 Register Now
             </button>
         </a>
