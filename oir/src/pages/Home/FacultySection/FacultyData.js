@@ -3,7 +3,7 @@ export const facultyData = [
         id:1,
         heading:"Our Visionary",
         image: './images/faculty/sir.png',
-        name: "Prof. Dr. Vivek.S.Deshpande",
+        name: "Prof. Dr. Vivek. S. Deshpande",
         position: "Hon'ble  Director, Vishwakarma Institute of Information Technology",
         email: "vivek.deshpande@viit.ac.in",
     },
