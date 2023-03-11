@@ -55,7 +55,7 @@ h3.webinar{
 .rectangle{
     position: absolute;
     width: 500px;
-    height: 650px;
+    height: 500px;
     margin-top: 80px;
     left: -250.25px;
     background: #52091B;
@@ -64,8 +64,8 @@ h3.webinar{
     position: absolute;
     width: 950px;
     border-radius: 26%;
-    height: 650px;
-    margin-top: 80px;
+    height: 550px;
+    margin-top: 50px;
     left: -250.25px;
     background: #52091B;
 }
