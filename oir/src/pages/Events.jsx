@@ -8,11 +8,12 @@ import image from '../assets/image.png'
 import { guest } from './data' 
 import './events.css'
 import button from '../assets/button.png'
+import Slider from '../pages/Slider'
 
 
 const Events = () => {
   return (
-    <>
+    <div className='abs'>
     <h3 className='the-event mt-20'>Global Education Fair</h3>
     <div className='the-images'>
         <img src={second} className="the-image"></img>
@@ -108,7 +109,8 @@ const Events = () => {
         <h4>RWTH Aachen University</h4>
         </div>
         </div>
-    </div>                   
+    </div> 
+    <Slider />                
     <p className='the-para'>
       <h3 className='webinar' style={{fontWeight:'bold'}}>About the International webinar:-</h3>
       <li>Vishwakarma Institute of Information Technology organized a Webinar Series by International Distinguished Speakers from Top Institutes across the globe. </li>
@@ -137,7 +139,7 @@ const Events = () => {
    </div>
     })}
     </div>
-    </>
+    </div>
 
   )
 }

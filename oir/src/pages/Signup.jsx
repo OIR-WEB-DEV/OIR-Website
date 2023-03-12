@@ -6,8 +6,19 @@ const Signup = () => {
 
   return (
     <div>
-    <div className="rectangle" ></div>
-    <div className="circle" ></div>
+    <div className="rectangle">
+    </div>
+    <div className="circle" >
+    <div className='text'>
+    <h1 className='text-4xl mt-24'>New Here ?</h1>
+    <p className='mt-24 mr-8 text-2xl para text-white'>Sign up and discover  great new opportunities!</p>
+    <div className='flex'>
+    <input type='checkbox' className='mt-4 mr-4'/>
+    <p className='mt-10 pr-24 text-white'>Creating an account means you are okay with our <a className='text-oirOrange'>Terms and of Service</a> and our <a className='text-oirOrange'>Privacy Policy</a></p>
+    </div>
+   <button className='w-32 h-12 mt-8 rounded-full bg-gradient-to-r from-oirYellow to-oirOrange button ml-24'>Hello</button>
+    </div>
+    </div>
   <section className="h-screen lg:mr-20 pr-8">
   <div className="h-full lg:mr-10">
     <div

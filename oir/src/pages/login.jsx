@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../Components/Button/Button'
-
+import Dropdown from '../Components/Dropdown';
 
 const Login = () => {
   const [checked, setChecked] = React.useState(false);
@@ -11,8 +11,16 @@ const Login = () => {
 
   return (
     <div>
-    <div className="rectangle" ></div>
-    <div className="circle" ></div>
+    <div className="rectangle">
+    </div>
+    <div className="circle">
+    <div className='text'>
+    <h1 className='text-4xl mt-24'>Login As</h1>
+    <p className='mt-24 mr-8 text-2xl para text-white'>Login and discover  great new opportunities !</p>
+   <Dropdown />
+
+    </div>
+    </div>
   <section className="h-screen lg:mr-20 pr-8">
   <div className="h-full lg:mr-10">
     <div

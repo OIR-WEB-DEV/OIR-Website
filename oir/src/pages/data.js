@@ -108,4 +108,15 @@ export const guest = [
     },
 ]
 
+export const images = [
+
+ {
+        id:1,
+        image:g1
+    },
+    {
+        id:2,
+        image:g2,
+    },
+]
 
