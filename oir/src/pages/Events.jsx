@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import second from '../assets/speakers.png'
 import edfair from '../assets/edfair.png'
 import arrow from '../assets/arrow.png'
@@ -8,6 +9,7 @@ import image from '../assets/image.png'
 import { guest } from './data'
 import './events.css'
 
+// TODO: Add to assets to cloud { cloudinary }
 
 const Events = () => {
     document.title="OIR | Events and Activities"
