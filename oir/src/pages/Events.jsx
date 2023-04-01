@@ -1,13 +1,15 @@
-import second from '../Assets/speakers.png'
-import edfair from '../Assets/edfair.png'
-import arrow from '../Assets/arrow.png'
-import orange from '../Assets/orangeNicee.png'
-import univ from '../Assets/universities.png'
+/* eslint-disable jsx-a11y/alt-text */
+import second from '../assets/speakers.png'
+import edfair from '../assets/edfair.png'
+import arrow from '../assets/arrow.png'
+import orange from '../assets/orangeNicee.png'
+import univ from '../assets/universities.png'
 import React from 'react'
 import image from '../Assets/image.png'
 import { guest } from './data'
 import './events.css'
 
+// TODO: Add to assets to cloud { cloudinary }
 
 const Events = () => {
     document.title="OIR | Events and Activities"
