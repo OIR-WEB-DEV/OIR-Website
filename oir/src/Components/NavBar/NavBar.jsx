@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
-import viitLogo from '../../Assets/viit-logo.png'
-import oirLogo from '../../Assets/oir-logo.png'
+import viitLogo from '../../assets/viit-logo.png'
+import oirLogo from '../../assets/oir-logo.png'
 import { NavLink } from 'react-router-dom'
 
 const logos = [
@@ -55,7 +55,7 @@ const NavBar = ({ navbarData }) => {
         </div>
       </div>
       <div className='flex'>
-        <Button text={"Login/SignUp"} />
+        <a href='./login'><Button text={"Login/SignUp"} /></a>
       </div>
     </header>
   )
