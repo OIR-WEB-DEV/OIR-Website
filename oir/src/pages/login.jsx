@@ -130,10 +130,9 @@ const Login = () => {
             <p className="mt-2 mb-0 pt-1 text-sm font-semibold">
               Don't have an account?
               <a
-                href="#!"
+                href="/signup"
                 className="text-amber-700 transition duration-150 ease-in-out hover:text-blue-700 focus:text-danger-600 active:text-danger-700"
-                >Register</a
-              >
+                >Register</a>
             </p>
           </div>
         </form>
