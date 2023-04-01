@@ -73,6 +73,8 @@ const socialLinks=[
 ]
 const Footer = () => {
   return (
+    <div className='w-full grid grid-cols-[1.5fr_0.6fr_0.9fr_1.5fr] bg-oirBrown gap-3 ' >
+      <div className='grid grid-rows-2 bg-oirLightOrange p-6'>
     <div className='w-full grid grid-cols-1 lg:grid-cols-[1.5fr_0.6fr_0.9fr_1.6fr] bg-oirBrown gap-3 '>
       <div className='grid grid-rows-[1fr_0.6fr] gap-2 sm:gap-0 sm:grid-rows-2 bg-oirLightOrange p-6'>
         <div className='flex '>
@@ -127,6 +129,8 @@ const Footer = () => {
         </div>
 
       </div>
+    </div>
+    </div>
     </div>
   )
 }

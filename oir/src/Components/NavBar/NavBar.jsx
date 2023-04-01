@@ -20,7 +20,7 @@ const logos = [
 
 const NavBar = ({ navbarData }) => {
   return (
-    <header className='w-screen backdrop-blur bg-white/90 fixed  z-30 top-0 px-7 h-20 flex items-center justify-around shadow-md'>
+    <header className='w-screen bg-white z-30 top-0 px-7 h-20 flex items-center justify-around shadow-md '>
       <div className="w-[80%] flex justify-between content-center">
         <div className='flex items-center justify-center pt-1'>
           {
