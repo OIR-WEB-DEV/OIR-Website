@@ -1,4 +1,3 @@
-
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Suspense } from 'react';
@@ -17,7 +16,6 @@ function App() {
         <BrowserRouter>
           <Suspense>
             <Routes>
-              
               <Route path='/' element={ <MainPage />}>
                 <Route path='' element={ <HomePage />}/> 
                 <Route path='events' element={ <EventsPage />}/> 
