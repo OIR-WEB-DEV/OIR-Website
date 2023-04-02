@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import Button from "../Components/Button/Button";
-import axios from 'axios'
-import {useNavigate} from 'react-router-dom';
+import React from 'react'
+import Button from '../Components/Button/Button'
+import './events.css'
+
 
 const Signup = () => {
   const [data, setData] = useState({
