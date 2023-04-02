@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Components/Button/Button'
 import Dropdown from '../Components/Dropdown';
+import './events.css'
 
 const Login = () => {
   const [checked, setChecked] = React.useState(false);
