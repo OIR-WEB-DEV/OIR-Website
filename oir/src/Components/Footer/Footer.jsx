@@ -3,6 +3,7 @@ import oirShortLogo from '../../assets/oir-short-logo.png'
 import { MdCall, MdEmail, MdLocationPin, MdKeyboardArrowRight } from "react-icons/md";
 import { FaLinkedinIn, FaInstagram, FaDiscord, FaRegEnvelope } from "react-icons/fa";
 import Button from '../Button/Button';
+import { NavLink } from 'react-router-dom';
 
 const contactInfo = [
   {
@@ -45,7 +46,7 @@ const FooterLinks = [
   {
     id:4,
     text: "Sign Up",
-    link: "/SignUp",
+    link: "/signUp",
   },
 ]
 const socialLinks=[
@@ -71,10 +72,11 @@ const socialLinks=[
   },
   
 ]
+
+
+
 const Footer = () => {
   return (
-    <div className='w-full grid grid-cols-[1.5fr_0.6fr_0.9fr_1.5fr] bg-oirBrown gap-3 ' >
-      <div className='grid grid-rows-2 bg-oirLightOrange p-6'>
     <div className='w-full grid grid-cols-1 lg:grid-cols-[1.5fr_0.6fr_0.9fr_1.6fr] bg-oirBrown gap-3 '>
       <div className='grid grid-rows-[1fr_0.6fr] gap-2 sm:gap-0 sm:grid-rows-2 bg-oirLightOrange p-6'>
         <div className='flex '>
@@ -99,7 +101,9 @@ const Footer = () => {
         <ul className='mt-2 flex gap-2 sm:gap-5 lg:block'>
           {
             FooterLinks.map((link) => (
+              <NavLink to={link.link} >
               <li key={link.id} className=' cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
+              </NavLink>
             ))
           }
         </ul>
@@ -125,12 +129,10 @@ const Footer = () => {
         <h1 className="font-bold text-3xl">Curious about our work?</h1>
         <p className='font-medium text-base flex flex-wrap leading-tight'>Join the community by taking the first step of Signing Up.</p>
         <div className='flex w-full lg:justify-end mt-3'>
-        <Button text={"Login/SignUp"}/>
+        <a href="/login"> <Button text={"Login/SignUp"}/> </a>
         </div>
 
       </div>
-    </div>
-    </div>
     </div>
   )
 }

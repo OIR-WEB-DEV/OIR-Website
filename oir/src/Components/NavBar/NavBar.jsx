@@ -55,7 +55,7 @@ const NavBar = ({ navbarData }) => {
         </div>
       </div>
       <div className='flex'>
-        <Button text={"Login/SignUp"} />
+        <a href='./login'><Button text={"Login/SignUp"} /></a>
       </div>
     </header>
   )

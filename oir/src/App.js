@@ -9,7 +9,7 @@ const InternshipPage = React.lazy(() => import('./pages/Internship'))
 const LoginPage = React.lazy(() => import('./pages/login'))
 const ContactPage = React.lazy(() => import('./pages/Contact'))
 const ForgotPage = React.lazy(() => import('./pages/ForgotPass'))
-
+const SignUpPage = React.lazy(()=> import('./pages/Signup'))
 
 function App() {
 
@@ -28,8 +28,9 @@ function App() {
                 <Route path='internships' element={ <InternshipPage />}/> 
                 <Route path='contact' element={ <ContactPage />}/> 
                 <Route path='forgot' element={ <ForgotPage />}/> 
+                <Route path='login' element={ <LoginPage/> }/> 
+                <Route path='signup' element={ <SignUpPage/> }/> 
               </Route> 
-              
             </Routes>
           </Suspense>
         </BrowserRouter>
