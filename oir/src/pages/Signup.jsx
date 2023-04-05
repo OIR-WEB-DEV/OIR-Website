@@ -1,7 +1,8 @@
-import React from 'react'
-import Button from '../Components/Button/Button'
-import './events.css'
-
+import React, { useState } from "react";
+import Button from "../Components/Button/Button";
+import "./events.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -18,10 +19,10 @@ const Signup = () => {
     password: "",
   });
   const navigate = useNavigate();
-  const handleChange = (event) =>{
+  const handleChange = (event) => {
     const newData = { ...data, [event.target.name]: event.target.value };
     setData(newData);
-  }
+  };
   const validateForm = () => {
     let formIsValid = true;
     const newErrors = {
@@ -71,18 +72,20 @@ const Signup = () => {
       return;
     }
     try {
-      const result = await axios.post("https://oir-server.vercel.app/api/v1/register",data);
-      if(result.data.status === "success"){
-        alert("success",result.data.message)
-        navigate("/")
-
-      }else{
-        alert("error","failed to signup")
+      const result = await axios.post(
+        "https://oir-server.vercel.app/api/v1/register",
+        data
+      );
+      if (result.data.status === "success") {
+        alert("success", result.data.message);
+        navigate("/internships");
+      } else {
+        alert("error", "failed to signup");
       }
     } catch (error) {
-      console.log(error.response.data.error);      
-      alert("User already exist")
-        alert("error", error.response.data.error);
+      console.log(error.response.data.error);
+      alert("User already exist");
+      alert("error", error.response.data.error);
     }
   };
   return (
@@ -117,31 +120,55 @@ const Signup = () => {
               <h2 className="underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-7">
                 Sign Up
               </h2>
-              <form method="post">
-                <div className="relative mb-6" data-te-input-wrapper-init>
-                  <input
-                    type="text"
-                    className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlInput2"
-                    placeholder="Full Name"
-                  />
-                  <label
-                    htmlFor="exampleFormControlInput2"
-                    className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                  >
-                    Full Name
-                  </label>
+              <form onSubmit={handleSubmit} >
+                <div className="flex gap-2 justify-between mb-6">
+                  <div className="relative w-1/2" data-te-input-wrapper-init>
+                    <input
+                      type="text"
+                      className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                      id="firstname"
+                      placeholder="First Name"
+                      onChange={handleChange}
+                      value={firstName}
+                      name="firstname"
+                      required
+                    />
+                    <label
+                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+                    >
+                      First Name
+                    </label>
+                  </div>
+                  <div className="relative w-1/2" data-te-input-wrapper-init>
+                    <input
+                      type="text"
+                      className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                      id="lastname"
+                      placeholder="Last Name"
+                      onChange={handleChange}
+                      value={lastName}
+                      name="lastname"
+                      required
+                    />
+                    <label
+                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+                    >
+                      Last Name
+                    </label>
+                  </div>
                 </div>
-
                 <div className="relative mb-6" data-te-input-wrapper-init>
                   <input
                     type="text"
                     className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlInput2"
+                    id="email"
                     placeholder="Email address"
+                    onChange={handleChange}
+                    value={email}
+                    name="email"
+                    required
                   />
                   <label
-                    htmlFor="exampleFormControlInput2"
                     className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
                   >
                     Email address
@@ -152,17 +179,20 @@ const Signup = () => {
                   <input
                     type="password"
                     className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlInput22"
+                    id="password"
                     placeholder="Password"
+                    onChange={handleChange}
+                    value={password}
+                    name="password"
+                    required
                   />
                   <label
-                    htmlFor="exampleFormControlInput2"
                     className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
                   >
                     Password
                   </label>
                 </div>
-                <Button text={"Register"} className="mt-5"></Button>
+                <Button  text={"Register"} className="mt-5"></Button>
               </form>
             </div>
           </div>
