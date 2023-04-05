@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Components/Button/Button'
 import Dropdown from '../Components/Dropdown';
+import './events.css'
 
 const Login = () => {
   const [checked, setChecked] = React.useState(false);
@@ -130,10 +131,9 @@ const Login = () => {
             <p className="mt-2 mb-0 pt-1 text-sm font-semibold">
               Don't have an account?
               <a
-                href="#!"
+                href="/signup"
                 className="text-amber-700 transition duration-150 ease-in-out hover:text-blue-700 focus:text-danger-600 active:text-danger-700"
-                >Register</a
-              >
+                >Register</a>
             </p>
           </div>
         </form>
