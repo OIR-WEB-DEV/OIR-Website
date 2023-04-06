@@ -25,7 +25,7 @@ export const SidebarItemPhone = ({title,link}) => {
 
 export const Sidebar = ({ image, name, email,children }) => {
     return (
-        <aside className="rounded-l-xl shadow-xl lg:shadow-none lg:rounded-none lg:flex fixed flex-col w-64 h-[calc(100vh-5rem)] px-5 justify-between py-4 overflow-y-auto border-2 lg:border-l border-r bg-[#F3F3F3]">
+        <aside className="rounded-r-xl shadow-xl lg:shadow-none lg:rounded-none lg:flex fixed flex-col w-64 h-[calc(100vh-5rem)] px-5 justify-between py-4 overflow-y-auto border-2 lg:border-l border-r bg-[#F3F3F3]">
             <div className="">
                 {/* comment */}
                 <a href="#">

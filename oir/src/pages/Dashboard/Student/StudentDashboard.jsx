@@ -35,7 +35,7 @@ const StudentDashboard = () => {
                 {/* profile header */}
                 <div className="flex flex-row items-center">
                     {/* profile photo */}
-                    <StudentProfile name={"Ketty Bruno"} isUpdated={true} currentYear={"TY"} sessionsAttended={3} />
+                    <StudentProfile  name={"Ketty Bruno"} isUpdated={true} currentYear={"TY"} sessionsAttended={3} />
                 </div>
 
                 {/*  events section */}
