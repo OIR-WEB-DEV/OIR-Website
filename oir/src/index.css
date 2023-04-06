@@ -16,12 +16,24 @@ extrabold 800
 @tailwind utilities;
 
 @layer utilities {
+  
+  html{
+    scroll-behavior: smooth;
+  }
+  body {
+    --swiper-theme-color: #FE6C19;
+  }
   .faculty-card-radius {
     border-radius: 0% 35% 35% 0% / 10% 50% 50% 10%;
   }
 
-  body {
-    --swiper-theme-color: #FE6C19;
+  /* for hiding scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;               /* width of the entire scrollbar */
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: silver;    /* color of the scroll thumb */
+    border-radius: 10px;       /* roundness of the scroll thumb */
   }
 
 }

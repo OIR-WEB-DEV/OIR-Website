@@ -5,6 +5,7 @@ import React, { Suspense } from 'react';
 const MainPage = React.lazy(() => import('./pages/Main/Main'))
 const HomePage = React.lazy(() => import('./pages/Home/Home'))
 const EventsPage = React.lazy(() => import('./pages/Events'))
+const StudentDashboard = React.lazy(() => import('./pages/Dashboard/Student/StudentDashboard'))
 const InternshipPage = React.lazy(() => import('./pages/Internship'))
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Route path='' element={ <HomePage />}/> 
                 <Route path='events' element={ <EventsPage />}/> 
                 <Route path='internships' element={ <InternshipPage />}/> 
+                <Route path='dashboard' element={ <StudentDashboard />}/> 
               </Route> 
               
             </Routes>

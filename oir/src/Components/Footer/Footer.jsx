@@ -3,22 +3,23 @@ import oirShortLogo from '../../assets/oir-short-logo.png'
 import { MdCall, MdEmail, MdLocationPin, MdKeyboardArrowRight } from "react-icons/md";
 import { FaLinkedinIn, FaInstagram, FaDiscord, FaRegEnvelope } from "react-icons/fa";
 import Button from '../Button/Button';
+import { NavLink } from 'react-router-dom';
 
 const contactInfo = [
   {
-    id:1,
+    id: 1,
     icon: <MdCall />,
     info: "+91 9876543210",
     hrefdata: "tel:+919876543210"
   },
   {
-    id:2,
+    id: 2,
     icon: <MdEmail />,
     info: "voir@viit.ac.in",
     hrefdata: "mailto:voir@viit.ac.in"
   },
   {
-    id:3,
+    id: 3,
     icon: <MdLocationPin />,
     info: "VIIT, Pune",
     hrefdata: "https://goo.gl/maps/k2oB3DZFPRYCvq3F9"
@@ -28,52 +29,53 @@ const contactInfo = [
 
 const FooterLinks = [
   {
-    id:1,
+    id: 1,
     text: "Contact Us ",
     link: "/contact",
   },
   {
-    id:2,
+    id: 2,
     text: "Events",
     link: "/events",
   },
   {
-    id:3,
+    id: 3,
     text: "Internships",
     link: "/internships",
   },
   {
-    id:4,
+    id: 4,
     text: "Sign Up",
     link: "/SignUp",
   },
 ]
-const socialLinks=[
+const socialLinks = [
   {
-    id:1,
-    icon:<FaLinkedinIn />,
-    link:"https://www.linkedin.com/company/office-of-international-relations-viit"
+    id: 1,
+    icon: <FaLinkedinIn />,
+    link: "https://www.linkedin.com/company/office-of-international-relations-viit"
   },
   {
-    id:2,
-    icon:<FaInstagram />,
-    link:"https://instagram.com/oir_viit?igshid=YmMyMTA2M2Y="
+    id: 2,
+    icon: <FaInstagram />,
+    link: "https://instagram.com/oir_viit?igshid=YmMyMTA2M2Y="
   },
   {
-    id:3,
-    icon:<FaRegEnvelope />,
-    link:"mailto:voir@viit.ac.in"
+    id: 3,
+    icon: <FaRegEnvelope />,
+    link: "mailto:voir@viit.ac.in"
   },
   {
-    id:4,
+    id: 4,
     icon: <FaDiscord />,
-    link:"https://discord.gg/SaMYfE8P"
+    link: "https://discord.gg/SaMYfE8P"
   },
-  
+
 ]
 const Footer = () => {
   return (
     <div className='w-full grid grid-cols-1 lg:grid-cols-[1.5fr_0.6fr_0.9fr_1.6fr] bg-oirBrown gap-3 '>
+      
       <div className='grid grid-rows-[1fr_0.6fr] gap-2 sm:gap-0 sm:grid-rows-2 bg-oirLightOrange p-6'>
         <div className='flex '>
           <img className='h-14' src={oirShortLogo} alt="short logo" />
@@ -97,7 +99,9 @@ const Footer = () => {
         <ul className='mt-2 flex gap-2 sm:gap-5 lg:block'>
           {
             FooterLinks.map((link) => (
-              <li key={link.id} className=' cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
+              <NavLink  key={link.id} to={link.link}>
+                <li className=' cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li></NavLink>
+          
             ))
           }
         </ul>
@@ -108,7 +112,7 @@ const Footer = () => {
         <div className="flex lg:justify-center">
           <div className='grid w-[34%] grid-cols-4 lg:grid-cols-2 lg:grid-rows-2 text-xl gap-5 mt-2 mr-3'>
             {
-              socialLinks.map((socialLink)=>(
+              socialLinks.map((socialLink) => (
                 <a target="_blank" rel="noreferrer" key={socialLink.id} href={socialLink.link}><p className='flex content-center flex-wrap hover:text-oirYellow text-2xl'>{socialLink.icon}</p></a>
 
               ))
@@ -123,7 +127,7 @@ const Footer = () => {
         <h1 className="font-bold text-3xl">Curious about our work?</h1>
         <p className='font-medium text-base flex flex-wrap leading-tight'>Join the community by taking the first step of Signing Up.</p>
         <div className='flex w-full lg:justify-end mt-3'>
-        <Button text={"Login/SignUp"}/>
+          <Button text={"Login/SignUp"} />
         </div>
 
       </div>
