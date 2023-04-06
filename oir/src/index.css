@@ -36,37 +36,5 @@ extrabold 800
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: silver;    /* color of the scroll thumb */
     border-radius: 10px;       /* roundness of the scroll thumb */
-    .faculty-card-radius {
-      border-radius: 0% 35% 35% 0% / 10% 50% 50% 10%;
-    }
-    body{
-      --swiper-theme-color: #FE6C19;
-    }
   }
-  html {
-    box-sizing: border-box;
-  }
-  * , *:before , *:after {
-    box-sizing: inherit;
-    font-family: Heebo, sans-serif;
-  }
-  /* Works on Firefox */
-  * {
-    scrollbar-width: 1em;
-    scrollbar-color: #008081 #f5f5f5;
-  }
-  
-  /* Works on Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 8px !important;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #f5f5f5;
-    border-radius: 100vw;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #FE6C19;
-    border-radius: 100vw;
-  }
+}
