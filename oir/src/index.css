@@ -15,8 +15,10 @@ extrabold 800
 @tailwind components;
 @tailwind utilities;
 
+
 @layer utilities {
   
+  /* this is for smooth behaviour */
   html{
     scroll-behavior: smooth;
   }
