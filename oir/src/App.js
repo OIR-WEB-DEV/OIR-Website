@@ -5,6 +5,7 @@ import React, { Suspense } from 'react';
 const MainPage = React.lazy(() => import('./pages/Main/Main'))
 const HomePage = React.lazy(() => import('./pages/Home/Home'))
 const EventsPage = React.lazy(() => import('./pages/Events'))
+const StudentDashboard = React.lazy(() => import('./pages/Dashboard/Student/StudentDashboard'))
 const InternshipPage = React.lazy(() => import('./pages/Internship'))
 const LoginPage = React.lazy(() => import('./pages/login'))
 const ContactPage = React.lazy(() => import('./pages/Contact'))
@@ -26,6 +27,7 @@ function App() {
                 <Route path='events' element={ <EventsPage />}/> 
                 <Route path='login' element={ <LoginPage />}/> 
                 <Route path='internships' element={ <InternshipPage />}/> 
+                <Route path='dashboard' element={ <StudentDashboard />}/> 
                 <Route path='contact' element={ <ContactPage />}/> 
                 <Route path='forgot' element={ <ForgotPage />}/> 
                 <Route path='login' element={ <LoginPage/> }/> 
