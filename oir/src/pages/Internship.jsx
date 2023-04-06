@@ -7,11 +7,13 @@ import Heading from '../Components/Heading/Heading'
 const Internship = () => {
     document.title="OIR | Internships"
     return (
+
         <>
         <div className="m-5 lg:m-24 pt-24 lg:pt-14">
         <Heading text={"Internships & Projects"}/>
-        
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-16 md:gap-y-10 lg:gap-x-36 lg:gap-y-20 mt-14">
+        <div className="grid mt-32 grid-cols-2 gap-3 m-5 mb-32  ">
+
             {intern.map((item) => {
                 const { image, name, text ,id} = item;
                 return (

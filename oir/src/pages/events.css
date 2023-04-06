@@ -1,6 +1,4 @@
-.hello{
-    height: 0;
-}
+
 .the-image{
     margin-left: 70px;
     margin-bottom: 30px;
@@ -18,27 +16,28 @@
 
 .arrow{
     margin-left: 500px;
-    height:44rem;
-    top: -1260px;
+    height:45rem;
+    top: -1280px;
     position: relative;
 }
 .orange{
     margin-left: 498px;
-    height:37rem;
-    top: -1350px;
+    height:36rem;
+    top: -1300px;
     position: relative;
 }
 .names{
     top:-2600px;
-    margin-left: 750px;
+    margin-left: 800px;
     width:38rem;
     position: relative;
 }
 .the-para{
-    top:-2180px;
+    top:-2400px;
     margin-left: 660px;
     margin-right: 100px;
     position: relative;
+
 }
 h3.webinar{
     font-size: larger;
@@ -51,3 +50,60 @@ h3.webinar{
     height:33rem;
     width:34.5rem;
 }
+
+.rectangle{
+    position: absolute;
+    width: 450px;
+    height: 590px;
+    margin-top: 20px;
+    left: -250.25px;
+    background: #52091B;
+    color: aliceblue;
+}
+.circle{
+    position: absolute;
+    width: 850px;
+    border-radius: 26%;
+    height: 590px;
+    margin-top: 20px;
+    left: -250.25px;
+    background: #52091B;
+}
+.width1{
+    width: 600px;
+}
+
+.text{
+    color: wheat;
+    margin-left: 300px;
+}
+
+.para{
+    padding-right: 290px;
+}
+
+.image{
+    position: relative;
+    height: 250px;
+    width: 300px;
+    top: -2450px;
+    right: -840px;
+ 
+}
+
+.b1{
+    top: -2570px;
+    position: relative;
+    right: -860px;
+
+}
+
+.b2{
+    top: -2570px;
+    position: relative;
+    right: -1110px;
+
+}
+
+
+

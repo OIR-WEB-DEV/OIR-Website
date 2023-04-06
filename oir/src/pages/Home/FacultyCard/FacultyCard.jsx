@@ -29,7 +29,7 @@ const FacultyCard = ({ image, name, position, email }) => {
             </div>
         </div>
 
-    );
+     );
 }
-
+ 
 export default FacultyCard;
