@@ -130,8 +130,6 @@ const Footer = () => {
         <h1 className="font-bold text-3xl">Curious about our work?</h1>
         <p className='font-medium text-base flex flex-wrap leading-tight'>Join the community by taking the first step of Signing Up.</p>
         <div className='flex w-full lg:justify-end mt-3'>
-
-          <Button text={"Login/SignUp"} />
         <a href="/login"> <Button text={"Login/SignUp"}/> </a>
 
         </div>
