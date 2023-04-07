@@ -6,7 +6,7 @@ const DashboardSection = ({id, heading, subheading, children }) => {
             </h1>
             <div className="flex flex-row justify-between items-center ">
                 <p className="text-base text-gray-600">{subheading}</p>
-                <div className="p-2 border rounded-full text-sm hover:bg-gray-200 cursor-pointer">View All</div>
+                <div className="p-2 border rounded-full flex justify-center items-center text-xs lg:text-sm hover:bg-gray-200 cursor-pointer">View All</div>
             </div>
             <div className="flex snap-x overflow-x-scroll custom-scrollbar py-3 w-[90vw] lg:w-[70vw]">
                 {/* cards */}

@@ -1,4 +1,5 @@
 import { MdOutlineLogout } from "react-icons/md";
+
 import { NavLink } from "react-router-dom";
 
 export const SidebarItem = ({title,link}) => {
@@ -12,12 +13,14 @@ export const SidebarItem = ({title,link}) => {
     );
 }
 
-export const SidebarItemPhone = ({title,link}) => {
+export const SidebarItemPhone = ({title,link,children}) => {
     return (
-        <NavLink to={link}
-            className="flex items-center px-3 py-1 text-gray-700/80 transition-colors duration-300 transform rounded-lg hover:bg-gray-400/25"
+        <NavLink 
+            to={link}
+            className="flex items-center justify-between relative px-3 py-1 text-gray-900 transition-colors duration-300 transform rounded-lg hover:bg-gray-400/25"
             >
             <span className="mx-1 text-sm font-medium">{title}</span>
+            {children}
         </NavLink>
     );
 }
@@ -25,7 +28,7 @@ export const SidebarItemPhone = ({title,link}) => {
 
 export const Sidebar = ({ image, name, email,children }) => {
     return (
-        <aside className="rounded-r-xl shadow-xl lg:shadow-none lg:rounded-none lg:flex fixed flex-col w-64 h-[calc(100vh-5rem)] px-5 justify-between py-4 overflow-y-auto border-2 lg:border-l border-r bg-[#F3F3F3]">
+        <aside className="rounded-r-xl shadow-xl lg:shadow-none lg:rounded-none flex fixed flex-col w-64 h-[calc(100vh-5rem)] px-5 justify-between py-4 overflow-y-auto border-2 lg:border-l border-r bg-[#F3F3F3]">
             <div className="">
                 {/* comment */}
                 <a href="#">

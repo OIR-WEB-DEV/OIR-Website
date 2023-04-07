@@ -4,7 +4,10 @@ import viitLogo from '../../assets/viit-logo.png'
 import oirLogo from '../../assets/oir-logo.png'
 import { RxCross2 } from "react-icons/rx";
 import { MdMenu } from "react-icons/md";
+import { BsChevronDown } from "react-icons/bs";
+
 import { NavLink } from 'react-router-dom'
+
 import { Sidebar, SidebarItemPhone } from '../Sidebar/Sidebar';
 
 const logos = [
@@ -26,8 +29,13 @@ const NavBar = ({ navbarData }) => {
 
   // for sidebar, mobile screen
   const [isOpen, setIsOpen] = useState(false)
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 
-  const handleClick = () => (
+  const handleSubmenuClick = () => (
+    setIsSubmenuOpen(!isSubmenuOpen)
+  )
+
+  const handleMenuClick = () => (
     setIsOpen(!isOpen)
   )
 
@@ -37,7 +45,7 @@ const NavBar = ({ navbarData }) => {
 
         {/* hidden for lg , visible for mobile */}
 
-        <div className="flex items-center justify-center text-2xl border-2 p-2 text-oirPurple border-oirPurple rounded-full cursor-pointer lg:hidden" onClick={handleClick}>{!isOpen ? <div className='rotate-0 duration-150'><MdMenu /></div> : <div className='rotate-180 duration-200'> <RxCross2 /></div>}</div>
+        <div className="flex items-center justify-center text-2xl border-2 p-2 text-oirPurple border-oirPurple rounded-full cursor-pointer lg:hidden" onClick={handleMenuClick}>{!isOpen ? <div className='rotate-0 duration-150'><MdMenu /></div> : <div className='rotate-180 duration-200'> <RxCross2 /></div>}</div>
 
 
 
@@ -80,24 +88,43 @@ const NavBar = ({ navbarData }) => {
         <div className=' hidden lg:flex'>
           <Button text={"Login/SignUp"} />
         </div>
-        </header >
+      </header >
 
-        {!isOpen ?
-          <div className="flex flex-col absolute top-20 z-30 lg:hidden -translate-x-64 duration-200">
-            <Sidebar />
-          </div> :
-          (<div className="flex flex-col absolute top-20 z-30 lg:hidden duration-300">
-            <Sidebar name={"ketty Bruno"} email={"kettybruno@viit.ac.in"}>
-              {
-                navbarData.map((item) => (
-                  <SidebarItemPhone key={item.id} title={item.text} link={item.link} />
-                ))
-              }
-            </Sidebar>
-          </div>)
-        }
+      {!isOpen ?
+        <div className="flex flex-col absolute top-20 z-30 lg:hidden -translate-x-64 duration-200">
+          <Sidebar />
+        </div> :
+        (<div className="flex flex-col absolute top-20 z-30 lg:hidden duration-300">
+          <Sidebar name={"ketty Bruno"} email={"kettybruno@viit.ac.in"}>
+            {
+              navbarData.map((item) => (
+                <>
+                  <SidebarItemPhone key={item.id} title={item.text} link={item.link}>
 
-      
+                    {item.hasSubmenu && isSubmenuOpen ? <div onClick={handleSubmenuClick} className='rotate-180 duration-300'><BsChevronDown /></div> : item.hasSubmenu && <div onClick={handleSubmenuClick} className='duration-300'><BsChevronDown /></div>}
+                  </SidebarItemPhone>
+
+                  {item.hasSubmenu && isSubmenuOpen && (
+                    <div className="flex flex-col items-center">
+                      <ul className='flex flex-col px-3 py-1 text-gray-700/80 rounded-lg'>
+                        {item.submenuItems.map((submenuItem) => (
+                          <a href={`#${submenuItem.link}`}>
+                            <li className=' my-1 text-sm font-medium  hover:bg-gray-400/25 rounded-md' key={submenuItem.id}>
+                              {`- ${submenuItem.title}`}
+                            </li>
+                          </a>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              ))
+            }
+          </Sidebar>
+        </div>)
+      }
+
+
     </>
   )
 }
