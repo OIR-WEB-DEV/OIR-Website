@@ -9,9 +9,9 @@ const AlumniDashboard = () => {
         { id: 2, title: "Alumni Connect", link: "alumni_connect" },
         { id: 3, title: "Q & A", link: "q_a" },
     ]
+
+    document.title = "Alumni Dashboard"
     return (
-
-
         <div className="flex flex-row mt-20">
             <div className="hidden lg:flex">
                 <Sidebar name={"Ketty Bruno"} email={"kettybruno@viit.ac.in"}>
@@ -79,6 +79,9 @@ const AlumniDashboard = () => {
                     <QaCard 
                     name={"Jenny Keller"} 
                     question={"Are there any opportunities in Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis itaque ut ipsa facilis exercitationem, atque cum quod fuga deserunt molestias quo, neque sapiente, inventore nisi. Similique unde nam ullam placeat?"}/>
+
+                    {/* view all */}
+                    <div className="text-base font-medium mt-10 text-blue-700 underline cursor-pointer">View All</div>
                    
                 </QaSection>
 

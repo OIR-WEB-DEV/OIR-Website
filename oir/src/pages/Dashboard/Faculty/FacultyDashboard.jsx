@@ -1,4 +1,4 @@
-import { AlumniCard,DashboardUpcomingEvent } from "../../../Components/DashboardComponents/Cards/Cards";
+import { AlumniCard, DashboardUpcomingEvent } from "../../../Components/DashboardComponents/Cards/Cards";
 import DashboardSection from "../../../Components/DashboardComponents/DashboardSection/DashboardSection";
 import { FacultyProfile } from "../../../Components/DashboardComponents/Profile/Profile";
 import { SmallHeading } from "../../../Components/Heading/Heading";
@@ -6,6 +6,8 @@ import { Sidebar, SidebarItem } from "../../../Components/Sidebar/Sidebar";
 import { Line } from 'react-chartjs-2'
 import 'chart.js/auto'
 import { EventStats, options } from "./EventStats";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
 
 const FacultyDashboard = () => {
     const menus = [
@@ -13,6 +15,8 @@ const FacultyDashboard = () => {
         { id: 2, title: "University Reprentative", link: "university_reprentative" },
         { id: 3, title: "Alumni Connect", link: "alumni_connect" },
     ]
+    document.title = "Faculty Dashboard"
+
     return (
         <div className="flex flex-row mt-20">
             <div className="hidden lg:flex">
@@ -43,17 +47,25 @@ const FacultyDashboard = () => {
 
                         <div className=" grid grid-rows-2 gap-5">
                             {/* upcoming event card */}
-                            
+
                             <DashboardUpcomingEvent eventTitle={"Meet with French Institutes"} registered={128} date={"12 April 2023"} time={"12:15PM to 2:00PM"} cost={"Free"} />
 
                             <div className="border rounded-md">
-                                
+
                             </div>
 
                         </div>
-                            {/* statistic line chart */}
-                        <div className=" w-full border mt-4 p-1 py-3 lg:mt-0"><Line options={options} data={EventStats}/> </div>
+                        {/* statistic line chart */}
+                        <div className=" w-full border mt-4 p-1 py-3 lg:mt-0"><Line options={options} data={EventStats} />
+                        </div>
+
                     </div>
+                    {/* view all button */}
+                    <div 
+                    className=" cursor-pointer font-bold text-sm flex mt-10 w-28 py-2 px-4 rounded-full text-white  bg-oirBrown">
+                        <p>View All</p>
+                        <div className="flex items-center text-lg m-0 text-white"><MdOutlineKeyboardArrowRight/></div>
+                        </div>
 
                 </div>
 

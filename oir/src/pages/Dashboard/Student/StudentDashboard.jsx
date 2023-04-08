@@ -14,6 +14,8 @@ const StudentDashboard = () => {
         {id:3, title:"Student Co-ordinator", link:"student_coordinator" },
     ]
 
+    document.title = "OIR | Dashboard"
+
     return (
 
         <div className="flex flex-row mt-20">
