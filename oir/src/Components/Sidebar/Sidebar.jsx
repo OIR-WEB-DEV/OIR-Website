@@ -18,6 +18,8 @@ export const SidebarItemPhone = ({title,link,children}) => {
         <NavLink 
             to={link}
             className="flex items-center justify-between relative px-3 py-1 text-gray-900 transition-colors duration-300 transform rounded-lg hover:bg-gray-400/25"
+           
+         
             >
             <span className="mx-1 text-sm font-medium">{title}</span>
             {children}

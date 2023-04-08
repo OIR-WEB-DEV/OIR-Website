@@ -23,21 +23,25 @@ const Main = () => {
       key: 1,
       text: "Home",
       link: "",
+      hasSubmenu:false,
     },
     {
       key: 2,
       text: "Internships",
       link: "/internships",
+      hasSubmenu:false,
     },
     {
       key: 3,
       text: "Events and Activities",
       link: "/events",
+      hasSubmenu:false,
     },
     {
       key: 4,
       text: "Contact Us",
       link: "/contact",
+      hasSubmenu:false,
     },
     {
       key: 5,
@@ -45,9 +49,9 @@ const Main = () => {
       link: "/dashboard",
       hasSubmenu: true,
       submenuItems: [
-        { id: 1, title: "Event Registration", link: "event_section" },
-        { id: 2, title: "Alumni Connect", link: "alumni_connect" },
-        { id: 3, title: "Student Co-ordinator", link: "student_coordinator" },
+        { id: 6, title: "Event Registration", link: "event_section" },
+        { id: 7, title: "Alumni Connect", link: "alumni_connect" },
+        { id: 8, title: "Student Co-ordinator", link: "student_coordinator" },
       ]
     },
   ]

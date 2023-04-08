@@ -98,18 +98,18 @@ const NavBar = ({ navbarData }) => {
           <Sidebar name={"ketty Bruno"} email={"kettybruno@viit.ac.in"}>
             {
               navbarData.map((item) => (
-                <>
-                  <SidebarItemPhone key={item.id} title={item.text} link={item.link}>
-
+                <div key={item.key} >
+                              
+                  <SidebarItemPhone title={item.text} link={item.link} >
                     {item.hasSubmenu && isSubmenuOpen ? <div onClick={handleSubmenuClick} className='rotate-180 duration-300'><BsChevronDown /></div> : item.hasSubmenu && <div onClick={handleSubmenuClick} className='duration-300'><BsChevronDown /></div>}
                   </SidebarItemPhone>
-
+                  
                   {item.hasSubmenu && isSubmenuOpen && (
                     <div className="flex flex-col items-center">
                       <ul className='flex flex-col px-3 py-1 text-gray-700/80 rounded-lg'>
                         {item.submenuItems.map((submenuItem) => (
-                          <a href={`#${submenuItem.link}`}>
-                            <li className=' my-1 text-sm font-medium  hover:bg-gray-400/25 rounded-md' key={submenuItem.id}>
+                          <a key={submenuItem.id} href={`#${submenuItem.link}`}>
+                            <li className=' my-1 text-sm font-medium  hover:bg-gray-400/25 rounded-md'>
                               {`- ${submenuItem.title}`}
                             </li>
                           </a>
@@ -117,7 +117,8 @@ const NavBar = ({ navbarData }) => {
                       </ul>
                     </div>
                   )}
-                </>
+
+                </div>
               ))
             }
           </Sidebar>

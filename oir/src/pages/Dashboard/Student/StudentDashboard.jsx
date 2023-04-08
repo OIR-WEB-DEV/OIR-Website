@@ -21,12 +21,11 @@ const StudentDashboard = () => {
                 <Sidebar name={"Ketty Bruno"} email={"kettybruno@viit.ac.in"}>
                 {
                     menus.map((item)=>(
-                        <>
                             <SidebarItem key={item.id} title={item.title} link={item.link}/>
-                        </>
                     ))
                 }
-            </Sidebar></div>
+                </Sidebar>
+            </div>
             
 
             {/* aside */}
@@ -64,13 +63,8 @@ const StudentDashboard = () => {
                     <AlumniCard />
                 </DashboardSection>
 
-
             </div>
-
-            {/* events */}
-
-
-
+        
         </div>
     );
 }
