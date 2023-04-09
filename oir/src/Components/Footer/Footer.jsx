@@ -102,11 +102,11 @@ const Footer = () => {
         <ul className='mt-2 flex gap-2 sm:gap-5 lg:block'>
           {
             FooterLinks.map((link) => (
-              <NavLink  key={link.id} to={link.link}>
+              <><NavLink  key={link.id} to={link.link}>
                 <li className=' cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li></NavLink>
               <NavLink to={link.link} >
               <li key={link.id} className=' cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted'>{link.text}<span className='flex text-lg content-center flex-wrap'><MdKeyboardArrowRight /></span></li>
-              </NavLink>
+              </NavLink></>
             ))
           }
         </ul>

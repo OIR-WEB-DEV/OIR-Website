@@ -15,7 +15,7 @@ import Slider from '../pages/Slider'
 const Events = () => {
   return (
     <div>
-    <h2 className="m-1 ml-5 mt-12 mb-8 font-bold sm:text-4xl lg:text-4xl relative text-oirBrown after:content-[''] after:absolute after:w-24 after:-bottom-2 after:left-0 after:h-[2px] after:bg-oirYellow">Events & Activities</h2>
+    <h2 className="m-1 ml-5 mt-24 mb-8 font-bold sm:text-4xl lg:text-4xl relative text-oirBrown after:content-[''] after:absolute after:w-24 after:-bottom-2 after:left-0 after:h-[2px] after:bg-oirYellow">Events & Activities</h2>
     <div className='abs hidden lg:block'>
     <h3 className='the-event mt-20'>Global Education Fair</h3>
     <div className='the-images'>
