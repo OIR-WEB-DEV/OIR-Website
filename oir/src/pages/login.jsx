@@ -12,9 +12,9 @@ const Login = () => {
 
   return (
     <div>
-    <div className="rectangle">
+    <div className="rectangle hidden lg:block">
     </div>
-    <div className="circle">
+    <div className="circle hidden lg:block">
     <div className='text'>
     <h1 className='text-4xl mt-24'>Login As</h1>
     <p className='mt-24 mr-8 text-2xl para text-white'>Login and discover  great new opportunities !</p>
@@ -23,15 +23,16 @@ const Login = () => {
     </div>
     </div>
   <section className="h-screen lg:mr-20 pr-8">
-  <div className="h-full md:mt-20 lg:mr-10">
+    <div className='block lg:hidden ml-3'>
+    <h1 className='text-xl font-bold text-amber-900 mt-10'>Login As <Dropdown /></h1>
+    <p className='mr-3 text-xl text-gray-600 mt-3'>Login and discover  great new opportunities !</p>
+
+    </div>
+  <div className="h-full lg:mt-18 lg:mr-10">
     <div
       className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
       <div
         className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-        <img
-          src=""
-          className="w-full"
-          alt="Sample image" />
       </div>
       <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
         <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-2'>Student Login</h2>
@@ -111,13 +112,10 @@ const Login = () => {
 
           <div className="mb-6 flex items-center justify-between">
             <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-              <input className='inline mr-2' id='exampleCheck2'
-                type="checkbox"/>
-                <label
-                className="inline-block pl-[0.15rem] hover:cursor-pointer"
-                htmlFor="exampleCheck2">
-                Remember me
-              </label>
+            <div class="flex items-center mb-2">
+    <input id="Remember-me" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+    <label for="Remember-me" class="text-sm ml-2 font-medium text-gray-700 dark:text-gray-300">Remember Me</label>
+</div>
             </div>
             <a href="#!" className='text-blue-500 hover:text-blue-800'>Forgot password?</a>
           </div>
