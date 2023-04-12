@@ -5,9 +5,9 @@ import './events.css'
 const Contact = () => {
   return (
     <div>
-    <div className="rectangle">
+    <div className="rectangle invisible lg:visible">
     </div>
-    <div className="circle">
+    <div className="circle invisible lg:visible">
     <div className='text'>
     <p className='mt-[180px] ml-20 text-6xl text-#FBF2DE font-bold' style={{lineHeight:"80px"}}>Happy to<br></br> Help :)</p>
     </div>
@@ -20,8 +20,7 @@ const Contact = () => {
         className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
         <img
           src=""
-          className="w-full"
-          alt="Sample image" />
+          className="w-full"/>
       </div>
       <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
         <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-7'>Contact Us</h2>

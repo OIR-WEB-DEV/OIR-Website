@@ -39,6 +39,11 @@ const Main = () => {
           text: "Contact Us",
           link: "/contact",
         },
+        {
+          key:5,
+          text: "Dashboard",
+          link: "/dashboard",
+        },
       ]
     return ( 
         <>

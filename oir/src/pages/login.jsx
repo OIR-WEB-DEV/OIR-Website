@@ -12,44 +12,48 @@ const Login = () => {
 
   return (
     <div>
-      <div className="rectangle"></div>
-      <div className="circle">
-        <div className="text">
-          <h1 className="text-4xl mt-24">Login As</h1>
-          <p className="mt-24 mr-8 text-2xl para text-white">
-            Login and discover great new opportunities !
-          </p>
-          <Dropdown />
-        </div>
+    <div className="rectangle hidden lg:block">
+    </div>
+    <div className="circle hidden lg:block">
+    <div className='text'>
+    <h1 className='text-4xl mt-24'>Login As</h1>
+    <p className='mt-24 mr-8 text-2xl para text-white'>Login and discover  great new opportunities !</p>
+   <Dropdown />
+
+    </div>
+    </div>
+  <section className="h-screen lg:mr-20 pr-8">
+    <div className='block lg:hidden ml-3'>
+    <h1 className='text-xl font-bold text-amber-900 mt-10'>Login As <Dropdown /></h1>
+    <p className='mr-3 text-xl text-gray-600 mt-3'>Login and discover  great new opportunities !</p>
+
+    </div>
+  <div className="h-full lg:mt-18 lg:mr-10">
+    <div
+      className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+      <div
+        className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
       </div>
-      <section className="h-screen lg:mr-20 pr-8">
-        <div className="h-full lg:mr-10">
-          <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-            <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-              <img src="" className="w-full" alt="Sample image" />
-            </div>
-            <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-              <h2 className="underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-2">
-                Student Login
-              </h2>
-              <form method="post">
-                <div className="flex flex-row items-center justify-center lg:justify-start">
-                  <p className="mb-0 mr-3 text-lg">Sign in with</p>
-                  <button
-                    type="submit"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    className=" ml-1 mr-2 h-9 w-9 rounded-full bg-black uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mx-auto h-3.5 w-3.5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                    </svg>
-                  </button>
+      <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+        <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-2'>Student Login</h2>
+        <form method='post'>
+          <div
+            className="flex flex-row items-center justify-center lg:justify-start">
+            <p className="mb-0 mr-3 text-lg">Sign in with</p>
+            <button
+              type="submit"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+              className=" ml-1 mr-2 h-9 w-9 rounded-full bg-black uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto h-3.5 w-3.5"
+                fill="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+              </svg>
+            </button>
 
                   <button
                     type="button"
@@ -112,24 +116,15 @@ const Login = () => {
                   </label>
                 </div>
 
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-                    <input
-                      className="inline mr-2"
-                      id="exampleCheck2"
-                      type="checkbox"
-                    />
-                    <label
-                      className="inline-block pl-[0.15rem] hover:cursor-pointer"
-                      htmlFor="exampleCheck2"
-                    >
-                      Remember me
-                    </label>
-                  </div>
-                  <a href="#!" className="text-blue-500 hover:text-blue-800">
-                    Forgot password?
-                  </a>
-                </div>
+          <div className="mb-6 flex items-center justify-between">
+            <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+            <div class="flex items-center mb-2">
+    <input id="Remember-me" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+    <label for="Remember-me" class="text-sm ml-2 font-medium text-gray-700 dark:text-gray-300">Remember Me</label>
+</div>
+            </div>
+            <a href="#!" className='text-blue-500 hover:text-blue-800'>Forgot password?</a>
+          </div>
 
                 <div className="text-center lg:text-left">
                   <Button text={"Login"} className=""></Button>
