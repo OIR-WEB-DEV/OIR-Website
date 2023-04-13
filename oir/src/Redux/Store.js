@@ -1,7 +1,10 @@
 import { AuthReducers } from "./Reducers/AuthReducers"
-const store = configureStore({
-    reducer:{
-        AuthLogin: AuthReducers,
-    }
+import {combineReducers, createStore} from "redux"
+
+const rootReducer = combineReducers({
+    AuthLogin: AuthReducers,
 })
+const store = createStore(
+    rootReducer
+)
 export default store;

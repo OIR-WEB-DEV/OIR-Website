@@ -3,6 +3,7 @@ import Button from "../Components/Button/Button";
 import Dropdown from "../Components/Dropdown";
 import "./events.css";
 import { connect } from "react-redux";
+import { loginUser } from "../Redux/Actions/AuthActions";
 
 const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
