@@ -84,67 +84,6 @@ const Login = (props) => {
                   </button>
                 </div>
 
-<<<<<<< HEAD
-                  <button
-                    type="button"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    className="mx-2 h-9 w-9 rounded-full bg-black uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                  >
-                    <svg
-                      className="mx-auto h-3.5 w-3.5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                    </svg>
-                  </button>
-
-                  <button
-                    type="button"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    className="mx-2 h-9 w-9 rounded-full bg-black uppercase leading-normal font-bold text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                  >
-                    G
-                  </button>
-                </div>
-
-                <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                  <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
-                    OR
-                  </p>
-                </div>
-
-                <div className="relative mb-6" data-te-input-wrapper-init>
-                  <input
-                    type="text"
-                    className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlInput2"
-                    placeholder="Email address"
-                  />
-                  <label
-                    htmlFor="exampleFormControlInput2"
-                    className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                  >
-                    Email address
-                  </label>
-                </div>
-
-                <div className="relative mb-6" data-te-input-wrapper-init>
-                  <input
-                    type="password"
-                    className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlInput22"
-                    placeholder="Password"
-                  />
-                  <label
-                    htmlFor="exampleFormControlInput2"
-                    className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                  >
-                    Password
-                  </label>
-=======
                 <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                   <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
                     OR
@@ -200,7 +139,6 @@ const Login = (props) => {
                   <a href="#!" className="text-blue-500 hover:text-blue-800">
                     Forgot password?
                   </a>
->>>>>>> main
                 </div>
 
                 <div className="text-center lg:text-left">
@@ -218,37 +156,13 @@ const Login = (props) => {
               </form>
             </div>
           </div>
-<<<<<<< HEAD
-
-                <div className="text-center lg:text-left">
-                  <Button text={"Login"} className=""></Button>
-                  <p className="mt-2 mb-0 pt-1 text-sm font-semibold">
-                    Don't have an account?
-                    <a
-                      href="/signup"
-                      className="text-amber-700 transition duration-150 ease-in-out hover:text-blue-700 focus:text-danger-600 active:text-danger-700"
-                    >
-                      Register
-                    </a>
-                  </p>
-                </div>
-              </form>
-            </div>
-          </div>
-=======
->>>>>>> main
         </div>
       </section>
     </div>
   );
 };
-<<<<<<< HEAD
-
-export default Login;
-=======
 const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
 const mapDispatchToProps = (dispact) => ({
   loginUser: (userDetails) => dispact(loginUser(userDetails)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
->>>>>>> main
