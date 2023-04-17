@@ -86,7 +86,7 @@ const Signup = () => {
     setIsLoading(true);
     try{
       const result = await axios.post(
-        "http://localhost:4000/api/v1/register",
+        "https://oir-server.vercel.app/api/v1/register",
         data
       )
       console.log(result)
