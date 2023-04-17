@@ -11,6 +11,9 @@ const LoginPage = React.lazy(() => import('./pages/login'))
 const ContactPage = React.lazy(() => import('./pages/Contact'))
 const ForgotPage = React.lazy(() => import('./pages/ForgotPass'))
 const SignUpPage = React.lazy(()=> import('./pages/Signup'))
+const Profile = React.lazy(()=> import('./pages/Profile'))
+const NewPassword = React.lazy(()=> import('./pages/NewPassword'))
+const Validation = React.lazy(()=> import('./pages/validation'))
 
 function App() {
 
@@ -32,6 +35,9 @@ function App() {
                 <Route path='forgot' element={ <ForgotPage />}/> 
                 <Route path='login' element={ <LoginPage/> }/> 
                 <Route path='signup' element={ <SignUpPage/> }/> 
+                <Route path='new' element={<NewPassword />} />
+                <Route path='profile' element={<Profile />} />
+                <Route path='validation' element={<Validation />} />
               </Route> 
             </Routes>
           </Suspense>
