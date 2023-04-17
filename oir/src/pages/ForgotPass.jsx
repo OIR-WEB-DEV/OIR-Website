@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Components/Button/Button'
 import './events.css'
+import tanmay from '../assets/lock.png'
 
 
 const ForgotPass = () => {
@@ -9,6 +10,9 @@ const ForgotPass = () => {
     <div className="rectangle invisible md:visible">
     </div>
     <div className="circle invisible md:visible">
+    <div className='text mt-40 pl-24 ml-[30px]'>
+    <div className='rounded-full w-48 h-48 ring-2 ring-amber-500'><img className='ml-6 pt-2 h-36 w-36' src={tanmay}></img></div>
+    </div>
     <div className='text'>
     </div>
     </div>
