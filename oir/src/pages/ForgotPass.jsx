@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import Button from "../Components/Button/Button";
-import "./events.css";
+import React, { useState } from 'react'
+import Button from '../Components/Button/Button'
+import './events.css'
+import lock from '../assets/lock.png'
+
 import axios from "axios";
 
 const ForgotPass = () => {
@@ -20,9 +22,25 @@ const ForgotPass = () => {
   }
   return (
     <div>
-      <div className="rectangle invisible md:visible"></div>
-      <div className="circle invisible md:visible">
-        <div className="text"></div>
+    <div className="rectangle invisible md:visible">
+    </div>
+    <div className="circle invisible md:visible">
+    <div className='text mt-40 pl-24 ml-[30px]'>
+    <div className='rounded-full w-48 h-48 ring-2 ring-amber-500'><img className='ml-6 pt-2 h-36 w-36' src={lock}></img></div>
+    </div>
+    <div className='text'>
+    </div>
+    </div>
+    <section className="h-screen lg:mr-20 pr-8">
+  <div className="h-full lg:mr-10">
+    <div
+      className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+      <div
+        className="shrink-1 mb-12 grow-0 invisible basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+        <img
+          src=""
+          className="w-full"
+          alt="Sample image" />
       </div>
       <section className="h-screen lg:mr-20 pr-8">
         <div className="h-full lg:mr-10">
@@ -37,6 +55,7 @@ const ForgotPass = () => {
               <h1 className="font-bold text-amber-900 text-xl mb-7">
                 Verify Your Email to reset your password
               </h1>
+              </div>
               <div className="bg-gray-100 rounded border flex items-center justify-between mb-10">
                 <input
                   type="email"
@@ -142,7 +161,9 @@ const ForgotPass = () => {
         </div> */}
             </div>
           </div>
-        </div>
+          </section>
+          </div>
+          </div>
       </section>
     </div>
   );
