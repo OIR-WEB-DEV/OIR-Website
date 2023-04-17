@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Components/Button/Button";
 import "./events.css";
+import axios from "axios";
 
 const ForgotPass = () => {
+  const [email,setEmail] = useState(null);
+  const handleChange = (event) => {
+    setEmail((prevEmail) => ({
+      ...prevEmail,
+      email: event.target.value,
+    }));
+  }
+  const handleForgot = async(e) => {
+    e.preventDefault();
+    const result = axios.post(
+      "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify",
+
+    )
+  }
   return (
     <div>
       <div className="rectangle invisible md:visible"></div>
@@ -24,11 +39,16 @@ const ForgotPass = () => {
               </h1>
               <div className="bg-gray-100 rounded border flex items-center justify-between mb-10">
                 <input
-                  type="text"
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email.email.email}
+                  onChange={handleChange}
+                  required
                   placeholder="Email address"
                   className="bg-transparent text-gray-600 px-4 border-gray-100 focus:ring-1 focus:ring-amber-400 w-full"
                 />{" "}
-                <button className="cursor-pointer flex items-center py-2 px-7 rounded-full border-black text-white hover:ring-2 hover:ring-blue-500 justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
+                <button onClick={handleForgot} className="cursor-pointer flex items-center py-2 px-7 rounded-full border-black text-white hover:ring-2 hover:ring-blue-500 justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
                   Submit
                 </button>
               </div>
