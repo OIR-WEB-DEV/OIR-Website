@@ -86,7 +86,7 @@ const NavBar = ({ navbarData }) => {
           </div>
         </div>
         <div className=' hidden lg:flex'>
-          <Button text={"Login/SignUp"} />
+          <a href='/signup'><Button text={"Login/SignUp"} /></a>
         </div>
       </header >
 
