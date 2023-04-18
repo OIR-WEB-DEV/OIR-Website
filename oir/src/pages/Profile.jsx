@@ -2,6 +2,7 @@
 import React from 'react'
 import prof from '../assets/profile.png'
 import Button from '../Components/Button/Button'
+import './events.css'
 
 const profile = () => {
   return (
