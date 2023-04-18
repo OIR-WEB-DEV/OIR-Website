@@ -9,7 +9,7 @@ import { Toaster, toast } from "react-hot-toast";
 
 const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
-  // const navigate = useNavigate();
+   //const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -42,7 +42,7 @@ const Login = (props) => {
         console.log(result);
       }
     } catch (error) {
-      console.log(error)
+     console.log(error)
       toast.error(error.response.data.message,{duration:5000})
     }
   }
