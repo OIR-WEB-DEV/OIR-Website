@@ -26,23 +26,23 @@ const Contact = () => {
         <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-7'>Contact Us</h2>
         <form method='post'>
           <div className="relative mb-6" data-te-input-wrapper-init>
-          <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required /> 
+          <label for="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+            <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required /> 
           </div>
-          <div class="grid gap-6 mb-1 md:grid-cols-2">
+          <div className="grid gap-6 mb-1 md:grid-cols-2">
           <div className="relative mb-6" data-te-input-wrapper-init>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email address" required /> 
-          </div>
-          <div className="relative mb-6" data-te-input-wrapper-init>
-            <label for="contact_num" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
-            <input type="tel" id="contact_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Contact Number" required /> 
-          </div>
+            <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email address" required /> 
           </div>
           <div className="relative mb-6" data-te-input-wrapper-init>
-          <label for="contact_num" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Message</label>
+            <label for="contact_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+            <input type="tel" id="contact_num" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Contact Number" required /> 
+          </div>
+          </div>
+          <div className="relative mb-6" data-te-input-wrapper-init>
+          <label for="contact_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Message</label>
           <textarea
-      class="peer block min-h-[auto] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      className="peer block min-h-[auto] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       id="exampleFormControlTextarea1"
       rows="3"
       placeholder="Enter message"></textarea>
