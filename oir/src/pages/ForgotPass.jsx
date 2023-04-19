@@ -64,7 +64,7 @@ const ForgotPass = () => {
     id=""
   />
 </div>
-<div className="w-14 h-14 ">
+<div className="w-14 h-14 ml-2">
   <input
     className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
     type="text"
@@ -72,7 +72,7 @@ const ForgotPass = () => {
     id=""
   />
 </div>
-<div className="w-14 h-14 ">
+<div className="w-14 h-14 ml-2">
   <input
     className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
     type="text"
@@ -80,7 +80,23 @@ const ForgotPass = () => {
     id=""
   />
 </div>
-<div className="w-14 h-14 ">
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
   <input
     className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
     type="text"
