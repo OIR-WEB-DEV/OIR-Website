@@ -60,6 +60,16 @@ h3.webinar{
     background: #52091B;
     color: aliceblue;
 }
+
+@media screen and (max-width:1260px){
+    .rectangle{
+        display: none;
+    }
+    .circle{
+        display: none;
+    }
+
+}
 .circle{
     position: absolute;
     width: 850px;
