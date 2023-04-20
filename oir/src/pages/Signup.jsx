@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { parsePath, useNavigate } from 'react-router-dom';
 // import Button from "../Components/Button/Button";
 import {toast,Toaster} from 'react-hot-toast';
+import { connect } from "react-redux";
+import { registerUser } from "../Redux/Actions/AuthActions";
 import "./events.css";
 import axios from "axios";
 
-const Signup = () => {
+const Signup = (props) => {
   const [data, setdata] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
+  const [id,setId] = useState("");
 
   const navigate = useNavigate();
-
+  const UserDetails = props.registerUser(data);
   const [isLoading, setIsLoading] = useState(false);
 
   const [errors, setErrors] = useState({
@@ -89,19 +92,28 @@ const Signup = () => {
         "https://oir-server.vercel.app/api/v1/register",
         data
       )
-      console.log(result)
+      console.log(typeof(result))
+      console.log(result);
+      console.log(typeof(result))
+      console.log(result.data.data.id)
+      const UserId = result.data.data.id;
+      setId(UserId)
+      console.log(typeof(id));
+      UserDetails = props.registerUser(id)
+      console.log(UserDetails);
+
       if(result.data.success)
       {
         toast.success(result.data.message,{duration:5000});
         setIsLoading(false);
-        navigate('/')
+        navigate('/otp');
       }
       else{
         toast.error("Failed to Register");
       }
       setIsLoading(false);
     } catch(error){
-      toast.error(error.response.data.message,{duration:5000})
+      toast.error(error,{duration:5000})
       setIsLoading(false);
     }
 
@@ -232,4 +244,9 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+const mapStateToProps = (state) => ({AuthRegister:state.AuthRegister});
+const mapDispatchToProps = (dispact) => ({
+  registerUser : (userDetails) => dispact(registerUser(userDetails)),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Signup)
