@@ -14,30 +14,67 @@ const NewPassword = React.lazy(() => import('../pages/NewPassword'))
 const Validation = React.lazy(() => import('../pages/validation'))
 const OTP = React.lazy(() => import('../pages/OtpPage'))
 
-{/* <Routes>              
-              <Route path='/' element={ <MainPage />}>
-                <Route path='' element={ <HomePage />}/> 
-                <Route path='events' element={ <EventsPage />}/> 
-                <Route path='login' element={ <LoginPage />}/> 
-                <Route path='internships' element={ <InternshipPage />}/> 
-                <Route path='dashboard' element={ <StudentDashboard />}/> 
-                <Route path='contact' element={ <ContactPage />}/> 
-                <Route path='forgot' element={ <ForgotPage />}/> 
-                <Route path='login' element={ <LoginPage/> }/> 
-                <Route path='signup' element={ <SignUpPage/> }/> 
-                <Route path='new' element={<NewPassword />} />
-                <Route path='profile' element={<Profile />} />
-                <Route path='validation' element={<Validation />} />
-                <Route path='otp' element={<OTP/>}/>
-              </Route> 
-            </Routes>
-            <Routes> */}
 
 const components = {
-    Home: {
+    HomePage: {
 		path: "/",
-		name: "home",
-		element: <Home />,
+		name: "HomePage",
+		element: <HomePage />,
+	},
+    EventsPage: {
+		path: "/events",
+		name: "EventsPage",
+		element: <EventsPage />,
+	},
+    LoginPage: {
+		path: "/login",
+		name: "LoginPage",
+		element: <LoginPage />,
+	},
+    InternshipPage: {
+		path: "/internships",
+		name: "InternshipPage",
+		element: <InternshipPage />,
+	},
+    StudentDashboard: {
+		path: "/dashboard",
+		name: "StudentDashboard",
+		element: <StudentDashboard />,
+	},
+    ContactPage: {
+		path: "/contact",
+		name: "ContactPage",
+		element: <ContactPage />,
+	},
+    ForgotPage: {
+		path: "/forgot",
+		name: "ForgotPage",
+		element: <ForgotPage />,
+	},
+    SignUpPage: {
+		path: "/signup",
+		name: "SignUpPage",
+		element: <SignUpPage />,
+	},
+    NewPassword: {
+		path: "/new",
+		name: "NewPassword",
+		element: <NewPassword />,
+	},
+    Profile: {
+		path: "/profile",
+		name: "Profile",
+		element: <Profile />,
+	},
+    Validation: {
+		path: "/validation",
+		name: "Validation",
+		element: <Validation />,
+	},
+    OTP: {
+		path: "/otp",
+		name: "OTP",
+		element: <OTP />,
 	},
 }
 
@@ -64,6 +101,6 @@ const rolesConfig = {
 	},
 };
 const BasicRoutesConfig = [
-    components.Home
+    
 ];
 export { rolesConfig, BasicRoutesConfig };
