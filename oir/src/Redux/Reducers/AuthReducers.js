@@ -1,4 +1,4 @@
-import { LOGIN } from "../Actions/GlobalTypes";
+import { LOGIN, REGISTER } from "../Actions/GlobalTypes";
 
 const InitalState={
     loginAuth: {},
@@ -7,17 +7,15 @@ const InitalState={
 export const AuthReducers=(state= InitalState,action)=>{
     switch (action.type) {
         case LOGIN:
-            
-            /**
-             * login user logic
-             */
-
-        case LOGIN:
-            
-            /**
-             * register user logic
-             */
-    
+            return {
+                ...state,
+                loginAuth: action.payload,
+              };
+        case REGISTER:
+            return {
+                ...state,
+                loginAuth: action.payload,
+              };
         default:
             return state;
     }
