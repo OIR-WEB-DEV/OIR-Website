@@ -14,6 +14,8 @@ const Login = (props) => {
     email: "",
     password: "",
   });
+  const UserDetails = props.loginUser(data);
+  console.log(UserDetails)
   const handleChange = (event) => {
     const details = { ...data, [event.target.name]: event.target.value };
     setData(details);
@@ -73,7 +75,7 @@ const Login = (props) => {
             <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12"></div>
             <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
               <h2 className="underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-2">
-                Student Login
+                Student LoginAuthLogin
               </h2>
               <form method="post">
                 <div className="flex flex-row items-center justify-center lg:justify-start">
@@ -217,6 +219,7 @@ const Login = (props) => {
     </div>
   );
 };
+
 const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
 const mapDispatchToProps = (dispact) => ({
   loginUser: (userDetails) => dispact(loginUser(userDetails)),
