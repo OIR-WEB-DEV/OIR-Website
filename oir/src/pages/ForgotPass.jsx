@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../Components/Button/Button'
 import './events.css'
+import lock from '../assets/lock.png'
+import forgot from '../assets/forgotpass.png'
 
+import axios from "axios";
 
 const ForgotPass = () => {
+  const [email,setEmail] = useState(null);
+  const handleChange = (event) => {
+    setEmail((prevEmail) => ({
+      ...prevEmail,
+      email: event.target.value,
+    }));
+  }
+  const handleForgot = async(e) => {
+    e.preventDefault();
+    const result = axios.post(
+      "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify",
+
+    )
+  }
   return (
     <div>
-    <div className="rectangle invisible md:visible">
+    <div className="rectangle invisible lg:visible min-[800px]:invisible">
     </div>
     <div className="circle invisible md:visible">
-    <div className='text'>
+    
+    <div className='text mt-40 pl-24 ml-[30px]'>
+    <div className='rounded-full w-48 h-48 ring-2 ring-amber-500'><img className='ml-6 pt-2 h-36 w-36' src={lock}></img></div>
     </div>
     </div>
     <section className="h-screen lg:mr-20 pr-8">
@@ -23,41 +42,80 @@ const ForgotPass = () => {
           className="w-full"
           alt="Sample image" />
       </div>
-      <div className="mb-12 max-[420px]:ml-10 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+      <div className="mb-12 max-[420px]:ml-10 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 md:mx-auto">
         <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-5'>Forgot Password</h2>
-        <h1 className='font-bold text-amber-900 text-xl mb-7'>Verify Your Email to reset your password</h1>
-        <div class="bg-gray-100 rounded border flex items-center justify-between mb-10"><input type="text" placeholder="Email address" class="bg-transparent text-gray-600 px-4 border-gray-100 focus:ring-1 focus:ring-amber-400 w-full" /> <button class="cursor-pointer flex items-center py-2 px-7 rounded-full border-black text-white hover:ring-2 hover:ring-blue-500 justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">Submit</button></div>
-        <h2 className='text-lg text-gray-500 mb-3'>OTP</h2>
-        <h2 className='text-md text-black mb-5'>Enter the OTP sent on your mail</h2>
+        <h1 className='font-bold text-amber-900 text-xl mb-7'>Verify your email to reset Password</h1>
+        
+    
         <form action="" method="post">
-          <div class="flex flex-col space-y-16">
-            <div class="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
-              <div class="w-14 h-14 ">
-                <input class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-400 focus:border-orange-400" type="text" name="" id="" />
-              </div>
-              <div class="w-14 h-14 ">
-                <input class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500" type="text" name="" id="" />
-              </div>
-              <div class="w-14 h-14 ">
-                <input class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500" type="text" name="" id="" />
-              </div>
-              <div class="w-14 h-14 ">
-                <input class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500" type="text" name="" id="" />
-              </div>
-            </div>
 
-            <div class="flex flex-col space-y-5">
-              <div className='md:ml-[12rem]'>
-                <button class="flex flex-row items-center justify-center text-center w-40 border rounded-xl outline-none py-3 cursor-pointer flex items-center py-1 px-4 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out  border-none text-white text-md hover:ring-2 hover:ring-blue-600 shadow-sm">
-                  Reset
+        <div class="bg-gray-100 rounded border flex items-center justify-between mb-10"><input type="email" placeholder="Email Adddress" class="bg-transparent text-gray-600 px-4 border-gray-100 focus:ring-1 focus:ring-amber-400 w-full" /> <button class="cursor-pointer flex items-center py-2 px-7 rounded-full border-black text-white hover:ring-2 hover:ring-blue-500 justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
+          <img src={forgot} className='w-10 h-10'></img>
+        </button></div>
+
+        <h2 className=''>OTP</h2>
+
+        <div className="flex flex-row items-center justify-between mr-4 mt-6 w-full max-w-xs">
+<div className="w-14 h-14 ">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-400 focus:border-orange-400"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+<div className="w-14 h-14 ml-2">
+  <input
+    className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+    type="text"
+    name=""
+    id=""
+  />
+</div>
+</div>
+      <h2 className='mt-4'>Enter the OTP sent on your email</h2>
+
+            <div class="flex flex-col  mr-4">
+              <div className='md:ml-[0.5rem] mt-4'>
+                <button class="flex flex-row items-center justify-center text-center w-40 border rounded-xl outline-none py-3 cursor-pointer flex items-center py-1 px-4 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out  border-none text-white text-md hover:ring-2 hover:ring-blue-600 shadow-sm mt-4">
+                 Submit
                 </button>
               </div>
 
-              <div class="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
-                <p>Didn't recieve code?</p> <a class="flex flex-row items-center text-blue-500 hover:text-blue-700" href="http://" target="_blank" rel="noopener noreferrer">Resend</a>
-              </div>
             </div>
-          </div>
+          
         </form>
         {/* <div className='relative'>
         <label for="UserEmail" className="sr-only"> Email </label>
@@ -93,7 +151,7 @@ const ForgotPass = () => {
   </div>
 </section>
     </div>
-  )
-}
+  );
+};
 
-export default ForgotPass
+export default ForgotPass;
