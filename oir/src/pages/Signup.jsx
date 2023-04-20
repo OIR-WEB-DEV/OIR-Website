@@ -99,8 +99,8 @@ const Signup = (props) => {
       const UserId = result.data.data.id;
       setId(UserId)
       console.log(typeof(id));
-      UserDetails = props.registerUser(id)
-      console.log(UserDetails);
+      props.registerUser({id: result.data.data.id})
+      // console.log(UserDetails);
 
       if(result.data.success)
       {
