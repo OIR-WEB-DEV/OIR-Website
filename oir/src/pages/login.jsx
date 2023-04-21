@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../Redux/Actions/AuthActions";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
+import { bindActionCreators } from "redux";
 
 const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
@@ -14,8 +15,8 @@ const Login = (props) => {
     email: "",
     password: "",
   });
-  const UserDetails = props.loginUser(data);
-  console.log(UserDetails)
+  // const UserDetails = props.loginUser(data);
+  // console.log(UserDetails)
   const handleChange = (event) => {
     const details = { ...data, [event.target.name]: event.target.value };
     setData(details);
@@ -221,7 +222,7 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
-const mapDispatchToProps = (dispact) => ({
-  loginUser: (userDetails) => dispact(loginUser(userDetails)),
-});
+const mapDispatchToProps = (dispact) => {return {
+  loginUser: bindActionCreators(loginUser,dispact)  ,
+}};
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

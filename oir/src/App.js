@@ -1,52 +1,66 @@
 
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {  Routes, Route, Navigate } from "react-router-dom";
 import React, { Suspense } from 'react';
-const MainPage = React.lazy(() => import('./pages/Main/Main'))
-const HomePage = React.lazy(() => import('./pages/Home/Home'))
-const EventsPage = React.lazy(() => import('./pages/Events'))
-const StudentDashboard = React.lazy(() => import('./pages/Dashboard/Student/StudentDashboard'))
-const InternshipPage = React.lazy(() => import('./pages/Internship'))
-const LoginPage = React.lazy(() => import('./pages/login'))
-const ContactPage = React.lazy(() => import('./pages/Contact'))
-const ForgotPage = React.lazy(() => import('./pages/ForgotPass'))
-const SignUpPage = React.lazy(()=> import('./pages/Signup'))
-const Profile = React.lazy(()=> import('./pages/Profile'))
-const NewPassword = React.lazy(()=> import('./pages/NewPassword'))
-const Validation = React.lazy(()=> import('./pages/validation'))
-const OTP = React.lazy(()=> import('./pages/OtpPage'))
+import { BasicRoutesConfig, rolesConfig } from './Router/Route';
+import { connect } from 'react-redux';
+import { loginUser } from "./Redux/Actions/AuthActions";
+import MainPage from './pages/Main/Main'
 
-function App() {
+function App(props) {
+  const { isAuthenticated, userRole, token } = props.AuthLogin;
+  console.log("App", { isAuthenticated, userRole, token })
+  const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userRole")
+  const storeDetails = async () => {
+    await props.loginUser({
+        ...props.AuthLogin,
+        isAuthenticated: sessionStorage.getItem("loginToken"),
+        userRole: sessionStorage.getItem("userRole"),
+        token: sessionStorage.getItem("loginToken")
+      })
+  }
+  if (loginToken) {
+    storeDetails();
+  }
 
+  let routes;
+  if (isAuthenticated || sessionStorage.getItem("isAuthenticated")) {
+    if (userRole === "Student" || sessionStorage.getItem("userRole") === "Student") {
+      routes = rolesConfig["user"];
+    } else if (userRole === "Admin" || sessionStorage.getItem("userRole") === "Admin") {
+      routes = rolesConfig["Admin"];
+    }
+    else if(userRole === "Teacher" || sessionStorage.getItem("userRole") === "Teacher"){
+      routes = rolesConfig["Teacher"];
+    }
+  }
   return (
     <>
-      <div className="font-Montserrat overflow-x-hidden">
-        
-        <BrowserRouter>
-          <Suspense>
-            <Routes>
-              
-              <Route path='/' element={ <MainPage />}>
-                <Route path='' element={ <HomePage />}/> 
-                <Route path='events' element={ <EventsPage />}/> 
-                <Route path='login' element={ <LoginPage />}/> 
-                <Route path='internships' element={ <InternshipPage />}/> 
-                <Route path='dashboard' element={ <StudentDashboard />}/> 
-                <Route path='contact' element={ <ContactPage />}/> 
-                <Route path='forgot' element={ <ForgotPage />}/> 
-                <Route path='login' element={ <LoginPage/> }/> 
-                <Route path='signup' element={ <SignUpPage/> }/> 
-                <Route path='new' element={<NewPassword />} />
-                <Route path='profile' element={<Profile />} />
-                <Route path='validation' element={<Validation />} />
-                <Route path='otp' element={<OTP/>}/>
-              </Route> 
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </div>
+      <Suspense>
+        <Routes>
+        <Route element={<MainPage />}>
+          {BasicRoutesConfig.map((route, key) => {            
+            return route ? <Route  key={key} {...route} /> : null;
+          })}
+          </Route>
+          {isAuthenticated || loginToken ? (
+            <Route element={<MainPage />}>
+              {routes.routes.map((route, key) => {
+                return route ? <Route key={key} {...route} /> : null;
+              })}
+            </Route>
+          ) : (
+            <Route path="/*" element={<Navigate to="/" replace />} />
+          )}
+        </Routes>
+      </Suspense>
     </>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
+const mapDispatchToProps = (dispact) => ({
+  loginUser: (Details) => dispact(loginUser(Details)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+

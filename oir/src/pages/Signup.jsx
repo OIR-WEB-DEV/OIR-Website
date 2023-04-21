@@ -17,7 +17,7 @@ const Signup = (props) => {
   const [id,setId] = useState("");
 
   const navigate = useNavigate();
-  const UserDetails = props.registerUser(data);
+  // const UserDetails = props.registerUser(data);
   const [isLoading, setIsLoading] = useState(false);
 
   const [errors, setErrors] = useState({
@@ -250,3 +250,4 @@ const mapDispatchToProps = (dispact) => ({
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Signup)
+// export default Signup
