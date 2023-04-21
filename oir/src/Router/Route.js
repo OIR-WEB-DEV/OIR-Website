@@ -1,6 +1,5 @@
 import React from "react";
 
-const MainPage = React.lazy(() => import('../pages/Main/Main'))
 const HomePage = React.lazy(() => import('../pages/Home/Home'))
 const EventsPage = React.lazy(() => import('../pages/Events'))
 const StudentDashboard = React.lazy(() => import('../pages/Dashboard/Student/StudentDashboard'))
@@ -80,27 +79,43 @@ const components = {
 
 const rolesConfig = {
 	Admin: {
-		routes: [
-            
+		routes: [         
+			
+			components.Profile,
+			components.StudentDashboard,
+			
+			
 		],
 	},
 	Student: {
 		routes: [
-
+			components.Profile,
+			components.StudentDashboard,
         ],
 	},
     Alumini: {
 		routes: [
-
+			components.Profile,			
+			components.StudentDashboard,
         ],
 	},
     Teacher: {
 		routes: [
-
+			components.Profile,
+			components.StudentDashboard,
         ],
 	},
 };
 const BasicRoutesConfig = [
-    
+	components.HomePage,
+	components.ContactPage,
+	components.EventsPage,
+	components.ForgotPage,
+    components.NewPassword,
+	components.OTP,
+	components.LoginPage,
+	components.SignUpPage,
+	components.InternshipPage,
+	components.Validation,
 ];
 export { rolesConfig, BasicRoutesConfig };

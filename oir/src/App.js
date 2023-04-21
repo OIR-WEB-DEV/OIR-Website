@@ -1,16 +1,18 @@
 
-import {  Routes, Route } from "react-router-dom";
+import {  Routes, Route, Navigate } from "react-router-dom";
 import React, { Suspense } from 'react';
 import { BasicRoutesConfig, rolesConfig } from './Router/Route';
 import { connect } from 'react-redux';
-
+import { loginUser } from "./Redux/Actions/AuthActions";
+import MainPage from './pages/Main/Main'
 
 function App(props) {
   const { isAuthenticated, userRole, token } = props.AuthLogin;
   console.log("App", { isAuthenticated, userRole, token })
   const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userRole")
   const storeDetails = async () => {
-    await props.saveAuth({
+    await props.loginUser({
+        ...props.AuthLogin,
         isAuthenticated: sessionStorage.getItem("loginToken"),
         userRole: sessionStorage.getItem("userRole"),
         token: sessionStorage.getItem("loginToken")
@@ -35,11 +37,13 @@ function App(props) {
     <>
       <Suspense>
         <Routes>
-          {BasicRoutesConfig.map((route, key) => {
-            return route ? <Route key={key} {...route} /> : null;
+        <Route element={<MainPage />}>
+          {BasicRoutesConfig.map((route, key) => {            
+            return route ? <Route  key={key} {...route} /> : null;
           })}
+          </Route>
           {isAuthenticated || loginToken ? (
-            <Route element={loginToken ? <Layout /> : <Home />}>
+            <Route element={<MainPage />}>
               {routes.routes.map((route, key) => {
                 return route ? <Route key={key} {...route} /> : null;
               })}
@@ -55,7 +59,7 @@ function App(props) {
 
 const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
 const mapDispatchToProps = (dispact) => ({
-  saveAuth: (Details) => dispact(saveAuth(Details)),
+  loginUser: (Details) => dispact(loginUser(Details)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
