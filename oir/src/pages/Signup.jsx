@@ -92,15 +92,9 @@ const Signup = (props) => {
         "https://oir-server.vercel.app/api/v1/register",
         data
       )
-      console.log(typeof(result))
-      console.log(result);
-      console.log(typeof(result))
-      console.log(result.data.data.id)
       const UserId = result.data.data.id;
       setId(UserId)
-      console.log(typeof(id));
       props.registerUser({id: result.data.data.id})
-      // console.log(UserDetails);
 
       if(result.data.success)
       {
