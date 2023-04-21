@@ -8,11 +8,11 @@ const Main = () => {
   const [showModal, setShowModal] = useState(false);
 
   // function to show modal after 2.5 second
-  useEffect(() => {
-    setTimeout(() => {
-      setShowModal(true);
-    }, 2500);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setShowModal(true);
+  //   }, 2500);
+  // }, []);
 
   // function to close modal
   function closeModal() {
