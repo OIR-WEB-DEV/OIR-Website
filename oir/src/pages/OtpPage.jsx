@@ -35,7 +35,6 @@ const OtpPage = (props) => {
         `https://oir-server.vercel.app/api/v1/verifyUser/${id}`,
         { code: otp }
       )
-      console.log(result)
       if (result.data.success) {
         toast.success(result.data.message,{duration:5000});
         navigate('/login');
