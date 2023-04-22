@@ -13,7 +13,7 @@ const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
    const navigate = useNavigate();
   const [data, setData] = useState({
-    usertyepe :"",
+    // usertyepe :"",
     email: "",
     password: "",
   });
@@ -25,21 +25,15 @@ const Login = (props) => {
 
   const handleSubmit = async(e) => { 
     e.preventDefault();
-    console.log(data);
-    const result = await axios.post(
-      "https://oir-server.vercel.app/api/v1/login",
-      data
-    )
-    console.log(result)
     try {
       const result = await axios.post(
         "https://oir-server.vercel.app/api/v1/login",
         data
       )
-      console.log(result)
       if(result.data.success)
       {
-        props.loginUser(result);
+        props.loginUser(result.data.data);
+        console.log({ans:props.loginUser.data.data})
         toast.success(result.data.message);
         navigate('/dashboard');
       }
@@ -47,8 +41,8 @@ const Login = (props) => {
         console.log(result);
       }
     } catch (error) {
-     console.log(error)
-      toast.error(error.response.data.message,{duration:5000})
+      console.log(error.response.data.data.message)
+      toast.error(error.response.data.data.message)
     }
   }
 
