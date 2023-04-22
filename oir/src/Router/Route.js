@@ -12,7 +12,8 @@ const Profile = React.lazy(() => import('../pages/Profile'))
 const NewPassword = React.lazy(() => import('../pages/NewPassword'))
 const Validation = React.lazy(() => import('../pages/validation'))
 const OTP = React.lazy(() => import('../pages/OtpPage'))
-
+const AlumniDashboard = React.lazy(() => import('../pages/Dashboard/Alumni/AlumniDashboard'))
+const FacultyDashboard = React.lazy(() => import('../pages/Dashboard/Faculty/FacultyDashboard'))
 
 const components = {
     HomePage: {
@@ -75,15 +76,26 @@ const components = {
 		name: "OTP",
 		element: <OTP />,
 	},
+	AlumniDashboard: {
+		path: "/alumniDashboard",
+		name: "AlumniDashboard",
+		element: <AlumniDashboard />,
+	},
+	FacultyDashboard: {
+		path: "/facultyDashboard",
+		name: "FacultyDashboard",
+		element: <FacultyDashboard />,
+	},
 }
 
 const rolesConfig = {
 	Admin: {
 		routes: [         
 			
-			components.Profile,
+			components.Profile,	
 			components.StudentDashboard,
-			
+			components.AlumniDashboard	,
+			components.FacultyDashboard
 			
 		],
 	},
@@ -96,13 +108,13 @@ const rolesConfig = {
     Alumini: {
 		routes: [
 			components.Profile,			
-			components.StudentDashboard,
+			components.AlumniDashboard
         ],
 	},
     Teacher: {
 		routes: [
 			components.Profile,
-			components.StudentDashboard,
+			components.FacultyDashboard
         ],
 	},
 };

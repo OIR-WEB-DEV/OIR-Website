@@ -128,17 +128,7 @@ const Footer = () => {
                   </span>
                 </li>
               </NavLink>
-              <NavLink to={link.link}>
-                <li
-                  key={link.id}
-                  className=" cursor-pointer font-regular text-xs sm:text-sm leading-6 flex hover:underline hover:decoration-dotted"
-                >
-                  {link.text}
-                  <span className="flex text-lg content-center flex-wrap">
-                    <MdKeyboardArrowRight />
-                  </span>
-                </li>
-              </NavLink>
+              
             </>
           ))}
         </ul>
@@ -170,10 +160,8 @@ const Footer = () => {
           Join the community by taking the first step of Signing Up.
         </p>
         <div className="flex w-full lg:justify-end mt-3">
-          <Button text={"Login/SignUp"} />
           <a href="/login">
-            {" "}
-            <Button text={"Login/SignUp"} />{" "}
+            <Button text={"Login/SignUp"} />
           </a>
         </div>
       </div>
