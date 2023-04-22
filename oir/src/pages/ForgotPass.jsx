@@ -3,7 +3,7 @@ import Button from "../Components/Button/Button";
 import "./events.css";
 import lock from "../assets/lock.png";
 import forgot from "../assets/forgotpass.png";
-
+import {toast,Toaster} from 'react-hot-toast'
 import axios from "axios";
 
 const ForgotPass = () => {
@@ -16,9 +16,14 @@ const ForgotPass = () => {
   };
   const handleForgot = async (e) => {
     e.preventDefault();
-    const result = axios.post(
-      "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify"
-    );
+    try {
+      const result = axios.post(
+        "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify"
+      );
+      console.log(result)
+    } catch (error) {
+      
+    }
   };
   return (
     <div>
