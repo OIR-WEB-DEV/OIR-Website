@@ -14,11 +14,9 @@ const Signup = (props) => {
     email: "",
     password: "",
   });
-  const [id,setId] = useState("");
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -78,7 +76,6 @@ const Signup = (props) => {
     const newData = { ...data, [event.target.name]: event.target.value };
     setdata(newData);
   };
-  console.log(props.AuthRegister)
   const handleSubmit = async(e) => {
     e.preventDefault();
     if (isLoading) return;
@@ -92,11 +89,9 @@ const Signup = (props) => {
         "https://oir-server.vercel.app/api/v1/register",
         data
       )
-      const UserId = result.data.data.id;
-      setId(UserId)
-      props.registerUser({id: result.data.data.id});
       if(result.data.success)
       {
+        props.registerUser({id: result.data.data.id});
         toast.success(result.data.message,{duration:5000});
         setIsLoading(false);
         navigate('/otp');
@@ -106,7 +101,9 @@ const Signup = (props) => {
       }
       setIsLoading(false);
     } catch(error){
-      toast.error(error,{duration:5000})
+      console.log(error.response.data.error.error);
+      if(result.data)
+      toast.error(error.response.data.error.error,{duration:5000})
       setIsLoading(false);
     }
 

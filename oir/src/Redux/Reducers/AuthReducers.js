@@ -8,30 +8,27 @@ const InitalState={
     otpAuth: {},
 }
 export const AuthReducers=(state= InitalState,action)=>{
+    const data = action.payload;
     switch (action.type) {
         case LOGIN:
-            const p1load = action.payload;
             return { 
                 ...state,
-                loginAuth: {...state.loginAuth,p1load},
+                loginAuth: {...state.loginAuth,data},
               };
         case REGISTER:
-            const data = action.payload;
             return {
                 ...state,
                 registerAuth: {...state.registerAuth,data},
               };
         case FORGOTPASSWORD:
-            const p3load = action.payload;
             return {
                 ...state,
-                forgotpassword:{...state.forgotpassword,p3load},
+                forgotpassword:{...state.forgotpassword,data},
             }
         case OTP:
-            const p4load = action.payload;
             return {
                 ...state,
-                otpAuth:{...state.otpAuth,p4load},
+                otpAuth:{...state.otpAuth,data},
             }
         default:
             return state;

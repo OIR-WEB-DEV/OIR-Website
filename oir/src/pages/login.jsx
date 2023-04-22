@@ -7,11 +7,13 @@ import { loginUser } from "../Redux/Actions/AuthActions";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { bindActionCreators } from "redux";
+import { useNavigate } from "react-router";
 
 const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
-   //const navigate = useNavigate();
+   const navigate = useNavigate();
   const [data, setData] = useState({
+    usertyepe :"",
     email: "",
     password: "",
   });
@@ -37,7 +39,9 @@ const Login = (props) => {
       console.log(result)
       if(result.data.success)
       {
-        toast.success("Login Successfully");
+        props.loginUser(result);
+        toast.success(result.data.message);
+        navigate('/dashboard');
       }
       else{
         console.log(result);
@@ -74,7 +78,7 @@ const Login = (props) => {
             <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12"></div>
             <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
               <h2 className="underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-2">
-                Student LoginAuthLogin
+                Login to Your Account
               </h2>
               <form method="post">
                 <div className="flex flex-row items-center justify-center lg:justify-start">
@@ -187,15 +191,6 @@ const Login = (props) => {
 
                 <div className="text-center lg:text-left">
                   <Button text={"Login"} onClick={handleSubmit} className=""></Button>
-                  {/* <div className=" mt-5 cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
-                    <button
-                      type="submit"
-                      onClick={handleSubmit}
-                      className=" text-white font-bold"
-                    >
-                      Login
-                    </button>
-                  </div> */}
                   <p className="mt-2 mb-0 pt-1 text-sm font-semibold">
                     Don't have an account?
                     <a

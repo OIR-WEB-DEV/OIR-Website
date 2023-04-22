@@ -7,24 +7,46 @@ import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import OtpInput from 'react-otp-input';
 import { connect } from "react-redux";
+import { useNavigate } from "react-router";
 
 const OtpPage = (props) => {
   const [otp, setOTP] = useState("");
+  const navigate = useNavigate();
+  const id = props.AuthLogin.registerAuth.data.id;
   const handleOTPChange = (otpvalue) => {
     setOTP(otpvalue)
     console.log(otpvalue)
   };
+  const handleResendOTP = async (e) => {
+    e.preventDefault();
+    toast.success("OTP Send Successfully");
+    try {
+      const result = await axios.get(
+        `https://oir-server.vercel.app/api/v1/sendOTP/${id}`
+      )
+    } catch (error) {
+      toast.error(error.data.message)
+    }
+  }
   const handleOTPSubmit = async (e) => {
     e.preventDefault();
     try {
-      const id = props.AuthLogin.registerAuth.data.id;
       const result = await axios.post(
         `https://oir-server.vercel.app/api/v1/verifyUser/${id}`,
-        {code: otp}
+        { code: otp }
       )
       console.log(result)
+      if (result.data.success) {
+        toast.success(result.data.message,{duration:5000});
+        navigate('/login');
+      }
+      else if (!result.data.success) {
+        toast.error(result.data.message);
+      }
+      console.log(result)
     } catch (error) {
-      toast.error(error)
+      console.log(error.response.data.message)
+      toast.error(error.response.data.message)
     }
   }
   return (
@@ -49,30 +71,32 @@ const OtpPage = (props) => {
               </h1>
 
               <form action="" method="post">
-                <h2 className="">OTP</h2>
-
+                <h1 className="items-center">OTP</h1>
+                <h2 className="mt-4">Enter the OTP sent on your email</h2>
                 <div className="flex flex-row items-center justify-between mr-4 mt-6 w-full max-w-xs">
-                    <div className="w-24 h-14 ml-2  ">
-                      <OtpInput 
-                       value={otp}
-                       onChange={handleOTPChange}
-                       numInputs={6}
-                       isInputNum={true}
-                       shouldAutoFocus={true}
-                       renderSeparator={<span>-</span>}
-                       inputStyle={{
+                  <div className="w-24 h-14 mr-2  ">
+                    <OtpInput
+                      value={otp}
+                      onChange={handleOTPChange}
+                      numInputs={6}
+                      isInputNum={true}
+                      shouldAutoFocus={true}
+                      renderSeparator={<span>-</span>}
+                      inputStyle={{
                         color: "black",
                       }}
-                       renderInput={(props) => <input {...props} 
-                       className="w-full h-full flex flex-col text-orange-500 items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
-                       />}
-                      />
-                    </div>
+                      renderInput={(props) => <input {...props}
+                        className="w-full h-full flex flex-col text-orange-500 items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+                      />}
+                    />
+                  </div>
                 </div>
-                <h2 className="mt-4">Enter the OTP sent on your email</h2>
                 <div className="flex flex-col  mr-4">
                   <div className="md:ml-[0.5rem] mt-4">
-                    <button onClick={handleOTPSubmit} className="flex flex-row items-center justify-center text-center w-40 border rounded-xl outline-none py-3 cursor-pointer flex items-center py-1 px-4 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out  border-none text-white text-md hover:ring-2 hover:ring-blue-600 shadow-sm mt-4">
+                    <button onClick={handleResendOTP} className="text-oirOrange font-semibold text-md mt-4">
+                      Resend OTP
+                    </button>
+                    <button onClick={handleOTPSubmit} className="flex flex-row items-center justify-center text-center w-40 border rounded-xl outline-none py-3 cursor-pointer flex items-center py-1 px-4 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out  border-none text-white text-md   shadow-sm mt-4">
                       Submit
                     </button>
                   </div>
@@ -84,7 +108,6 @@ const OtpPage = (props) => {
         <Toaster
           position="top-center"
           reverseOrder={true}
-
         />
       </section>
     </div>
