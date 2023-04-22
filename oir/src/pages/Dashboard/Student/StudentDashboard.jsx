@@ -14,6 +14,8 @@ const StudentDashboard = () => {
         {id:3, title:"Student Co-ordinator", link:"student_coordinator" },
     ]
 
+    document.title = "OIR | Dashboard"
+
     return (
 
         <div className="flex flex-row mt-20">
@@ -21,12 +23,11 @@ const StudentDashboard = () => {
                 <Sidebar name={"Ketty Bruno"} email={"kettybruno@viit.ac.in"}>
                 {
                     menus.map((item)=>(
-                        <>
                             <SidebarItem key={item.id} title={item.title} link={item.link}/>
-                        </>
                     ))
                 }
-            </Sidebar></div>
+                </Sidebar>
+            </div>
             
 
             {/* aside */}
@@ -35,7 +36,7 @@ const StudentDashboard = () => {
                 {/* profile header */}
                 <div className="flex flex-row items-center">
                     {/* profile photo */}
-                    <StudentProfile name={"Ketty Bruno"} isUpdated={true} currentYear={"TY"} sessionsAttended={3} />
+                    <StudentProfile  name={"Ketty Bruno"} isUpdated={true} currentYear={"TY"} sessionsAttended={3} />
                 </div>
 
                 {/*  events section */}
@@ -64,13 +65,8 @@ const StudentDashboard = () => {
                     <AlumniCard />
                 </DashboardSection>
 
-
             </div>
-
-            {/* events */}
-
-
-
+        
         </div>
     );
 }

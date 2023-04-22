@@ -5,7 +5,7 @@ import Button from '../Components/Button/Button'
 import Heading from '../Components/Heading/Heading'
 
 const Internship = () => {
-    document.title="OIR | Internships"
+    document.title = "OIR | Internships"
     return (
 
         <div className="m-5 lg:m-24 pt-24 lg:pt-14">
