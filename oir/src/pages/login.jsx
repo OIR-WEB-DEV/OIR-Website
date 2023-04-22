@@ -15,8 +15,6 @@ const Login = (props) => {
     email: "",
     password: "",
   });
-  // const UserDetails = props.loginUser(data);
-  // console.log(UserDetails)
   const handleChange = (event) => {
     const details = { ...data, [event.target.name]: event.target.value };
     setData(details);

@@ -14,13 +14,13 @@ const OtpPage = (props) => {
     setOTP(otpvalue)
     console.log(otpvalue)
   };
-  console.log(props.AuthRegister)
   const handleOTPSubmit = async (e) => {
     e.preventDefault();
     try {
+      const id = props.AuthLogin.registerAuth.data.id;
       const result = await axios.post(
-        `https://oir-server.vercel.app/api/v1/verifyUser`,
-        otp
+        `https://oir-server.vercel.app/api/v1/verifyUser/${id}`,
+        {code: otp}
       )
       console.log(result)
     } catch (error) {
@@ -92,7 +92,7 @@ const OtpPage = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({ AuthRegister: state.AuthRegister });
+const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
 const mapDispatchToProps = (dispact) => ({
   registerUser: (userDetails) => dispact(registerUser(userDetails)),
 });

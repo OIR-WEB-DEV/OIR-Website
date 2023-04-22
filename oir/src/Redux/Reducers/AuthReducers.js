@@ -11,15 +11,15 @@ export const AuthReducers=(state= InitalState,action)=>{
     switch (action.type) {
         case LOGIN:
             const p1load = action.payload;
-            return {
+            return { 
                 ...state,
                 loginAuth: {...state.loginAuth,p1load},
               };
         case REGISTER:
-            const p2load = action.payload;
+            const data = action.payload;
             return {
                 ...state,
-                registerAuth: {...state.registerAuth,p2load},
+                registerAuth: {...state.registerAuth,data},
               };
         case FORGOTPASSWORD:
             const p3load = action.payload;
