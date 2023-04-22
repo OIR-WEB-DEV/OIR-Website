@@ -102,7 +102,7 @@ const Signup = (props) => {
       setIsLoading(false);
     } catch(error){
       console.log(error.response.data.error.error);
-      if(result.data)
+      // if(result.data)
       toast.error(error.response.data.error.error,{duration:5000})
       setIsLoading(false);
     }
