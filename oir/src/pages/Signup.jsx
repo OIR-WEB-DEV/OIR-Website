@@ -17,7 +17,6 @@ const Signup = (props) => {
   const [id,setId] = useState("");
 
   const navigate = useNavigate();
-  // const UserDetails = props.registerUser(data);
   const [isLoading, setIsLoading] = useState(false);
 
   const [errors, setErrors] = useState({
@@ -78,8 +77,9 @@ const Signup = (props) => {
     const newData = { ...data, [event.target.name]: event.target.value };
     setdata(newData);
   };
-
+  console.log(props.AuthRegister)
   const handleSubmit = async(e) => {
+    props.registerUser(data);
     e.preventDefault();
     if (isLoading) return;
     const formIsValid = validateForm();
@@ -94,8 +94,7 @@ const Signup = (props) => {
       )
       const UserId = result.data.data.id;
       setId(UserId)
-      props.registerUser({id: result.data.data.id})
-
+      props.registerUser({id: result.data.data.id});
       if(result.data.success)
       {
         toast.success(result.data.message,{duration:5000});

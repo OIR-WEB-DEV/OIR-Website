@@ -6,7 +6,7 @@ import { registerUser } from "../Redux/Actions/AuthActions";
 import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import OtpInput from 'react-otp-input';
-import { connect } from "react-redux";
+import { connect , useSelector} from "react-redux";
 
 const OtpPage = (props) => {
   const [otp, setOTP] = useState("");
@@ -14,13 +14,12 @@ const OtpPage = (props) => {
     setOTP(otpvalue)
     console.log(otpvalue)
   };
+  console.log(props.AuthRegister)
   const handleOTPSubmit = async (e) => {
-    e.preventDefault()
-    const id = props.AuthRegister;
-    console.log(id)
+    e.preventDefault();
     try {
       const result = await axios.post(
-        `https://oir-server.vercel.app/api/v1/verifyUser/${id}`,
+        `https://oir-server.vercel.app/api/v1/verifyUser`,
         otp
       )
       console.log(result)
