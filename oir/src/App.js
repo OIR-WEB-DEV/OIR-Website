@@ -8,7 +8,7 @@ import MainPage from './pages/Main/Main'
 
 function App(props) {
   const { isAuthenticated, userRole, token } = props.AuthLogin;
-  console.log("App", { isAuthenticated, userRole, token })
+  // console.log("App", { isAuthenticated, userRole, token })
   const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userRole")
   const storeDetails = async () => {
     await props.loginUser({

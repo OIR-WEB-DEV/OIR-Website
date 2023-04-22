@@ -80,7 +80,6 @@ const Signup = (props) => {
   };
   console.log(props.AuthRegister)
   const handleSubmit = async(e) => {
-    // props.registerUser(data);
     e.preventDefault();
     if (isLoading) return;
     const formIsValid = validateForm();
@@ -235,7 +234,7 @@ const Signup = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({AuthRegister:state.AuthRegister});
+const mapStateToProps = (state) => ({AuthLogin:state.AuthLogin});
 const mapDispatchToProps = (dispact) => ({
   registerUser : (userDetails) => dispact(registerUser(userDetails)),
 });
