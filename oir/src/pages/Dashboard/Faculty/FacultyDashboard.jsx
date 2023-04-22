@@ -4,7 +4,7 @@ import { FacultyProfile } from "../../../Components/DashboardComponents/Profile/
 import { SmallHeading } from "../../../Components/Heading/Heading";
 import { Sidebar, SidebarItem } from "../../../Components/Sidebar/Sidebar";
 import { Line } from 'react-chartjs-2'
-import 'chart.js/auto'
+// import 'chart.js/auto'
 import { EventStats, options } from "./EventStats";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 

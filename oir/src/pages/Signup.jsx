@@ -1,86 +1,253 @@
-import React from 'react'
-import Button from '../Components/Button/Button'
-import './events.css'
+import React, { useContext, useState } from "react";
+import { parsePath, useNavigate } from 'react-router-dom';
+// import Button from "../Components/Button/Button";
+import {toast,Toaster} from 'react-hot-toast';
+import { connect } from "react-redux";
+import { registerUser } from "../Redux/Actions/AuthActions";
+import "./events.css";
+import axios from "axios";
 
+const Signup = (props) => {
+  const [data, setdata] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [id,setId] = useState("");
 
-const Signup = () => {
+  const navigate = useNavigate();
+  // const UserDetails = props.registerUser(data);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const validateForm = () => {
+    let formIsValid = true;
+    const newErrors = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    };
+
+    if (!email) {
+      newErrors.email = "Email is required";
+      toast.error(newErrors.email);
+      formIsValid = false;
+      
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email is invalid";
+      toast.error(newErrors.email)
+      formIsValid = false;
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required";
+      toast.error(newErrors.password)
+      formIsValid = false;
+    } else if (password.length < 6) {
+      newErrors.password = "Password should be at least 6 characters long";
+      toast.error(newErrors.password)
+      formIsValid = false;
+    }
+
+    if (!firstName) {
+      newErrors.firstName = "First Name is required";
+      toast.error(newErrors.firstName)
+      formIsValid = false;
+    }
+
+    if (!lastName) {
+      newErrors.lastName = "Last Name is required";
+      toast.error(newErrors.lastName)
+      formIsValid = false;
+    }
+    setErrors(newErrors);
+    return formIsValid;
+  };
+
+  const { firstName, lastName, email, password } = data;
+
+  const handleChange = (event) => {
+    const newData = { ...data, [event.target.name]: event.target.value };
+    setdata(newData);
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    if (isLoading) return;
+    const formIsValid = validateForm();
+    if (!formIsValid) {
+      return;
+    }
+    setIsLoading(true);
+    try{
+      const result = await axios.post(
+        "https://oir-server.vercel.app/api/v1/register",
+        data
+      )
+      console.log(typeof(result))
+      console.log(result);
+      console.log(typeof(result))
+      console.log(result.data.data.id)
+      const UserId = result.data.data.id;
+      setId(UserId)
+      console.log(typeof(id));
+      props.registerUser({id: result.data.data.id})
+      // console.log(UserDetails);
+
+      if(result.data.success)
+      {
+        toast.success(result.data.message,{duration:5000});
+        setIsLoading(false);
+        navigate('/otp');
+      }
+      else{
+        toast.error("Failed to Register");
+      }
+      setIsLoading(false);
+    } catch(error){
+      toast.error(error,{duration:5000})
+      setIsLoading(false);
+    }
+
+  }
 
   return (
     <div>
-    <div className="rectangle">
-    </div>
-    <div className="circle" >
-    <div className='text'>
-    <h1 className='text-4xl mt-24'>New Here ?</h1>
-    <p className='mt-24 mr-8 text-2xl para text-white'>Sign up and discover  great new opportunities!</p>
-    <div className='flex'>
-    <input type='checkbox' className='mt-4 mr-4'/>
-    <p className='mt-10 pr-24 text-white'>Creating an account means you are okay with our <a className='text-oirOrange'>Terms and of Service</a> and our <a className='text-oirOrange'>Privacy Policy</a></p>
-    </div>
-   <button className='w-32 h-12 mt-8 rounded-full bg-gradient-to-r from-oirYellow to-oirOrange button ml-24'>Hello</button>
-    </div>
-    </div>
-  <section className="h-screen lg:mr-20 pr-8">
-  <div className="h-full lg:mr-10">
-    <div
-      className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-      <div
-        className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-        <img
-          src=""
-          className="w-full"
-          alt="Sample image" />
+      <div className="rectangle hidden lg:block"></div>
+      <div className="circle hidden lg:block">
+        <div className="text">
+          <h1 className="text-4xl mt-24">New Here ?</h1>
+          <p className="mt-24 mr-8 text-2xl para text-white">
+            Sign up and discover great new opportunities!
+          </p>
+          <div className="flex">
+            <p className="mt-10 pr-24 text-white">
+              <input type="checkbox" className="mr-4" />
+              Creating an account means you are okay with our{" "}
+              <a className="text-oirOrange">Terms and of Service</a> and our{" "}
+              <a className="text-oirOrange">Privacy Policy</a>
+            </p>
+          </div>
+          <button className="w-32 h-12 mt-8 rounded-full bg-gradient-to-r from-oirYellow to-oirOrange button ml-24">
+            Hello
+          </button>
+        </div>
       </div>
-      <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-        <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-7'>Sign Up</h2>
-        <form method='post'>
-          <div className="relative mb-6" data-te-input-wrapper-init>
-            <input
-              type="text"
-              className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="exampleFormControlInput2"
-              placeholder="Full Name" />
-            <label
-              htmlFor="exampleFormControlInput2"
-              className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-              >Full Name
-            </label>
-          </div>
+      <section className="h-screen lg:mr-20 pr-8">
+        <div className="h-full lg:mr-10">
+          <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+            <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12"></div>
+            <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+              <h2 className="underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-7">
+                Sign Up
+              </h2>
+              <form method="post" >
+                <div className="relative mb-3">
+                  <input
+                    type="text"
+                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Enter First Name"
+                    value={data.firstName}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label
+                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                  >
+                    First Name
+                  </label>
+                </div>
+                <div className="relative mb-3">
+                  <input
+                    type="text"
+                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Enter Last Name"
+                    value={data.lastName}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label
+                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                  >
+                    Last Name
+                  </label>
+                </div>
+                <div className="relative mb-3">
+                  <input
+                    type="email"
+                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    name="email"
+                    id="email"
+                    placeholder="Enter Email"
+                    value={data.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label
+                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                  >
+                    Email address
+                  </label>
+                </div>
+                <div className="relative mb-3">
+                  <input
+                    type="password"
+                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    value={data.password}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label
+                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                  >
+                    Password
+                  </label>
+                </div>
 
-          <div className="relative mb-6" data-te-input-wrapper-init>
-            <input
-              type="text"
-              className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="exampleFormControlInput2"
-              placeholder="Email address" />
-            <label
-              htmlFor="exampleFormControlInput2"
-              className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-              >Email address
-            </label>
+                <div className="block lg:hidden mb-4">
+                  <p className="pr-24 text-amber-800">
+                    <input type="checkbox" className="mr-4" />
+                    You agree with our{" "}
+                    <a className="text-oirOrange">Terms of Service</a> and our{" "}
+                    <a className="text-oirOrange">Privacy Policy</a>
+                  </p>
+                </div>
+                {/* <Button text={"Register"} onSubmit={handleSubmit}  className="mt-5"></Button> */}
+                <div className=" mt-5 cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
+                  <button type="submit" onClick={handleSubmit} className=" text-white font-bold">Register</button>
+                </div>
+              </form>
+            </div>
           </div>
-
-          
-          <div className="relative mb-6" data-te-input-wrapper-init>
-            <input
-              type="password"
-              className="peer block min-h-[auto] w-full rounded border-2 border-black-700 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="exampleFormControlInput22"
-              placeholder="Password" />
-            <label
-              htmlFor="exampleFormControlInput2"
-              className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-              >Password
-            </label>
-          </div>
-          <Button text={"Register"} className="mt-5"></Button>
-        </form>
-      </div>
+        </div>
+        <Toaster
+          position="top-center"
+          reverseOrder={true}
+        />
+      </section>
     </div>
-  </div>
-</section>
-</div>
   );
 };
 
-export default Signup;
+const mapStateToProps = (state) => ({AuthRegister:state.AuthRegister});
+const mapDispatchToProps = (dispact) => ({
+  registerUser : (userDetails) => dispact(registerUser(userDetails)),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Signup)
+// export default Signup

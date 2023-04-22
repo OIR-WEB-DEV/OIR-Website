@@ -1,20 +1,26 @@
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Dropdown() {
   return (
-    <Menu as="div" className="relative inline-block text-right 
+    <Menu
+      as="div"
+      className="relative inline-block text-right 
     
-    mt-10">
+    mt-10"
+    >
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-gradient-to-r from-oirYellow to-oirOrange px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
           Student
-          <ChevronDownIcon className="-mr-1 h-5 w-5 text-white" aria-hidden="true" />
+          <ChevronDownIcon
+            className="-mr-1 h-5 w-5 text-white"
+            aria-hidden="true"
+          />
         </Menu.Button>
       </div>
 
@@ -34,8 +40,10 @@ export default function Dropdown() {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gradient-to-r from-oirYellow to-oirOrange text-white' : 'text-white',
-                    'block px-4 py-2 text-sm'
+                    active
+                      ? "bg-gradient-to-r from-oirYellow to-oirOrange text-white"
+                      : "text-white",
+                    "block px-4 py-2 text-sm"
                   )}
                 >
                   Faculty
@@ -47,18 +55,19 @@ export default function Dropdown() {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gradient-to-r from-oirYellow to-oirOrange text-white' : 'text-white',
-                    'block px-4 py-2 text-sm'
+                    active
+                      ? "bg-gradient-to-r from-oirYellow to-oirOrange text-white"
+                      : "text-white",
+                    "block px-4 py-2 text-sm"
                   )}
                 >
                   Alumni
                 </a>
               )}
             </Menu.Item>
-            
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }

@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import Modal from "../../Components/Modal/Modal";
 import NavBar from "../../Components/NavBar/NavBar";
 
 const Main = () => {
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   // function to show modal after 2.5 second
-  useEffect(() => {
-    setTimeout(() => {
-      setShowModal(true)
-    }, 2500)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setShowModal(true);
+  //   }, 2500);
+  // }, []);
 
   // function to close modal
   function closeModal() {
-    setShowModal(false)
+    setShowModal(false);
   }
   const navbarData = [
     {
       key: 1,
       text: "Home",
       link: "",
-      hasSubmenu:false,
+      hasSubmenu:false
     },
     {
       key: 2,
@@ -58,11 +58,15 @@ const Main = () => {
   return (
     <>
       <NavBar navbarData={navbarData} />
-      <Outlet />
+      <Suspense>
+        <Outlet>
+          
+        </Outlet>
+      </Suspense>
       <Footer />
       {showModal && <Modal closeModal={closeModal} />}
     </>
   );
-}
+};
 
 export default Main;
