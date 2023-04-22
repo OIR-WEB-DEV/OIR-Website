@@ -10,8 +10,7 @@ const Internship = () => {
 
         <div className="m-5 lg:m-24 pt-24 lg:pt-14">
         <Heading text={"Internships & Projects"}/>
-        <div>
-        <div className="grid mt-32 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 m-5 mb-36  ">
+        <div className='mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-x-20 md:gap-y-8 gap-y-4'>
 
             {intern.map((item) => {
                 const { image, name, text ,id} = item;
@@ -28,7 +27,6 @@ const Internship = () => {
             })} 
        
             </div>
-        </div>
         </div>
         
     )
