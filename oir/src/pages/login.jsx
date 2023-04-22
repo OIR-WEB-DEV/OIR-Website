@@ -188,8 +188,8 @@ const Login = (props) => {
                 </div>
 
                 <div className="text-center lg:text-left">
-                  {/* <Button text={"Login"} className=""></Button> */}
-                  <div className=" mt-5 cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
+                  <Button text={"Login"} onClick={handleSubmit} className=""></Button>
+                  {/* <div className=" mt-5 cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
                     <button
                       type="submit"
                       onClick={handleSubmit}
@@ -197,7 +197,7 @@ const Login = (props) => {
                     >
                       Login
                     </button>
-                  </div>
+                  </div> */}
                   <p className="mt-2 mb-0 pt-1 text-sm font-semibold">
                     Don't have an account?
                     <a

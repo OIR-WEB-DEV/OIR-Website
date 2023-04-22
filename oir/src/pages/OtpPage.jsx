@@ -6,7 +6,7 @@ import { registerUser } from "../Redux/Actions/AuthActions";
 import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import OtpInput from 'react-otp-input';
-import { connect , useSelector} from "react-redux";
+import { connect } from "react-redux";
 
 const OtpPage = (props) => {
   const [otp, setOTP] = useState("");
@@ -70,7 +70,6 @@ const OtpPage = (props) => {
                     </div>
                 </div>
                 <h2 className="mt-4">Enter the OTP sent on your email</h2>
-
                 <div className="flex flex-col  mr-4">
                   <div className="md:ml-[0.5rem] mt-4">
                     <button onClick={handleOTPSubmit} className="flex flex-row items-center justify-center text-center w-40 border rounded-xl outline-none py-3 cursor-pointer flex items-center py-1 px-4 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out  border-none text-white text-md hover:ring-2 hover:ring-blue-600 shadow-sm mt-4">

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { parsePath, useNavigate } from 'react-router-dom';
-// import Button from "../Components/Button/Button";
+import Button from "../Components/Button/Button";
 import {toast,Toaster} from 'react-hot-toast';
 import { connect } from "react-redux";
 import { registerUser } from "../Redux/Actions/AuthActions";
@@ -35,6 +35,18 @@ const Signup = (props) => {
       password: "",
     };
 
+    if (!firstName) {
+      newErrors.firstName = "First Name is required";
+      toast.error(newErrors.firstName)
+      formIsValid = false;
+    }
+
+    if (!lastName) {
+      newErrors.lastName = "Last Name is required";
+      toast.error(newErrors.lastName)
+      formIsValid = false;
+    }
+
     if (!email) {
       newErrors.email = "Email is required";
       toast.error(newErrors.email);
@@ -56,17 +68,6 @@ const Signup = (props) => {
       formIsValid = false;
     }
 
-    if (!firstName) {
-      newErrors.firstName = "First Name is required";
-      toast.error(newErrors.firstName)
-      formIsValid = false;
-    }
-
-    if (!lastName) {
-      newErrors.lastName = "Last Name is required";
-      toast.error(newErrors.lastName)
-      formIsValid = false;
-    }
     setErrors(newErrors);
     return formIsValid;
   };
@@ -79,7 +80,7 @@ const Signup = (props) => {
   };
   console.log(props.AuthRegister)
   const handleSubmit = async(e) => {
-    props.registerUser(data);
+    // props.registerUser(data);
     e.preventDefault();
     if (isLoading) return;
     const formIsValid = validateForm();
@@ -220,10 +221,7 @@ const Signup = (props) => {
                     <a className="text-oirOrange">Privacy Policy</a>
                   </p>
                 </div>
-                {/* <Button text={"Register"} onSubmit={handleSubmit}  className="mt-5"></Button> */}
-                <div className=" mt-5 cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
-                  <button type="submit" onClick={handleSubmit} className=" text-white font-bold">Register</button>
-                </div>
+                <Button text={"Register"} onClick={handleSubmit}   className="mt-5"></Button>
               </form>
             </div>
           </div>
