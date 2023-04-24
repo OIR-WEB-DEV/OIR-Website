@@ -18,7 +18,6 @@ const ForgotPass = () => {
     e.preventDefault();
     const result = axios.post(
       "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify",
-
     )
   }
   return (
