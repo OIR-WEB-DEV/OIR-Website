@@ -1,44 +1,99 @@
 import React, { useState } from 'react'
 import Button from '../Components/Button/Button'
 import {toast,Toaster} from 'react-hot-toast';
+import axios from 'axios'
 import './events.css'
 
 const Contact = () => {
-  const [name,setName] = useState("");
-  const [phone,setphone] = useState("");
-  const [email,setEmail] = useState("");
-  const [message,setMessage] = useState("");
-  const handleSubmit = async(e) =>{
-    e.preventDefault();
+  const [data,setdata] = useState({
+    name:"",
+    contact:"",
+    email:"",
+    message:"",
+  });
+  const [error,setErrors] = useState({
+    name:"",
+    contact:"",
+    email:"",
+    message:"",
+  });
+
+
+  const handleChange = async(event) => {
+    const newData = {...data,[event.target.name]:event.target.value};
+    setdata(newData);
+  }
+  const validateForm = () => {
+    let formIsValid = true;
+    const newErrors = {
+      name:"",
+      contact:"",
+      email:"",
+      message:"",
+    }
     if(!name)
     {
-      toast.error("Full Name is required");
-      return;
+      newErrors.name = "Full Name is required";
+      toast.error(newErrors.name);
+      formIsValid = false;
     }
-    if(!phone)
+    if(!contact) 
     {
-      toast.error("Phone Number is required");
-      return;
+      newErrors.contact = "Phone Number is required";
+      toast.error(newErrors.contact);
+      formIsValid = false;
     }
-    else if(phone.length!==10)
+    else if(contact.length!==10)
     {
-      toast.error("Phone Number must be 10 digits");
-      return;
+      newErrors.contact = "Phone Number must be 10 digits";
+      toast.error(newErrors.phone);
+      formIsValid = false;
     }
     if(!email)
     {
-      toast.error("Email is required");
-      return;
+      newErrors.email = "Email is required"
+      toast.error(newErrors.email);
+      formIsValid = false;
     }
     else if(!/\S+@\S+\.\S+/.test(email))
     {
-      toast.error("Email is Invalid");
+      newErrors.email = "Email is Invalid";
+      toast.error(newErrors.email);
       return;
     }
     if(!message)
     {
-      toast.error("Message cannot be empty");
+      newErrors.message = "Message cannot be empty";
+      toast.error(newErrors.message);
+      formIsValid = false;
+    }
+    return formIsValid;
+  }
+  const {name,contact,email,message} = data;
+
+  const handleSubmit = async(e) =>{
+    e.preventDefault();
+    const formIsValid = validateForm();
+    if (!formIsValid) {
       return;
+    }
+    try {
+      const result = await axios.post(
+        "https://oir-server.vercel.app/api/v1/contactUs",
+        data
+      )
+      if(result.data.success)
+      {
+        toast.success(result.data.message,{duration:5000});
+      }
+      else if(!result.data.success)
+      {
+        toast.error("Failed to Send Message");
+      }
+    } catch (error) {
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message,{duration:5000})
+      
     }
   }
   return (
@@ -64,46 +119,51 @@ const Contact = () => {
               <h2 className='underline decoration-yellow-500 font-bold text-amber-900 text-2xl mb-7'>Contact Us</h2>
               <form method='post'>
                 <div className="relative mb-6" data-te-input-wrapper-init>
-                  <label for="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                  <input type="text" 
+                  <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                  <input 
+                  type="text" 
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                   placeholder="Full Name" 
-                  value={name}
+                  value={data.name}
                   id='name'
-                  onChange={(event) => setName(event.target.value)}
+                  name='name'
+                  onChange={handleChange}
                   required />
                 </div>
                 <div className="grid gap-6 mb-1 md:grid-cols-2">
                   <div className="relative mb-6" data-te-input-wrapper-init>
-                    <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                     <input 
                     type="email" 
+                    name='email'
                     id="email" 
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                     placeholder="Email address" 
-                    value={email}
-                    onChange={(event)=>setEmail(event.target.value)}
+                    value={data.email}
+                    onChange={handleChange}
                     required />
                   </div>
                   <div className="relative mb-6" data-te-input-wrapper-init>
-                    <label for="contact_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+                    <label htmlFor="contact_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
                     <input 
                     type="tel" 
-                    id="phone" 
+                    name='contact'
+                    id="contact" 
                     className="bg-gray-m50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                     placeholder="Contact Number" 
-                    value={phone}
-                    onChange={(event)=>setphone(event.target.value)}
+                    value={data.contact}
+                    onChange={handleChange}
                     required />
                   </div>
                 </div>
                 <div className="relative mb-6" data-te-input-wrapper-init>
-                  <label for="contact_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Message</label>
+                  <label htmlFor="contact_num" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Message</label>
                   <textarea
                     className="peer block min-h-[auto] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     id="message"
-                    value={message}
-                    onChange={(event)=>{setMessage(event.target.value)}}
+                    name='message'
+                    value={data.message}
+                    onChange={handleChange}
                     rows="3"
                     placeholder="Enter message"></textarea>
                 </div>
