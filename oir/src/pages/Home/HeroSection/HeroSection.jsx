@@ -1,17 +1,15 @@
-import map from '../../../assets/map.png'
 import HeroSlider from './HeroSlider';
 import { SliderImages } from './SliderImages';
 
 const HeroSection = () => {
     return (
-        <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-[72%] before:h-[3px] before:bg-oirBrown before:absolute before:right-0 before:top-8 after:content-[''] after:w-[72%] after:h-1 after:bg-oirBrown after:absolute after:left-0 after:bottom-8">
-            <div className="flex justify-center items-center relative">
-                <img src={map} className="flex justify-center w-screen overflow-x-hidden h-[80vh] object-cover" alt="map" />
-                <div className="absolute w-11/12 h-[80%]">
+        <div className="overflow-x-hidden relative flex flex-col justify-center before:content-[''] before:w-[72%] before:h-[3px] before:bg-white before:z-10 before:absolute before:right-0 before:top-2 md:before:top-6 after:content-[''] after:w-[72%] after:h-1 after:bg-white after:z-10 after:absolute after:left-0 after:bottom-2 md:after:bottom-6">
+            <div className="flex justify-center items-center ">
+                <div className="w-full relative">
                     {/* heading */}
-                    <h1 className='text-4xl md:text-5xl opacity-75 text-oirBrown text-center font-extrabold'>Office of International Relations - VIIT Pune</h1>
+                    <h1 className='text-lg sm:text-xl flex absolute bottom-3 px-3 rounded-md bg-black/30 left-3 md:bottom-10 md:left-10 z-10 md:text-5xl text-white text-center font-extrabold shadow-sm drop-shadow-2xl animate-pulse'>Office of International Relations - VIIT Pune</h1>
                     {/* slider */}
-                    <div className="h-[60%] object-cover md:h-[80%] lg:h-[90%] flex items-center">
+                    <div className=" object-cover flex items-center">
                         <HeroSlider SliderImages={SliderImages}/>                        
                     </div>
                 </div>

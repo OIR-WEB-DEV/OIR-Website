@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-// import Button from "../Components/Button/Button";
+import React, { useContext, useState } from "react";
+import { parsePath, useNavigate } from 'react-router-dom';
+import Button from "../Components/Button/Button";
 import {toast,Toaster} from 'react-hot-toast';
+import { connect } from "react-redux";
+import { registerUser } from "../Redux/Actions/AuthActions";
 import "./events.css";
 import axios from "axios";
 
-const Signup = () => {
+const Signup = (props) => {
   const [data, setdata] = useState({
     firstName: "",
     lastName: "",
@@ -14,9 +16,7 @@ const Signup = () => {
   });
 
   const navigate = useNavigate();
-
   const [isLoading, setIsLoading] = useState(false);
-
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -32,6 +32,18 @@ const Signup = () => {
       email: "",
       password: "",
     };
+
+    if (!firstName) {
+      newErrors.firstName = "First Name is required";
+      toast.error(newErrors.firstName)
+      formIsValid = false;
+    }
+
+    if (!lastName) {
+      newErrors.lastName = "Last Name is required";
+      toast.error(newErrors.lastName)
+      formIsValid = false;
+    }
 
     if (!email) {
       newErrors.email = "Email is required";
@@ -54,17 +66,6 @@ const Signup = () => {
       formIsValid = false;
     }
 
-    if (!firstName) {
-      newErrors.firstName = "First Name is required";
-      toast.error(newErrors.firstName)
-      formIsValid = false;
-    }
-
-    if (!lastName) {
-      newErrors.lastName = "Last Name is required";
-      toast.error(newErrors.lastName)
-      formIsValid = false;
-    }
     setErrors(newErrors);
     return formIsValid;
   };
@@ -75,7 +76,6 @@ const Signup = () => {
     const newData = { ...data, [event.target.name]: event.target.value };
     setdata(newData);
   };
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     if (isLoading) return;
@@ -89,19 +89,21 @@ const Signup = () => {
         "https://oir-server.vercel.app/api/v1/register",
         data
       )
-      console.log(result)
       if(result.data.success)
       {
+        props.registerUser({id: result.data.data.id});
         toast.success(result.data.message,{duration:5000});
         setIsLoading(false);
-        navigate('/')
+        navigate('/otp');
       }
       else{
         toast.error("Failed to Register");
       }
       setIsLoading(false);
     } catch(error){
-      toast.error(error.response.data.message,{duration:5000})
+      console.log(error.response.data.error.error);
+      // if(result.data)
+      toast.error(error.response.data.error.error,{duration:5000})
       setIsLoading(false);
     }
 
@@ -215,10 +217,7 @@ const Signup = () => {
                     <a className="text-oirOrange">Privacy Policy</a>
                   </p>
                 </div>
-                {/* <Button text={"Register"} onSubmit={handleSubmit}  className="mt-5"></Button> */}
-                <div className=" mt-5 cursor-pointer flex items-center py-3 px-8 rounded-full border-black text-white justify-center bg-gradient-to-r from-oirYellow to-oirOrange transition duration-100 ease-in-out">
-                  <button type="submit" onClick={handleSubmit} className=" text-white font-bold">Register</button>
-                </div>
+                <Button text={"Register"} onClick={handleSubmit}   className="mt-5"></Button>
               </form>
             </div>
           </div>
@@ -232,4 +231,10 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+const mapStateToProps = (state) => ({AuthLogin:state.AuthLogin});
+const mapDispatchToProps = (dispact) => ({
+  registerUser : (userDetails) => dispact(registerUser(userDetails)),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Signup)
+// export default Signup

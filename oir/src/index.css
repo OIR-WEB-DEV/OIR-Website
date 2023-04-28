@@ -15,6 +15,7 @@ extrabold 800
 @tailwind components;
 @tailwind utilities;
 
+
 @layer utilities {
   
   /* this is for smooth behaviour */
@@ -36,5 +37,4 @@ extrabold 800
     background-color: silver;    /* color of the scroll thumb */
     border-radius: 10px;       /* roundness of the scroll thumb */
   }
-
 }
