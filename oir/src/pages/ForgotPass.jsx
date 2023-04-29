@@ -13,12 +13,14 @@ const ForgotPass = () => {
       ...prevEmail,
       email: event.target.value,
     }));
+    
   };
   const handleForgot = async (e) => {
     e.preventDefault();
     try {
       const result = axios.post(
-        "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify"
+        "https://oir-server.vercel.app/api/v1/forgotPasswordUserVerify",
+        
       );
       console.log(result)
     } catch (error) {
@@ -49,7 +51,7 @@ const ForgotPass = () => {
                 Verify your email to reset Password
               </h1>
 
-              <form action="" method="post">
+              <form action="" method="post" onSubmit={handleForgot}>
                 <div className="bg-gray-100 rounded border flex items-center justify-between mb-10">
                   <input
                     type="email"
@@ -65,15 +67,17 @@ const ForgotPass = () => {
                     <img src={forgot} className="w-10 h-10"></img>
                   </button>
                 </div>
+                </form>
 
                 <h2 className="">OTP</h2>
-
+                <form action="" method="post">
                 <div className="flex flex-row items-center justify-between mr-4 mt-6 w-full max-w-xs">
                   <div className="w-14 h-14 ">
                     <input
                       className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-400 focus:border-orange-400"
                       type="text"
                       maxLength={1}
+                      name="1st"
                     />
                   </div>
                   <div className="w-14 h-14 ml-2">

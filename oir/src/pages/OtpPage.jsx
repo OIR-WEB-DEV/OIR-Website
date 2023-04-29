@@ -85,7 +85,7 @@ const OtpPage = (props) => {
                         color: "black",
                       }}
                       renderInput={(props) => <input {...props}
-                        className="w-full h-full flex flex-col text-orange-500 items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+                        className="w-full h-full flex flex-col text-gray-500 items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
                       />}
                     />
                   </div>
