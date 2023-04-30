@@ -11,6 +11,7 @@ const Contact = () => {
     email:"",
     message:"",
   });
+  
   const [error,setErrors] = useState({
     name:"",
     contact:"",
@@ -23,6 +24,7 @@ const Contact = () => {
     const newData = {...data,[event.target.name]:event.target.value};
     setdata(newData);
   }
+
   const validateForm = () => {
     let formIsValid = true;
     const newErrors = {
