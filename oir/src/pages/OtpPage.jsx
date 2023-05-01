@@ -72,7 +72,7 @@ const OtpPage = (props) => {
               <form action="" method="post">
                 <h1 className="items-center">OTP</h1>
                 <h2 className="mt-4">Enter the OTP sent on your email</h2>
-                <div className="flex flex-row items-center justify-between mr-4 mt-6 w-full max-w-xs">
+                <div className="flex flex-row items-center justify-between mr-4 mt-6  max-w-xs">
                   <div className="w-24 h-14 mr-2  ">
                     <OtpInput
                       value={otp}
@@ -82,10 +82,10 @@ const OtpPage = (props) => {
                       shouldAutoFocus={true}
                       renderSeparator={<span>-</span>}
                       inputStyle={{
-                        color: "black",
+                        width:"3rem",
                       }}
                       renderInput={(props) => <input {...props}
-                        className="w-full h-full flex flex-col text-gray-500 items-center justify-center text-center px-5 outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+                        className="flex flex-col text-lg  text-black items-center justify-center text-center  outline-none rounded-xl border-2 border-amber-900 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
                       />}
                     />
                   </div>

@@ -89,6 +89,7 @@ const Signup = (props) => {
         "https://oir-server.vercel.app/api/v1/register",
         data
       )
+      console.log(result)
       if(result.data.success)
       {
         props.registerUser({id: result.data.data.id});
@@ -96,14 +97,13 @@ const Signup = (props) => {
         setIsLoading(false);
         navigate('/otp');
       }
-      else{
+      else {
         toast.error("Failed to Register");
       }
       setIsLoading(false);
     } catch(error){
-      console.log(error.response.data.error.error);
-      // if(result.data)
-      toast.error(error.response.data.error.error,{duration:5000})
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message,{duration:5000})
       setIsLoading(false);
     }
 

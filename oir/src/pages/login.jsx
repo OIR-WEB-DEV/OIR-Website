@@ -13,6 +13,7 @@ const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
   const navigate = useNavigate();
   const [data, setData] = useState({
+    // userType: "STUDENT",
     email: "",
     password: "",
   });
@@ -29,24 +30,21 @@ const Login = (props) => {
         "https://oir-server.vercel.app/api/v1/login",
         data
       )
-      console.log(result)
-      if(result.data.success)
+      if(result.status === 200 && result.data.success===true)
       {
         props.loginUser(result.data.data);
-        console.log({ans:props.loginUser.data.data})
-        toast.success(result.data.message);
-        navigate('/');
+        console.log(result.data)
+        toast.success(result.data.message,{duration:5000});
+        navigate('/dashboard');
       }
-      if(result.status===200)
+      else if(result.status===200 && result.data.error && result.data.message === "User is not verified" )
       {
-        if(result.data.error && result.data.message==="User is not verified")
-        {
-          toast.error(result.data.message);
+    
+          toast.error(result.data.message,{duration:5000});
           navigate('/validation');
-        }
       }
     } catch (error) {
-      toast.error(error.response.data.data.message)
+      toast.error(error.response?.data?.message ?? "An error occurred",{duration:5000})
     }
   }
 
@@ -213,7 +211,8 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
-const mapDispatchToProps = (dispatch) => {return {
-  loginUser: bindActionCreators(loginUser,dispatch)  ,
+const mapDispatchToProps = (dispact) => {return {
+  loginUser: bindActionCreators(loginUser,dispact)  ,
 }};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
