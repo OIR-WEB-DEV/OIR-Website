@@ -60,11 +60,19 @@ const Main = (props) => {
     },
   ]
   console.log(props.AuthLogin.loginAuth.data)
+  let loginData  = props.AuthLogin.loginAuth.data
+  let isLogin
+  if (typeof loginData === "undefined") {
+    isLogin=false;
+  } else {
+    isLogin=true
+  }
+
   // YAAT SAGLA DATA store kela aahe ha use kr token and session storage 
   // Yaat kahi changes kru nko jast bagh kasa ani he comments delete kr nantr. 
   return (
     <>
-      <NavBar navbarData={navbarData} />
+      <NavBar navbarData={navbarData} isLogin={isLogin} />
       <Suspense>
         <Outlet>
           
