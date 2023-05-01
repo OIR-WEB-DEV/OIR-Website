@@ -11,9 +11,8 @@ import { useNavigate } from "react-router";
 
 const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [data, setData] = useState({
-    // usertyepe :"",
     email: "",
     password: "",
   });
@@ -30,18 +29,23 @@ const Login = (props) => {
         "https://oir-server.vercel.app/api/v1/login",
         data
       )
+      console.log(result)
       if(result.data.success)
       {
         props.loginUser(result.data.data);
         console.log({ans:props.loginUser.data.data})
-        toast.success(result.data.data.message);
-        navigate('/dashboard');
+        toast.success(result.data.message);
+        navigate('/');
       }
-      else{
-        console.log(result);
+      if(result.status===200)
+      {
+        if(result.data.error && result.data.message==="User is not verified")
+        {
+          toast.error(result.data.message);
+          navigate('/validation');
+        }
       }
     } catch (error) {
-      console.log(error.response.data.data.message)
       toast.error(error.response.data.data.message)
     }
   }
