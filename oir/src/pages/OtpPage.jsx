@@ -15,7 +15,6 @@ const OtpPage = (props) => {
   const id = props.AuthLogin.registerAuth.data.id;
   const handleOTPChange = (otpvalue) => {
     setOTP(otpvalue)
-    console.log(otpvalue)
   };
   const handleResendOTP = async (e) => {
     e.preventDefault();

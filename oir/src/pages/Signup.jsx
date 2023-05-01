@@ -90,15 +90,16 @@ const Signup = (props) => {
         data
       )
       console.log(result)
-      if(result.data.success)
+      if(result.status === 200 && result.data.success===true)
       {
-        props.registerUser({id: result.data.data.id});
+        props.registerUser(result.data.data);
+        console.log(result.data)
         toast.success(result.data.message,{duration:5000});
         setIsLoading(false);
         navigate('/otp');
       }
-      else {
-        toast.error("Failed to Register");
+      else if(result.status===200 && result.data.error) {
+        toast.error("Failed to Register",{duration:5000});
       }
       setIsLoading(false);
     } catch(error){
