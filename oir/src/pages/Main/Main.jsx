@@ -59,7 +59,7 @@ const Main = (props) => {
       ]
     },
   ]
-  // console.log(props.AuthLogin.loginAuth.data)
+  console.log(props.AuthLogin.loginAuth.data)
   // YAAT SAGLA DATA store kela aahe ha use kr token and session storage 
   // Yaat kahi changes kru nko jast bagh kasa ani he comments delete kr nantr. 
   return (

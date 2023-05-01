@@ -88,7 +88,7 @@ const Contact = () => {
       {
         toast.success(result.data.message,{duration:5000});
       }
-      else if(!result.data.success)
+      if(!result.data.success)
       {
         toast.error("Failed to Send Message");
       }
