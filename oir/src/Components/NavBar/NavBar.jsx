@@ -24,7 +24,7 @@ const logos = [
 
 ]
 
-const NavBar = ({ navbarData }) => {
+const NavBar = ({ navbarData,isLogin }) => {
 
 
   // for sidebar, mobile screen
@@ -66,15 +66,17 @@ const NavBar = ({ navbarData }) => {
                   navbarData.map((item) => (
                     <NavLink to={item.link} key={item.key}>
                       {({ isActive }) => (
-                        <li
-                          className={[
-                            "cursor-pointer text-sm font-semibold hover:text-oirOrange",
-                            isActive ? "text-oirOrange" : "text-oirBrown"
-                          ].join(" ")}
-                        >
-                          {item.text}
-                        </li>
-
+                        // if not login then hide the dashboard
+                        !isLogin && item.text==="Dashboard" ?null
+                        :<li
+                        className={[
+                          "cursor-pointer text-sm font-semibold hover:text-oirOrange",
+                          isActive ? "text-oirOrange" : "text-oirBrown"
+                        ].join(" ")}
+                      >
+                        {item.text}
+                      </li> 
+  
                       )}
                     </NavLink>
                   ))
