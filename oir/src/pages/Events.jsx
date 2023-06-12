@@ -3,11 +3,9 @@ import second from '../assets/speakers.png'
 import edfair from '../assets/edfair.png'
 import arrow from '../assets/arrow.png'
 import orange from '../assets/orangeNicee.png'
-import univ from '../assets/universities.png'
 import React from 'react'
 import image from '../assets/image.png'
 import { guest } from './data'
-import button from '../assets/button.png'
 import { MdOutlineRadioButtonChecked } from "react-icons/md";
 import Heading from '../Components/Heading/Heading'
 
@@ -26,6 +24,27 @@ const UniversityBullets = ({ text }) => {
     );
 }
 
+const EventsCard = ({image,title,info,date, name}) => {
+    return (
+
+        <div className="mt-36 mr-2">
+            <div className=" border-oirBrown hover:border-oirOrange ease-in duration-150 hover:shadow-2xl cursor-pointer hover:shadow-orange-300 border-2 relative p-10 lg:p-7 pt-0 h-[17.6rem] lg:h-64 flex justify-center items-end ">
+                <div className="absolute top-[-30%] lg:top-[-42%] w-[80%] overflow-hidden"><img className=' h-[55%] object-cover aspect-[3/2] w-[100%] max-w-[100%] mr-0 hover:scale-125 ease-in duration-100 cursor-pointer ' src={image} alt="" /></div>
+                <div className="mt-[40%] lg:mt-[30%] ">
+                    <h1 className='text-ellipsis text-sm font-bold line-clamp-2'>{title}</h1>
+                    <h2 className='text-ellipsis text-sm font-medium mt-1'>{name}</h2>
+                    <p className="font-normal text-[0.7rem] mt-1 line-clamp-3">{info}</p>
+                    <p className="font-bold text-[0.7rem] self-end mt-2">{date}</p>
+
+                </div>
+            </div>
+
+        </div>
+
+    );
+}
+
+
 
 const Events = () => {
 
@@ -38,10 +57,10 @@ const Events = () => {
     }
 
     return (
-        <div className="mt-20">
+        <div className="pt-20">
             <div className="m-5 lg:m-24 ">
                 <Heading text={"Events & Activities"} />
-                <h3 className='mt-5 lg:mt-20 font-bold text-3xl'>Global Education Fair</h3>
+                <h3 className='mt-5 lg:mt-16 font-bold text-3xl'>Global Education Fair</h3>
                 <div className="grid grid-flow-row lg:grid-cols-[2.1fr_0.13fr_4fr]">
                     <div className=' overflow-auto '>
                         <div className="overflow-auto flex flex-row lg:flex-col">
@@ -58,7 +77,7 @@ const Events = () => {
                         <img src={arrow}></img>
                         <img src={orange}></img>
                     </div>
-                    <div className='ml-14 flex flex-col justify-between'>
+                    <div className='m-5 lg:ml-14 flex flex-col justify-between'>
 
                         <div>
                             <p className='mb-2 text-3xl font-medium'>Participating Universities</p>
@@ -108,24 +127,17 @@ const Events = () => {
                     </div>
                 </div>
 
-                <div className="mt-5 lg:mt-20">                
-                <Heading text={"Guest Lectures and Visits"}/>
-                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 m-5 ">
-                    {guest.map((item) => {
-                        const { id, name, title, info, date, image } = item;
-                        return <div className="max-w-sm bg-white border border-black-500/100 rounded-lg shadow dark:bg-gray-800 dark:border-black-700 ml-8 mr-2" key={id}>
-                            <img className="rounded-t-lg object-cover h-48 w-96" src={image} />
-                            <div className="p-5">
-                                <h3 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white font-sans">{title}</h3>
-                                <h5 className="mb-1 text-base font-bold tracking-tight text-gray-900 dark:text-white font-mono">{name}</h5>
-                                <div>
-                                    <p className="mb-3 mt-3 font-normal text-gray-700 dark:text-gray-400 mr-8" style={{ fontSize: 15 }}>{info}</p>
-                                    <p style={{ fontSize: 11 }} className='text-right font-bold'>{date}</p>
-                                </div>
-                            </div>
-                        </div>
-                    })}
-                </div></div>  
+                <div className="mt-5 lg:mt-20">
+                    <Heading text={"Guest Lectures and Visits"} />
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 m-5 ">
+                        {guest.map((item) => {
+                            const { id, name, title, info, date, image } = item;
+                           
+                            return <EventsCard key={id} title={title} image={image} name={name} info={info} date={date}/>
+                        })}
+
+                    </div>
+                </div>
             </div>
         </div>
 
