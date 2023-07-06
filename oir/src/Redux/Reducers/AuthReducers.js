@@ -3,6 +3,8 @@ import { FORGOTPASSWORD, LOGIN, OTP, REGISTER , LOGOUT } from "../Actions/Global
 const InitalState={
     isloading : false,
     isAuthenticated : false,
+    userType : "",
+    token : "",
     forgotpassword : {}, 
     loginAuth: {},
     registerAuth: {},
@@ -12,8 +14,12 @@ export const AuthReducers=(state= InitalState,action)=>{
     const data = action.payload;
     switch (action.type) {
         case LOGIN:
+            console.log("data of login : ",data)
             return { 
                 ...state,
+                isAuthenticated : data.verified,
+                userType : data.userType,
+                token : data.token,
                 loginAuth: {...state.loginAuth,data},
                 isAuthenticated:true,
               };
