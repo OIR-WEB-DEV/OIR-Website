@@ -13,15 +13,13 @@ const InitalState={
 export const AuthReducers=(state= InitalState,action)=>{
     const data = action.payload;
     switch (action.type) {
-        case LOGIN:
-            console.log("data of login : ",data)
+        case LOGIN:            
             return { 
                 ...state,
                 isAuthenticated : data.verified,
                 userType : data.userType,
                 token : data.token,
                 loginAuth: {...state.loginAuth,data},
-                isAuthenticated:true,
               };
         case REGISTER:
             return {

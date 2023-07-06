@@ -9,21 +9,20 @@ import MainPage from './pages/Main/Main'
 function App(props) {
   const userDetails = props.AuthLogin;
   const { isAuthenticated, userType, token } = userDetails;
-  // console.log("App", { isAuthenticated, userType, token })
-  const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userType")
+  console.log("App", { isAuthenticated, userType, token })
+  const loginToken = sessionStorage.getItem("token") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userType")
   
-  
+
   const storeDetails = async () => {
-    await props.loginUser({
-        ...props.AuthLogin,
-        isAuthenticated: sessionStorage.getItem("loginToken"),
+     props.loginUser({
+        isAuthenticated: sessionStorage.getItem("isAuthenticated"),
         userType: sessionStorage.getItem("userType"),
-        token: sessionStorage.getItem("loginToken")
+        token: sessionStorage.getItem("token")
       })
   }
-  if (loginToken) {
-    storeDetails();
-  }
+  // if (loginToken !== null) {
+  //   storeDetails();
+  // }
 
   let routes;
   if (isAuthenticated || sessionStorage.getItem("isAuthenticated")) {
