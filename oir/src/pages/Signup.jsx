@@ -89,21 +89,22 @@ const Signup = (props) => {
         "https://oir-server.vercel.app/api/v1/register",
         data
       )
-      if(result.data.success)
+      console.log(result)
+      if(result.status === 200 && result.data.success===true)
       {
-        props.registerUser({id: result.data.data.id});
+        props.registerUser(result.data.data);
+        console.log(result.data)
         toast.success(result.data.message,{duration:5000});
         setIsLoading(false);
         navigate('/otp');
       }
-      else{
-        toast.error("Failed to Register");
+      else if(result.status===200 && result.data.error) {
+        toast.error("Failed to Register",{duration:5000});
       }
       setIsLoading(false);
     } catch(error){
-      console.log(error.response.data.error.error);
-      // if(result.data)
-      toast.error(error.response.data.error.error,{duration:5000})
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message,{duration:5000})
       setIsLoading(false);
     }
 

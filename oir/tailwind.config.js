@@ -7,7 +7,8 @@ module.exports = {
     extend: {
 
       fontFamily:{
-        Montserrat:['Montserrat','sans-serif']
+        Montserrat:['Montserrat','sans-serif'],
+        Fredericka:['Fredericka the Great', 'cursive']
       },
       colors:{
         oirBrown:'#52091B',

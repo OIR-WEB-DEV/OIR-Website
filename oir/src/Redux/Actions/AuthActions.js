@@ -7,6 +7,7 @@ export const loginUser=(userDetails)=>{
         payload: userDetails
     }
 }
+
 export const registerUser=(userDetails)=>{
     return {
         type:REGISTER,
@@ -27,3 +28,6 @@ export const otp = (otpDetails) => {
         payload:otpDetails
     }
 }
+
+
+

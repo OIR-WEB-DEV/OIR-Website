@@ -1,11 +1,12 @@
-import { FORGOTPASSWORD, LOGIN, OTP, REGISTER } from "../Actions/GlobalTypes";
+import { FORGOTPASSWORD, LOGIN, OTP, REGISTER , LOGOUT } from "../Actions/GlobalTypes";
 
 const InitalState={
     isloading : false,
+    isAuthenticated : false,
     forgotpassword : {}, 
     loginAuth: {},
     registerAuth: {},
-    otpAuth: {},
+    otpAuth: {}
 }
 export const AuthReducers=(state= InitalState,action)=>{
     const data = action.payload;
@@ -14,11 +15,13 @@ export const AuthReducers=(state= InitalState,action)=>{
             return { 
                 ...state,
                 loginAuth: {...state.loginAuth,data},
+                isAuthenticated:true,
               };
         case REGISTER:
             return {
                 ...state,
                 registerAuth: {...state.registerAuth,data},
+                isAuthenticated:true,
               };
         case FORGOTPASSWORD:
             return {
@@ -29,6 +32,11 @@ export const AuthReducers=(state= InitalState,action)=>{
             return {
                 ...state,
                 otpAuth:{...state.otpAuth,data},
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                isAuthenticated:false,
             }
         default:
             return state;

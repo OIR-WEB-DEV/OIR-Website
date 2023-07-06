@@ -7,14 +7,16 @@ import { loginUser } from "./Redux/Actions/AuthActions";
 import MainPage from './pages/Main/Main'
 
 function App(props) {
-  const { isAuthenticated, userRole, token } = props.AuthLogin;
-  // console.log("App", { isAuthenticated, userRole, token })
-  const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userRole")
+  const userDetails = props.AuthLogin;
+  console.log(userDetails)
+  const { isAuthenticated, userType, token } = userDetails;
+  console.log("App", { isAuthenticated, userType, token })
+  const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userType")
   const storeDetails = async () => {
     await props.loginUser({
         ...props.AuthLogin,
         isAuthenticated: sessionStorage.getItem("loginToken"),
-        userRole: sessionStorage.getItem("userRole"),
+        userType: sessionStorage.getItem("userType"),
         token: sessionStorage.getItem("loginToken")
       })
   }
@@ -24,12 +26,12 @@ function App(props) {
 
   let routes;
   if (isAuthenticated || sessionStorage.getItem("isAuthenticated")) {
-    if (userRole === "Student" || sessionStorage.getItem("userRole") === "Student") {
+    if (userType === "Student" || sessionStorage.getItem("userType") === "Student") {
       routes = rolesConfig["user"];
-    } else if (userRole === "Admin" || sessionStorage.getItem("userRole") === "Admin") {
+    } else if (userType === "Admin" || sessionStorage.getItem("userType") === "Admin") {
       routes = rolesConfig["Admin"];
     }
-    else if(userRole === "Teacher" || sessionStorage.getItem("userRole") === "Teacher"){
+    else if(userType === "Teacher" || sessionStorage.getItem("userType") === "Teacher"){
       routes = rolesConfig["Teacher"];
     }
   }
@@ -44,7 +46,7 @@ function App(props) {
           </Route>
           {isAuthenticated || loginToken ? (
             <Route element={<MainPage />}>
-              {routes.routes.map((route, key) => {
+              {routes && routes.routes && routes.routes.map((route, key) => {
                 return route ? <Route key={key} {...route} /> : null;
               })}
             </Route>

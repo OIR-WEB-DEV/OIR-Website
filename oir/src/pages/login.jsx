@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Components/Button/Button";
 import Dropdown from "../Components/Dropdown";
 import "./events.css";
@@ -11,9 +11,9 @@ import { useNavigate } from "react-router";
 
 const Login = (props) => {
   const [checked, setChecked] = React.useState(false);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [data, setData] = useState({
-    usertyepe :"",
+    // userType: "STUDENT",
     email: "",
     password: "",
   });
@@ -25,30 +25,26 @@ const Login = (props) => {
 
   const handleSubmit = async(e) => { 
     e.preventDefault();
-    console.log(data);
-    const result = await axios.post(
-      "https://oir-server.vercel.app/api/v1/login",
-      data
-    )
-    console.log(result)
     try {
       const result = await axios.post(
         "https://oir-server.vercel.app/api/v1/login",
         data
       )
-      console.log(result)
-      if(result.data.success)
+      if(result.status === 200 && result.data.success===true)
       {
-        props.loginUser(result);
-        toast.success(result.data.message);
+        props.loginUser(result.data.data);
+        console.log(result.data)
+        toast.success(result.data.message,{duration:5000});
         navigate('/dashboard');
       }
-      else{
-        console.log(result);
+      else if(result.status===200 && result.data.error && result.data.message === "User is not verified" )
+      {
+    
+          toast.error(result.data.message,{duration:5000});
+          navigate('/validation');
       }
     } catch (error) {
-     console.log(error)
-      toast.error(error.response.data.message,{duration:5000})
+      toast.error(error.response?.data?.message ?? "An error occurred",{duration:5000})
     }
   }
 
@@ -133,7 +129,7 @@ const Login = (props) => {
                 <div className="relative mb-3">
                   <input
                     type="email"
-                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none  [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
                     id="email"
                     placeholder="Enter Email"
                     name="email"
@@ -143,7 +139,7 @@ const Login = (props) => {
                   />
                   <label
                    htmlFor="floatingInput"
-                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none"
                   >
                     Email address
                   </label>
@@ -151,7 +147,7 @@ const Login = (props) => {
                 <div className="relative mb-3">
                   <input
                     type="password"
-                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    className="peer m-0 block h-[58px] w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding py-4 px-3 text-base font-normal leading-tight text-neutral-700 ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem] focus:text-neutral-700 focus:shadow-te-primary focus:outline-none [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
                     id="password"
                     name="password"
                     value={data.password}
@@ -161,7 +157,7 @@ const Login = (props) => {
                   />
                   <label
                     htmlFor="floatingPassword"
-                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none dark:text-neutral-200"
+                    className="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none "
                   >
                     Password
                   </label>
@@ -174,11 +170,11 @@ const Login = (props) => {
                         id="Remember-me"
                         type="checkbox"
                         value=""
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                       />
                       <label
                        htmlFor="Remember-me"
-                        className="text-sm ml-2 font-medium text-gray-700 dark:text-gray-300"
+                        className="text-sm ml-2 font-medium text-gray-700 "
                       >
                         Remember Me
                       </label>
@@ -218,4 +214,5 @@ const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
 const mapDispatchToProps = (dispact) => {return {
   loginUser: bindActionCreators(loginUser,dispact)  ,
 }};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
