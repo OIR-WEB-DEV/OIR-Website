@@ -1,6 +1,6 @@
 
 import {  Routes, Route, Navigate } from "react-router-dom";
-import React, { Suspense } from 'react';
+import React, { Suspense} from 'react';
 import { BasicRoutesConfig, rolesConfig } from './Router/Route';
 import { connect } from 'react-redux';
 import { loginUser } from "./Redux/Actions/AuthActions";
@@ -8,33 +8,35 @@ import MainPage from './pages/Main/Main'
 
 function App(props) {
   const userDetails = props.AuthLogin;
-  console.log(userDetails)
   const { isAuthenticated, userType, token } = userDetails;
   console.log("App", { isAuthenticated, userType, token })
-  const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userType")
+  const loginToken = sessionStorage.getItem("token") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userType")
+  
+
   const storeDetails = async () => {
-    await props.loginUser({
-        ...props.AuthLogin,
-        isAuthenticated: sessionStorage.getItem("loginToken"),
+     props.loginUser({
+        isAuthenticated: sessionStorage.getItem("isAuthenticated"),
         userType: sessionStorage.getItem("userType"),
-        token: sessionStorage.getItem("loginToken")
+        token: sessionStorage.getItem("token")
       })
   }
-  if (loginToken) {
-    storeDetails();
-  }
+  // if (loginToken !== null) {
+  //   storeDetails();
+  // }
 
   let routes;
   if (isAuthenticated || sessionStorage.getItem("isAuthenticated")) {
-    if (userType === "Student" || sessionStorage.getItem("userType") === "Student") {
-      routes = rolesConfig["user"];
-    } else if (userType === "Admin" || sessionStorage.getItem("userType") === "Admin") {
+    if (userType === "STUDENT" || sessionStorage.getItem("userType") === "STUDENT") {
+      routes = rolesConfig["Student"];
+    } else if (userType === "ADMIN" || sessionStorage.getItem("userType") === "ADMIN") {
       routes = rolesConfig["Admin"];
-    }
-    else if(userType === "Teacher" || sessionStorage.getItem("userType") === "Teacher"){
+    } else if(userType === "TEACHER" || sessionStorage.getItem("userType") === "TEACHER"){
       routes = rolesConfig["Teacher"];
+    } else if(userType === "ALUMNI" || sessionStorage.getItem("userType") === "ALUMNI"){
+      routes = rolesConfig["Alumini"];
     }
   }
+  
   return (
     <>
       <Suspense>

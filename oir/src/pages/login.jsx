@@ -34,6 +34,9 @@ const Login = (props) => {
       {
         props.loginUser(result.data.data);
         console.log(result.data)
+        sessionStorage.setItem("token", result.data.data.token)
+        sessionStorage.setItem("isAuthenticated", result.data.data.verified)
+        sessionStorage.setItem("userType", result.data.data.userType)
         toast.success(result.data.message,{duration:5000});
         navigate('/dashboard');
       }

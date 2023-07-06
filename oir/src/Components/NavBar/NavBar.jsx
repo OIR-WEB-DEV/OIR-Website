@@ -9,6 +9,8 @@ import { BsChevronDown } from "react-icons/bs";
 import { NavLink } from 'react-router-dom'
 
 import { Sidebar, SidebarItemPhone } from '../Sidebar/Sidebar';
+import { connect } from 'react-redux';
+import { loginUser } from '../../Redux/Actions/AuthActions';
 
 const logos = [
   {
@@ -24,7 +26,7 @@ const logos = [
 
 ]
 
-const NavBar = ({ navbarData }) => {
+const NavBar = ({ navbarData,AuthLogin }) => {
 
 
   // for sidebar, mobile screen
@@ -85,9 +87,14 @@ const NavBar = ({ navbarData }) => {
 
           </div>
         </div>
-        <div className=' hidden lg:flex'>
-          <a href='/login'><Button text={"Login/SignUp"} /></a>
-        </div>
+        {
+          AuthLogin.isAuthenticated ? (null):(
+            <div className=' hidden lg:flex'>
+            <a href='/login'><Button text={"Login/SignUp"} /></a>
+          </div>
+          )
+        }
+        
       </header >
 
       {!isOpen ?
@@ -129,4 +136,8 @@ const NavBar = ({ navbarData }) => {
   )
 }
 
-export default NavBar
+const mapStateToProps = (state) => ({ AuthLogin: state.AuthLogin });
+const mapDispatchToProps = (dispact) => ({
+  loginUser: (Details) => dispact(loginUser(Details)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
